@@ -1,0 +1,125 @@
+# Opinie klientów
+
+**Średnia ocen: 4.8/5** — 44 opinii z Google
+
+_(zescrapowano 24 opinii widocznych na stronie /reviews)_
+
+
+## ⭐ 5/5 — Marzena K
+
+> Pełen profesjonalizm i bardzo ludzkie podejście, co dla mnie było kluczowe bo to jednak poważna decyzja finansowa, pan artur nie tylko znalazł dla mnie dobrą ofertę kredytu ale też wyjaśnił wszystkie niuanse które wcześniej były dla mnie czarną magią, cały czas miałam poczucie że ktoś pilnuje mojego interesu i nie zostawia mnie samej.
+
+
+## ⭐ 5/5 — Zuzanna J
+
+> Na początku byłam totalnie zagubiona jeśli chodzi o kredyt hipoteczny, nie wiedziałam od czego zacząć i czego się spodziewać, pan artur przeprowadził mnie przez cały proces w taki sposób że praktycznie nie musiałam się niczym stresować, wszystko było jasno wyjaśnione i dopasowane do mojej sytuacji, bardzo doceniam cierpliwość i to że zawsze mogłam dopytać o szczegóły.
+
+
+## ⭐ 5/5 — Tomek M
+
+> Mogę z czystym sumieniem i ręką na sercu polecić Pana Artura. Ogromna wiedza oraz doradztwo w sprawach kredytu hipotecznego. Fachowa i rzeczowa pomoc od początku do końca, a nawet i już po uruchomieniu kredytu. Świetny kontakt na każdym etapie procesu kredytowego. Prawdziwy Ekspert, któremu można zdecydowanie zaufać. Polecam i z przyjemnością skorzystam z pomocy Pana Artura w przyszłości.
+
+
+## ⭐ 5/5 — Joachim K
+
+> Współpraca z panem Arturem to był strzał w dziesiątkę, od początku czułem że mam do czynienia z kimś kto naprawdę zna się na rzeczy i nie działa schematycznie, wszystko zostało mi spokojnie wytłumaczone krok po kroku, bez zbędnego pośpiechu i nerwów, a cały proces kredytowy który wydawał mi się na początku mega skomplikowany okazał się dużo prostszy niż myślałem, ogromny plus za kontakt i zaangażowanie.
+
+
+## ⭐ 5/5 — Remigiusz C
+
+> Współpraca z Panem Arturem to przyjemność. Przemiły człowiek, bardzo życzliwy i pomocny. Bardzo dobrze zna się na tym co robi i zawsze potrafi znaleźć rozwiązanie nawet w zawiłej sytuacji. Pan Artur zawsze ma czas dla klienta, jeśli nie może odebrać telefonu zawsze oddzwania lub pisze wiadomość. Jeśli jeszcze ktoś się zastanawia nad wyborem doradcy kredytowego to właśnie Pan Artur jest odpowiednią osobą do współpracy. Serdecznie polecam!!
+
+
+## ⭐ 5/5 — jacek k
+
+> Polecam usługi Pana Artura Miesała . Bardzo dobry Fachowiec przeprowadził nas przez cały proces związany z kredytowaniem ,potrafi przekazać wszystkie niezbędne informację związane z kredytem i fachowo ocenić daną sytuację ,Dzięki pracy którą włożył w pośredniczeniu w sprawie przeszliśmy cały proces bez stresu
+
+
+## ⭐ 5/5 — Rafał K
+
+> Szukałem kogoś kto pomoże mi ogarnąć kredyt i dobrze trafiłem, wszystko zostało załatwione szybko i konkretnie, bez zbędnego przeciągania, widać że pan Artur ma duże doświadczenie i wie jak prowadzić takie sprawy, dodatkowo bardzo dobry kontakt i podejście do klienta.
+
+
+## ⭐ 5/5 — Karol K
+
+> Bardzo dobra współpraca od początku do końca, wszystko przebiegło sprawnie i bez żadnych problemów, dostałem dokładnie takie wsparcie jakiego potrzebowałem, najbardziej podobało mi się to że wszystko było tłumaczone prostym językiem, bez bankowego bełkotu, dzięki temu czułem się pewnie przy podejmowaniu decyzji.
+
+
+## ⭐ 5/5 — Karina G
+
+> jestem mega zadowolona, bo trafiłam na osobę która faktycznie angażuje się w sprawę klienta a nie tylko robi swoje i znika, pan artur był dostępny praktycznie cały czas i odpowiadał na każde pytanie, nawet te najbardziej podstawowe, dzięki temu cały proces był dużo mniej stresujący niż się spodziewałam
+
+
+## ⭐ 5/5 — Nina S
+
+> Jeśli ktoś się boi całego procesu kredytowego to naprawdę polecam, bo tutaj wszystko jest prowadzone w bardzo spokojny i uporządkowany sposób, kontakt bez zarzutu, szybkie odpowiedzi i konkretne działania, nie ma przeciągania ani chaosu, a do tego widać duże doświadczenie i obycie z tematem
+
+
+## ⭐ 5/5 — h_Damian
+
+> Serdecznie polecam uslugi Pana Artura wszystkim starającym się o kredyt. 100% profesjonalizmu, wiedza i doświadczenie. Znakomity kontakt, odpowiedzi na wszelkie pytania, dobre rady. Szukalem pomocy w trudnym temacie kredytowym - konsolidacja dużej ilosci kredytów gotówkowych, do tego limity odnawialne, karta kredytowa. Panu Arturowi udało się mi pomoc i wyjść na finansowa prosta. Szczerze polecam i bardzo, bardzo dziękuje za pomoc!
+
+
+## ⭐ 5/5 — Julia S
+
+> Bardzo rzetelna i konkretna współpraca, od samego początku wiedziałam na czym stoję i jakie mam możliwości, nic nie było ukrywane ani koloryzowane, duży plus za szczerość i realne podejście do tematu, dzięki temu uniknęłam błędów które mogłyby mnie sporo kosztować.
+
+
+## ⭐ 5/5 — Marcin K
+
+> świetna współpraca, szczególnie jeśli ktoś nie ma doświadczenia z kredytami, ja byłem totalnie zielony w temacie a mimo to cały proces przeszedłem bez większego stresu, wszystko było tłumaczone krok po kroku i zawsze mogłem liczyć na pomoc
+
+
+## ⭐ 5/5 — Jędrzej T
+
+> Polecam każdemu kto chce mieć spokojną głowę przy kredycie, wszystko jest prowadzone kompleksowo i naprawdę czuć że ktoś nad tym czuwa, nie trzeba się martwić o formalności ani kontakt z bankiem, bo wszystko jest ogarnięte na bieżąco
+
+
+## ⭐ 5/5 — Joanna L
+
+> Polecam Pana Artur Miesala współpraca z nim to sama przyjemność . W czasie procedury kredytowej na każdym etapie mogliśmy liczyć na jego wsparcie i pomoc . Jeśli poszukują państwo rzetelnego eksperta finansowego to tylko Pan Artur Miesala
+
+
+## ⭐ 5/5 — Paweł J
+
+> Serdecznie polecam Pana Artura. Bardzo profesjonalne podejście do klienta. Super atmosfera. Wzorowa współpraca, cały proces szybki i pomyślny, lepiej nie mogłem trafić. Właściwa osoba na właściwym miejscu. Szczerze polecam!
+
+
+## ⭐ 5/5 — Anita K
+
+> Polecam Pana Artura! Bardzo nam pomógł w otrzymaniu kredytu. Działał szybko i rzetelnie. Tak naprawdę sam ogarnął całą dokumentacje. Dzięki pomocy Pana Artura możemy budować nasz wymar zazony dom. Bardzo dziękuję i polecam całego serca 🥰
+
+
+## ⭐ 5/5 — Klaudia S
+
+> Z całego serca polecam współpracę z Panem Arturem Miesałą! Sam proces ubiegania się o kredyt hipoteczny wydawał mi się czarną magią i ogromnym stresem, ale dzięki profesjonalnemu podejściu Pana Artura wszystko przebiegło niezwykle sprawnie. Wykazał się ogromną wiedzą, cierpliwością w tłumaczeniu zawiłości bankowych i pełnym zaangażowaniem na każdym etapie – od wyboru najkorzystniejszej oferty po ostateczne podpisanie umowy. Jestem bardzo zadowolony z rezultatów. Najlepszy ekspert finansowy, któremu można w 100% zaufać
+
+
+## ⭐ 5/5 — Alicja K
+
+> Z całą pewnością polecam usługi Pana Artura. Współpraca od początku do końca procesu uzyskania kredytu hipotecznego na dokończenie budowy domu na najwyższym poziomie. Sceptycznie podchodziłam do usług doradctwa kredytowego, ponieważ jestem osobą, która wszystko sprawdza sama, jednak już po pierwszej telefonicznej rozmowie wiedziałam, że mam do czynienia z osobą kompetentną, z dużym doświadczeniem, która doskonale rozumie moje oczekiwania. Dzięki skorzystaniu z usług doradztwa Pana Artura udało mi się uzyskać najkorzystniejszą ofertę i zaoszczędzić sporo czasu.
+
+
+## ⭐ 5/5 — Pe E
+
+> Serdecznie polecam współpracę z Panem Arturem. Kompleksowa pomoc na każdym etapie. Pan Artur mi udowodnił, że nie ma głupich pytań i całkowicie zniwelował mój strach przed kredytem hipotecznym.
+
+
+## ⭐ 5/5 — Patryk T
+
+> Serdecznie polecam Pana Artura! Zostałem obsłużony bardzo profesjonalnie, a w bonusie wyszedłem mądrzejszy o dodatkową wiedzę. Pozdrawiam i dziękuję za sympatyczną obsługę, Patryk Towalski.
+
+
+## ⭐ 5/5 — P. R
+
+> Bardzo polecam Pana Artura jako doradcę kredytowego, zawsze dyspozycyjny i rzetelny. Cierpliwie odpowiadał na wszystkie pytania i towarzyszył na każdym etapie kredytu oraz po jego podpisaniu.
+
+
+## ⭐ 5/5 — Daniel L
+
+> Z czystym sumieniem mogę polecić Pana Artura. Dwukrotnie korzystałem z jego pomocy i obie sprawy zostały załatwione na najwyższym poziomie. Pełen profesjonalizm i zaangażowanie.
+
+
+## ⭐ 5/5 — Adam S
+
+> Jak zostanę dziadkiem to będę opowiadał wnukom o współpracy z Panem Arturem. Takich rzetelnych ludzi w tych czasach spotkać to jak odkryć zaginiony skarb. Polecam serdecznie

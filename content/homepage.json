@@ -1,0 +1,221 @@
+{
+  "hero": {
+    "headline": "Ekspert Finansowy Artur Miesała - Kredyt Hipoteczny",
+    "subheadline": "Profesjonalna firma specjalizująca się w pośrednictwie kredytów hipotecznych oraz doradztwie finansowym.",
+    "bodyText": "Ekspert Finansowy Artur Miesała - Kredyt Hipoteczny to profesjonalna firma specjalizująca się w pośrednictwie kredytów hipotecznych oraz doradztwie finansowym. Moja misja to pomoc klientom w realizacji marzeń o własnym domu poprzez znalezienie najlepszego finansowania na rynku. Doświadczenie eksperta oferuje indywidualne podejście oraz kompleksową obsługę na każdym etapie procesu kredytowego. Dzięki mojej wiedzy i zaangażowaniu gwarantuje bezpieczeństwo oraz satysfakcję z dokonanych wyborów. Skontaktuj się zemną aby skorzystać z fachowej pomocy i osiągnąć swoje finansowe cele.",
+    "cta": {
+      "label": "Zadzwoń!",
+      "phone": "+48 579 632 837",
+      "href": "tel:+48579632837"
+    },
+    "rating": {
+      "value": 4.8,
+      "reviewsCount": 44,
+      "source": "Google"
+    },
+    "image": "https://lh3.googleusercontent.com/fhCWoKlRO-mD_-sVwIsLey4NXxo5UIUUKEqShWf8fiM6sTRPkPXP4XhAi2jOYedTsMHi-2la_FtkrT0sIA=s0"
+  },
+  "navigation": [
+    {
+      "label": "Strona główna",
+      "href": "#"
+    },
+    {
+      "label": "Recenzje",
+      "href": "#reviews"
+    },
+    {
+      "label": "Blog",
+      "href": "#blog"
+    },
+    {
+      "label": "Galeria",
+      "href": "#gallery"
+    },
+    {
+      "label": "Kontakt",
+      "href": "#contact"
+    }
+  ],
+  "sections": {
+    "reviewsTeaser": {
+      "title": "Opinie klientów",
+      "featured": [
+        {
+          "rating": 5,
+          "author": "Marzena K",
+          "text": "Pełen profesjonalizm i bardzo ludzkie podejście, co dla mnie było kluczowe bo to jednak poważna decyzja finansowa, pan artur nie tylko znalazł dla mnie dobrą ofertę kredytu ale też wyjaśnił wszystkie niuanse które wcześniej były dla mnie czarną magią, cały czas miałam poczucie że ktoś pilnuje mojego interesu i nie zostawia mnie samej."
+        },
+        {
+          "rating": 5,
+          "author": "Zuzanna J",
+          "text": "Na początku byłam totalnie zagubiona jeśli chodzi o kredyt hipoteczny, nie wiedziałam od czego zacząć i czego się spodziewać, pan artur przeprowadził mnie przez cały proces w taki sposób że praktycznie nie musiałam się niczym stresować, wszystko było jasno wyjaśnione i dopasowane do mojej sytuacji, bardzo doceniam cierpliwość i to że zawsze mogłam dopytać o szczegóły."
+        },
+        {
+          "rating": 5,
+          "author": "Tomek M",
+          "text": "Mogę z czystym sumieniem i ręką na sercu polecić Pana Artura. Ogromna wiedza oraz doradztwo w sprawach kredytu hipotecznego. Fachowa i rzeczowa pomoc od początku do końca, a nawet i już po uruchomieniu kredytu. Świetny kontakt na każdym etapie procesu kredytowego. Prawdziwy Ekspert, któremu można zdecydowanie zaufać. Polecam i z przyjemnością skorzystam z pomocy Pana Artura w przyszłości."
+        }
+      ],
+      "showAllLabel": "Pokaż więcej",
+      "showAllHref": "/reviews"
+    },
+    "blogTeaser": {
+      "title": "Blog",
+      "featured": [
+        {
+          "slug": "2113837167518530648-kredyt-na-start-2024-warunki-programu",
+          "title": "Kredyt na Start [2024] warunki programu rządowego 0 procent – od kiedy?",
+          "datePublished": "2024-07-30T11:54:38.626204Z",
+          "dateDisplay": "30 lipca 2024 11:54",
+          "url": "https://ekspert-finansowy-artur.localo.site/blog/2113837167518530648-kredyt-na-start-2024-warunki-programu",
+          "image": "https://lh3.googleusercontent.com/p/AF1QipMF7oec7hdYfda7AtoOsN46R5fCSkG5KR3ftAqa",
+          "excerpt": "Najważniejsze informacje:\n\nDopłaty do rat kredytu: Program przewiduje dopłaty państwa do rat kredytu mieszkaniowego przez 10 lat, zależne od wielkości gospodarstwa domowego i naliczane do określonej wysokości kapitału\n\nKwalifikacja: Program jest przeznaczony dla singli poniżej 35…",
+          "file": "blog/2113837167518530648-kredyt-na-start-2024-warunki-programu.md"
+        },
+        {
+          "slug": "2536683842851950752-jak-rozliczyc-podatek-od-wynajmu-mieszkania",
+          "title": "Jak rozliczyć podatek od wynajmu mieszkania w 2024 roku?",
+          "datePublished": "2024-08-12T11:43:31.478379Z",
+          "dateDisplay": "12 sierpnia 2024 11:43",
+          "url": "https://ekspert-finansowy-artur.localo.site/blog/2536683842851950752-jak-rozliczyc-podatek-od-wynajmu-mieszkania",
+          "image": null,
+          "excerpt": "Podatek od wynajmu mieszkania w 2024 roku wynosi 8,5% od przychodów do 100 000 zł oraz 12,5% od przychodów przekraczających tę kwotę. Dodatkowo serwis podatki.gov.pl informuje, że ryczałt od przychodów ewidencjonowanych to obecnie jedyna opcja opodatkowania dochodów z prywatnego …",
+          "file": "blog/2536683842851950752-jak-rozliczyc-podatek-od-wynajmu-mieszkania.md"
+        },
+        {
+          "slug": "2840113859351362207-kredyt-2-kto-moze-dostac-bezpieczny",
+          "title": "Kredyt 2%",
+          "datePublished": "2023-03-20T11:29:32.573328Z",
+          "dateDisplay": "20 marca 2023 11:29",
+          "url": "https://ekspert-finansowy-artur.localo.site/blog/2840113859351362207-kredyt-2-kto-moze-dostac-bezpieczny",
+          "image": "https://lh3.googleusercontent.com/p/AF1QipMH86LYnVo7Sh0G8S7i8CaEqOvffrsnQVuEc2dn",
+          "excerpt": "Kto może dostać Bezpieczny Kredyt 2%?\n\nKredyt będzie mogła uzyskać osoba do 45. roku życia, która nie ma i nie miała mieszkania, domu ani spółdzielczego prawa do lokalu lub domu. W przypadku małżeństwa lub rodziców co najmniej jednego wspólnego dziecka, warunek wieku spełnić będz…",
+          "file": "blog/2840113859351362207-kredyt-2-kto-moze-dostac-bezpieczny.md"
+        }
+      ],
+      "showAllLabel": "Pokaż więcej",
+      "showAllHref": "/blog"
+    },
+    "contact": {
+      "title": "Dane kontaktowe",
+      "phone": "+48 579 632 837",
+      "addressLines": [
+        "Leśna 45b",
+        "Osielsko",
+        "86-031"
+      ],
+      "hours": [
+        [
+          "Poniedziałek",
+          "09:00 - 19:00"
+        ],
+        [
+          "Wtorek",
+          "09:00 - 19:00"
+        ],
+        [
+          "Środa",
+          "09:00 - 19:00"
+        ],
+        [
+          "Czwartek",
+          "09:00 - 19:00"
+        ],
+        [
+          "Piątek",
+          "09:00 - 19:00"
+        ],
+        [
+          "Sobota",
+          "Zamknięte"
+        ],
+        [
+          "Niedziela",
+          "Zamknięte"
+        ]
+      ],
+      "mapEmbed": "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJi6KP4zQXA0cR7n2f1OzPeIU"
+    },
+    "galleryTeaser": {
+      "title": "Galeria",
+      "images": [
+        {
+          "url": "https://lh3.googleusercontent.com/fhCWoKlRO-mD_-sVwIsLey4NXxo5UIUUKEqShWf8fiM6sTRPkPXP4XhAi2jOYedTsMHi-2la_FtkrT0sIA=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/fhCWoKlRO-mD_-sVwIsLey4NXxo5UIUUKEqShWf8fiM6sTRPkPXP4XhAi2jOYedTsMHi-2la_FtkrT0sIA=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/AY_KQujlbN8eT6IgnfcGj2zJWxRk6_B2JCcl3x19TrmNLIJwcNFA_kGU1qauIbG7jz7XFPDN1cVE5aiz8g=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/AY_KQujlbN8eT6IgnfcGj2zJWxRk6_B2JCcl3x19TrmNLIJwcNFA_kGU1qauIbG7jz7XFPDN1cVE5aiz8g=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/sEaie1UUFxpV4gLhJd0GPjM7ALfK9jx2jZU2cbeufDyX3mw6pIit2xYCWE1c-LQJvy7YiqjDAoeFeFj4lw=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/sEaie1UUFxpV4gLhJd0GPjM7ALfK9jx2jZU2cbeufDyX3mw6pIit2xYCWE1c-LQJvy7YiqjDAoeFeFj4lw=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/4p7jQhhB1aIRhyBQ6pZOkFYApO3X2AdFIvlEzVpA7QGuV0RPQEkNoy2lqGm4qWdfJvwGs9qmL_iuJxyyaA=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/4p7jQhhB1aIRhyBQ6pZOkFYApO3X2AdFIvlEzVpA7QGuV0RPQEkNoy2lqGm4qWdfJvwGs9qmL_iuJxyyaA=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/RPJ1Ac9a7wS1BBtJnT6ueEr3C7Z3Uio36TgJhAKYa2yIgJ9FPCV--sK0KgNW8HFxZYsW90mnLKtNYK-B0Q=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/RPJ1Ac9a7wS1BBtJnT6ueEr3C7Z3Uio36TgJhAKYa2yIgJ9FPCV--sK0KgNW8HFxZYsW90mnLKtNYK-B0Q=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/-G6ErRUBS7bceMtUwvjlvm8Jzh2ZEHIz8rlHmFMWvcVVF5qGzSByIGP3o9I83jzmadZ0lhDG8pPxJQBZ=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/-G6ErRUBS7bceMtUwvjlvm8Jzh2ZEHIz8rlHmFMWvcVVF5qGzSByIGP3o9I83jzmadZ0lhDG8pPxJQBZ=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/l3B3KuhkFzV_7di9EPG8kI_eG5J-yisqYCvCtvTG-kaUhTgYowAKW0SKT0vbMh7kRjkjnFwY0CMCyCY7=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/l3B3KuhkFzV_7di9EPG8kI_eG5J-yisqYCvCtvTG-kaUhTgYowAKW0SKT0vbMh7kRjkjnFwY0CMCyCY7=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/lhgnAhsEgDjgxlwrSPKS_ZiEsQZ8kOWreIAe7GJIYo_-NrTu8arH0tQqiOL-_H6gMH7STDUDXn75y-RA=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/lhgnAhsEgDjgxlwrSPKS_ZiEsQZ8kOWreIAe7GJIYo_-NrTu8arH0tQqiOL-_H6gMH7STDUDXn75y-RA=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/2sKEWKhvEwp-pSUjBNrAg43_n4dRjZ--eu9qSy5rczJ3G0gAJimzL8UBl-EluuxhW8QDDCIX9LOUccyK=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/2sKEWKhvEwp-pSUjBNrAg43_n4dRjZ--eu9qSy5rczJ3G0gAJimzL8UBl-EluuxhW8QDDCIX9LOUccyK=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/KWWKCm3tN5yNQNubvpSP_cnBRgY_K-8Rof_10S_OO0LWXcspAZgmIafnVoHp9jjoN1FNu_1vIZCPz5HS=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/KWWKCm3tN5yNQNubvpSP_cnBRgY_K-8Rof_10S_OO0LWXcspAZgmIafnVoHp9jjoN1FNu_1vIZCPz5HS=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/rSpaFYHVTxNl024C3SuixWzqEreKDiTrRSVsBXwWxXVg_LNoMg-S_Nk26eSWTfmFJgIqH5WU5cul2E2F=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/rSpaFYHVTxNl024C3SuixWzqEreKDiTrRSVsBXwWxXVg_LNoMg-S_Nk26eSWTfmFJgIqH5WU5cul2E2F=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/PNhwk8G1lwLmphqkGROBW34jk1CGwMf6zswXQK0aAZCvMdl2027e6Uts76QnndTlqOxwFet-xdQHx4lY=s0",
+          "thumbnail": "https://lh3.googleusercontent.com/PNhwk8G1lwLmphqkGROBW34jk1CGwMf6zswXQK0aAZCvMdl2027e6Uts76QnndTlqOxwFet-xdQHx4lY=s600",
+          "description": "Zdjęcie z galerii Google Business"
+        }
+      ],
+      "showAllLabel": "Pokaż więcej",
+      "showAllHref": "/photos"
+    }
+  },
+  "footer": {
+    "copy": "© Ekspert Finansowy Artur Miesała",
+    "legalLinks": [
+      {
+        "label": "Polityka prywatności",
+        "href": "https://localo.com/pl/privacy-policy"
+      },
+      {
+        "label": "Regulamin",
+        "href": "https://localo.com/pl/regulations"
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "name": "Ekspert Finansowy Artur Miesała - Kredyt Hipoteczny",
+  "shortName": "Ekspert Finansowy Artur Miesała",
+  "owner": "Artur Miesała",
+  "tagline": "Kredyt Hipoteczny",
+  "category": "Pośrednictwo kredytów hipotecznych / doradztwo finansowe",
+  "language": "pl",
+  "country": "PL",
+  "source": "https://ekspert-finansowy-artur.localo.site/",
+
+  "metaTitle": "Ekspert Finansowy Artur Miesała - Kredyt Hipoteczny",
+  "metaDescription": "Poznaj Ekspert Finansowy Artur Miesała - Kredyt Hipoteczny. Sprawdź, co nas wyróżnia i przekonaj się, dlaczego klienci nas polecają. Zapraszamy do kontaktu!",
+
+  "longDescription": "Ekspert Finansowy Artur Miesała - Kredyt Hipoteczny to profesjonalna firma specjalizująca się w pośrednictwie kredytów hipotecznych oraz doradztwie finansowym. Moja misja to pomoc klientom w realizacji marzeń o własnym domu poprzez znalezienie najlepszego finansowania na rynku. Doświadczenie eksperta oferuje indywidualne podejście oraz kompleksową obsługę na każdym etapie procesu kredytowego. Dzięki mojej wiedzy i zaangażowaniu gwarantuje bezpieczeństwo oraz satysfakcję z dokonanych wyborów. Skontaktuj się zemną aby skorzystać z fachowej pomocy i osiągnąć swoje finansowe cele.",
+
+  "offer": [
+    "Pośrednik kredytów hipotecznych",
+    "Doradztwo finansowe",
+    "Kredyt gotówkowy",
+    "Konsolidacja zobowiązań"
+  ],
+
+  "rating": {
+    "value": 4.8,
+    "best": 5,
+    "count": 44,
+    "source": "Google"
+  },
+
+  "contact": {
+    "phone": "+48 579 632 837",
+    "phoneTel": "tel:+48579632837",
+    "email": null,
+    "address": {
+      "street": "Leśna 45b",
+      "city": "Osielsko",
+      "postalCode": "86-031",
+      "region": "kujawsko-pomorskie",
+      "country": "PL",
+      "full": "Leśna 45b, 86-031 Osielsko"
+    },
+    "serviceArea": ["Osielsko", "Bydgoszcz", "Toruń", "kujawsko-pomorskie"],
+    "googleMaps": {
+      "placeId": "ChIJi6KP4zQXA0cR7n2f1OzPeIU",
+      "cid": "9617665620336147950",
+      "url": "https://maps.google.com/maps?cid=9617665620336147950",
+      "embed": "https://maps.google.com/maps?q=Le%C5%9Bna%2045b%2C%2086-031%20Osielsko&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    }
+  },
+
+  "hours": {
+    "monday":    { "open": "09:00", "close": "19:00" },
+    "tuesday":   { "open": "09:00", "close": "19:00" },
+    "wednesday": { "open": "09:00", "close": "19:00" },
+    "thursday":  { "open": "09:00", "close": "19:00" },
+    "friday":    { "open": "09:00", "close": "19:00" },
+    "saturday":  null,
+    "sunday":    null,
+    "displayPL": {
+      "Poniedziałek": "09:00 - 19:00",
+      "Wtorek":       "09:00 - 19:00",
+      "Środa":        "09:00 - 19:00",
+      "Czwartek":     "09:00 - 19:00",
+      "Piątek":       "09:00 - 19:00",
+      "Sobota":       "Zamknięte",
+      "Niedziela":    "Zamknięte"
+    }
+  },
+
+  "externalProfiles": [
+    "https://www.orlyfinansow.pl/profile-16046-ekspert-finansowy-artur-miesala-kredyt-hipoteczny",
+    "https://panoramafirm.pl/kredyty_na_mieszkanie/kujawsko_pomorskie/firmy,2.html",
+    "https://www.gowork.pl/ekspert-finansowy-miesala-artur,22288944/dane-kontaktowe-firmy",
+    "https://finanse.rankomat.pl/kredyty-hipoteczne/bydgoszcz/",
+    "https://doradcy.informacjakredytowa.com/lendi/bydgoszcz/",
+    "https://guide.in.ua/business/21918720/ekspert-finansowy-artur-miesa%C5%82a-doradca-finansowy-kredyt-hipoteczny-kredyt-got%C3%B3wkowy-bydgoszcz",
+    "https://guide.in.ua/toru%C5%84/ekspert-w-zakresie-kredyt%C3%B3w-hipotecznych-w-bydgoszczy",
+    "https://www.facebook.com/p/Ekspert-Finansowy-Artur-Miesa%C5%82a-100047289318231/",
+    "https://m.facebook.com/100047289318231/about/",
+    "https://aleo.com/pl/firma/miesala-artur-doradztwo-finansowe-osielsko",
+    "https://www.oferteo.pl/ekspert-finansowy-artur-miesala/firma/4591010"
+  ]
+}

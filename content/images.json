@@ -1,0 +1,111 @@
+{
+  "avatar": {
+    "url": "https://lh3.googleusercontent.com/a-/ALV-UjWGLt2N1YbGGc1sF6nP3VoSkwHBh9qiPkjUAbuReY0BTmB86GY",
+    "description": "Logo / awatar firmy (zdjęcie profilowe Artura Miesały z Google)"
+  },
+  "cover": {
+    "url": "https://lh3.googleusercontent.com/fhCWoKlRO-mD_-sVwIsLey4NXxo5UIUUKEqShWf8fiM6sTRPkPXP4XhAi2jOYedTsMHi-2la_FtkrT0sIA=s0",
+    "description": "Główne zdjęcie okładkowe homepage (hero)",
+    "alt": "Zdjęcie na okładce dla Ekspert Finansowy Artur Miesała - Kredyt Hipoteczny"
+  },
+  "gallery": [
+    {
+      "url": "https://lh3.googleusercontent.com/fhCWoKlRO-mD_-sVwIsLey4NXxo5UIUUKEqShWf8fiM6sTRPkPXP4XhAi2jOYedTsMHi-2la_FtkrT0sIA=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/fhCWoKlRO-mD_-sVwIsLey4NXxo5UIUUKEqShWf8fiM6sTRPkPXP4XhAi2jOYedTsMHi-2la_FtkrT0sIA=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/AY_KQujlbN8eT6IgnfcGj2zJWxRk6_B2JCcl3x19TrmNLIJwcNFA_kGU1qauIbG7jz7XFPDN1cVE5aiz8g=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/AY_KQujlbN8eT6IgnfcGj2zJWxRk6_B2JCcl3x19TrmNLIJwcNFA_kGU1qauIbG7jz7XFPDN1cVE5aiz8g=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/sEaie1UUFxpV4gLhJd0GPjM7ALfK9jx2jZU2cbeufDyX3mw6pIit2xYCWE1c-LQJvy7YiqjDAoeFeFj4lw=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/sEaie1UUFxpV4gLhJd0GPjM7ALfK9jx2jZU2cbeufDyX3mw6pIit2xYCWE1c-LQJvy7YiqjDAoeFeFj4lw=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/4p7jQhhB1aIRhyBQ6pZOkFYApO3X2AdFIvlEzVpA7QGuV0RPQEkNoy2lqGm4qWdfJvwGs9qmL_iuJxyyaA=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/4p7jQhhB1aIRhyBQ6pZOkFYApO3X2AdFIvlEzVpA7QGuV0RPQEkNoy2lqGm4qWdfJvwGs9qmL_iuJxyyaA=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/RPJ1Ac9a7wS1BBtJnT6ueEr3C7Z3Uio36TgJhAKYa2yIgJ9FPCV--sK0KgNW8HFxZYsW90mnLKtNYK-B0Q=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/RPJ1Ac9a7wS1BBtJnT6ueEr3C7Z3Uio36TgJhAKYa2yIgJ9FPCV--sK0KgNW8HFxZYsW90mnLKtNYK-B0Q=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/-G6ErRUBS7bceMtUwvjlvm8Jzh2ZEHIz8rlHmFMWvcVVF5qGzSByIGP3o9I83jzmadZ0lhDG8pPxJQBZ=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/-G6ErRUBS7bceMtUwvjlvm8Jzh2ZEHIz8rlHmFMWvcVVF5qGzSByIGP3o9I83jzmadZ0lhDG8pPxJQBZ=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/l3B3KuhkFzV_7di9EPG8kI_eG5J-yisqYCvCtvTG-kaUhTgYowAKW0SKT0vbMh7kRjkjnFwY0CMCyCY7=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/l3B3KuhkFzV_7di9EPG8kI_eG5J-yisqYCvCtvTG-kaUhTgYowAKW0SKT0vbMh7kRjkjnFwY0CMCyCY7=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/lhgnAhsEgDjgxlwrSPKS_ZiEsQZ8kOWreIAe7GJIYo_-NrTu8arH0tQqiOL-_H6gMH7STDUDXn75y-RA=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/lhgnAhsEgDjgxlwrSPKS_ZiEsQZ8kOWreIAe7GJIYo_-NrTu8arH0tQqiOL-_H6gMH7STDUDXn75y-RA=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/2sKEWKhvEwp-pSUjBNrAg43_n4dRjZ--eu9qSy5rczJ3G0gAJimzL8UBl-EluuxhW8QDDCIX9LOUccyK=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/2sKEWKhvEwp-pSUjBNrAg43_n4dRjZ--eu9qSy5rczJ3G0gAJimzL8UBl-EluuxhW8QDDCIX9LOUccyK=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/KWWKCm3tN5yNQNubvpSP_cnBRgY_K-8Rof_10S_OO0LWXcspAZgmIafnVoHp9jjoN1FNu_1vIZCPz5HS=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/KWWKCm3tN5yNQNubvpSP_cnBRgY_K-8Rof_10S_OO0LWXcspAZgmIafnVoHp9jjoN1FNu_1vIZCPz5HS=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/rSpaFYHVTxNl024C3SuixWzqEreKDiTrRSVsBXwWxXVg_LNoMg-S_Nk26eSWTfmFJgIqH5WU5cul2E2F=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/rSpaFYHVTxNl024C3SuixWzqEreKDiTrRSVsBXwWxXVg_LNoMg-S_Nk26eSWTfmFJgIqH5WU5cul2E2F=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/PNhwk8G1lwLmphqkGROBW34jk1CGwMf6zswXQK0aAZCvMdl2027e6Uts76QnndTlqOxwFet-xdQHx4lY=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/PNhwk8G1lwLmphqkGROBW34jk1CGwMf6zswXQK0aAZCvMdl2027e6Uts76QnndTlqOxwFet-xdQHx4lY=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/w6gEdZ77g0ufUTCScGHVSF6DK8NMaO6NiFxJEgiuF7QTMUY5B4_cmsUzyZAF4GeOpuW4KYADbQXhm61o=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/w6gEdZ77g0ufUTCScGHVSF6DK8NMaO6NiFxJEgiuF7QTMUY5B4_cmsUzyZAF4GeOpuW4KYADbQXhm61o=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/YE0MBkdfCiEV8Reh5um715lfK2zSiqXe0ZiOC422k9CgHKo0g2nyqVop9_6ya2HXCqRh0vuiMwFmsPN_=s0",
+      "thumbnail": "https://lh3.googleusercontent.com/YE0MBkdfCiEV8Reh5um715lfK2zSiqXe0ZiOC422k9CgHKo0g2nyqVop9_6ya2HXCqRh0vuiMwFmsPN_=s600",
+      "description": "Zdjęcie z galerii Google Business"
+    }
+  ],
+  "blogImages": [
+    {
+      "slug": "2113837167518530648-kredyt-na-start-2024-warunki-programu",
+      "title": "Kredyt na Start [2024] warunki programu rządowego 0 procent – od kiedy?",
+      "url": "https://lh3.googleusercontent.com/p/AF1QipMF7oec7hdYfda7AtoOsN46R5fCSkG5KR3ftAqa"
+    },
+    {
+      "slug": "2840113859351362207-kredyt-2-kto-moze-dostac-bezpieczny",
+      "title": "Kredyt 2%",
+      "url": "https://lh3.googleusercontent.com/p/AF1QipMH86LYnVo7Sh0G8S7i8CaEqOvffrsnQVuEc2dn"
+    },
+    {
+      "slug": "4997328374395535120-kiedy-koniec-podwyzek-stop-procentowych-wiele",
+      "title": "Kiedy koniec podwyżek stóp procentowych??",
+      "url": "https://lh3.googleusercontent.com/p/AF1QipOi7XiWIwcsj0saWj2UKGesQ1q6MuqM10OTXl5S"
+    },
+    {
+      "slug": "6516926278750289859-jaki-okres-kredytowania-bedzie-dla-mnie",
+      "title": "Jaki okres kredytowania będzie dla mnie najlepszy?",
+      "url": "https://lh3.googleusercontent.com/p/AF1QipNyeQodASHl4lRfdnsAdJYAzQPTDZqEb17YDkcF"
+    },
+    {
+      "slug": "8774881174181884658-czym-jest-marza-marza-to-koszt",
+      "title": "Czym jest marża ??",
+      "url": "https://lh3.googleusercontent.com/p/AF1QipPDchytzc6Rblb_QtaHi6w6mj6PboDDiNwNo64m"
+    }
+  ],
+  "notes": "Wszystkie obrazy pochodzą z Google (lh3.googleusercontent.com). Dla designu można je mieszać ze zdjęciami stockowymi z kategorii: kredyt, dom, finanse, rodzina, podpisywanie umowy, klucze do mieszkania, kalkulator, doradca finansowy. Aby pobrać miniaturkę o określonym rozmiarze, dopisz =sNNN do URL-a (np. =s600, =s1200)."
+}

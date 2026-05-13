@@ -1,65 +1,58 @@
-import Image from "next/image";
+import Link from "next/link";
+import { company } from "@/lib/content";
 
-export default function Home() {
+const variants = [
+  { slug: "example-1",  name: "Editorial Minimal",     palette: "from-stone-50 to-stone-100",    accent: "bg-emerald-900",   note: "Serif + whitespace, prasowy spokój" },
+  { slug: "example-2",  name: "Neo-Brutalism",          palette: "from-yellow-300 to-yellow-200", accent: "bg-black",         note: "Czarno-żółta moc, grube krawędzie" },
+  { slug: "example-3",  name: "Dark Luxury Glass",      palette: "from-slate-900 to-indigo-950",  accent: "bg-amber-400",     note: "Premium, glassmorphism, złoto" },
+  { slug: "example-4",  name: "Bento Grid",             palette: "from-zinc-50 to-zinc-100",      accent: "bg-indigo-600",    note: "Modułowe kafelki, dashboardowy rytm" },
+  { slug: "example-5",  name: "Claymorphism Soft",      palette: "from-sky-100 to-rose-100",      accent: "bg-sky-500",       note: "Miękkie, 3D, pastele, przyjazne" },
+  { slug: "example-6",  name: "Neumorphism Mono",       palette: "from-neutral-100 to-neutral-200", accent: "bg-neutral-700", note: "Wytłaczane formy, jeden kolor" },
+  { slug: "example-7",  name: "Newspaper Magazine",     palette: "from-amber-50 to-stone-50",     accent: "bg-red-700",       note: "Gazeta, dropcapy, kolumny" },
+  { slug: "example-8",  name: "Swiss Modernist Grid",   palette: "from-white to-white",           accent: "bg-red-600",       note: "Siatka, liczby, ascetyzm" },
+  { slug: "example-9",  name: "Trust Banking Blue",     palette: "from-blue-50 to-white",         accent: "bg-blue-700",      note: "Profesjonalna bankowość SaaS" },
+  { slug: "example-10", name: "Warm Organic",           palette: "from-orange-50 to-rose-50",     accent: "bg-orange-700",    note: "Ciepły, ludzki, miękkie krzywe" },
+];
+
+export default function Index() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-stone-50 text-stone-900">
+      <header className="max-w-6xl mx-auto px-6 pt-16 pb-10">
+        <p className="text-xs uppercase tracking-[0.3em] text-stone-500">Galeria propozycji designu</p>
+        <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-7xl font-black tracking-tight mt-3">
+          10 wariantów strony głównej
+        </h1>
+        <p className="mt-5 max-w-2xl text-stone-600 text-lg">
+          {company.shortName} — 10 różnych kierunków stylistycznych dla tej samej zawartości.
+          Kliknij wariant, by zobaczyć pełną stronę.
+        </p>
+      </header>
+
+      <section className="max-w-6xl mx-auto px-6 pb-24 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {variants.map((v, i) => (
+          <Link
+            key={v.slug}
+            href={`/${v.slug}` as never}
+            className="group relative rounded-3xl overflow-hidden border border-stone-200 bg-white shadow-sm hover:shadow-xl transition-all hover:-translate-y-1"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <div className={`relative h-44 bg-gradient-to-br ${v.palette} overflow-hidden`}>
+              <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest text-stone-500">
+                #{String(i + 1).padStart(2, "0")}
+              </span>
+              <span className={`absolute bottom-4 right-4 w-12 h-12 rounded-full ${v.accent} shadow-lg`} />
+            </div>
+            <div className="p-6">
+              <h2 className="font-semibold text-xl">{v.name}</h2>
+              <p className="text-sm text-stone-500 mt-1">{v.note}</p>
+              <p className="text-xs text-stone-400 mt-4 font-mono">/{v.slug}</p>
+            </div>
+          </Link>
+        ))}
+      </section>
+
+      <footer className="max-w-6xl mx-auto px-6 pb-10 text-xs text-stone-400">
+        Treść: scraped z ekspert-finansowy-artur.localo.site · Zdjęcia stockowe: Pixabay
+      </footer>
+    </main>
   );
 }
