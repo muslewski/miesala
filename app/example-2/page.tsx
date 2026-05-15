@@ -36,7 +36,7 @@ export default function Page() {
           <div className="hidden md:flex items-center gap-6 uppercase">
             <a href="#oferta">Oferta_</a><a href="#opinie">Opinie_</a><a href="#blog">Blog_</a><a href="#faq">FAQ_</a>
           </div>
-          <a href={company.contact.phoneTel} className="bg-black text-yellow-300 px-3 py-1.5 font-bold uppercase">→ {company.contact.phone}</a>
+          <a href={company.contact.phoneTel} className="max-md:hidden bg-black text-yellow-300 px-3 py-1.5 font-bold uppercase">→ {company.contact.phone}</a>
         <MobileNav
             tone="dark"
             items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
