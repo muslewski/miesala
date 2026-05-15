@@ -90,10 +90,9 @@ export default function Page() {
               without it on phones. */}
           <div className="col-span-12 hidden md:grid grid-cols-12 gap-x-6 text-[10px] uppercase tracking-[0.3em] text-black/60 border-b border-black pb-3 tabular-nums">
             <p className="col-span-2">№ 01 / Hero</p>
-            <p className="col-span-3">{company.contact.address.city}, PL · {company.contact.address.postalCode}</p>
+            <p className="col-span-4">{company.contact.address.city}, PL · {company.contact.address.postalCode}</p>
             <p className="col-span-2">EST. 2014</p>
-            <p className="col-span-2 col-start-9 text-right">{new Date().toLocaleDateString("pl-PL")}</p>
-            <p className="col-span-3 text-right">Wariant 08 · Swiss Editorial v2</p>
+            <p className="col-span-4 text-right">{new Date().toLocaleDateString("pl-PL")}</p>
           </div>
 
           {/* Left thin index column — hidden on mobile (becomes a useless

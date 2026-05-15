@@ -54,6 +54,14 @@ interface FaqItemProps {
   /** className for the toggle button itself (default: w-full text-left cursor-pointer). */
   triggerClassName?: string;
   defaultOpen?: boolean;
+  /**
+   * Set `false` to skip the grid-template-rows expand animation and
+   * just show/hide the content instantly. Use on variants with heavy
+   * box-shadows (Claymorphism, Neumorphism) where the per-frame shadow
+   * repaint during the height animation causes visible lag.
+   * Default: `true`.
+   */
+  animated?: boolean;
 }
 
 export function FaqItem({
@@ -63,6 +71,7 @@ export function FaqItem({
   contentClassName,
   triggerClassName,
   defaultOpen = false,
+  animated = true,
 }: FaqItemProps) {
   const [open, setOpen] = useState(defaultOpen);
   const state = open ? "open" : "closed";
@@ -81,24 +90,33 @@ export function FaqItem({
       >
         {question}
       </button>
-      {/*
-        Outer grid container — animates its single row track from 0fr
-        to 1fr. Browser handles this natively in one composited pass.
-       */}
-      <div
-        className={cn(
-          "grid grid-rows-[0fr] data-[state=open]:grid-rows-[1fr]",
-          "transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          "motion-reduce:transition-none",
-        )}
-        data-state={state}
-      >
-        {/* Middle layer — overflow:hidden so content is clipped while
-            the row is shrinking; otherwise descendants leak out. */}
-        <div className="overflow-hidden">
+      {animated ? (
+        // Outer grid container — animates its single row track from
+        // 0fr → 1fr. Browser handles this natively in one composited
+        // pass, but if the surrounding card has a huge box-shadow
+        // (claymorphism, neumorphism), each frame triggers a paint of
+        // the shadow over a wide area. For those variants, pass
+        // `animated={false}` to use the instant-toggle branch below.
+        <div
+          className={cn(
+            "grid grid-rows-[0fr] data-[state=open]:grid-rows-[1fr]",
+            "transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+            "motion-reduce:transition-none",
+          )}
+          data-state={state}
+        >
+          <div className="overflow-hidden">
+            <div className={contentClassName}>{answer}</div>
+          </div>
+        </div>
+      ) : (
+        // Instant-toggle branch — same DOM, but `hidden` collapses
+        // the content with display:none which costs nothing to paint
+        // (no shadow repaint, no layout thrash).
+        <div hidden={!open}>
           <div className={contentClassName}>{answer}</div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -217,6 +217,12 @@ export default function Page() {
             <FaqItem
               key={i}
               className={`${clayCard} p-0`}
+              // clayCard's multi-layer 28px-spread box-shadow gets
+              // repainted across a huge area on every grid-row-template
+              // animation frame, causing visible lag. Instant toggle
+              // keeps the design intact (the shadow itself stays put)
+              // without the per-frame paint cost.
+              animated={false}
               question={
                 <span className="flex items-start justify-between gap-6 p-6">
                   <span className="font-semibold">{f.q}</span>
