@@ -206,7 +206,7 @@ export default function Page() {
       <section id="faq" className="bg-white border-y border-stone-200">
         <div className="max-w-4xl mx-auto px-6 py-28">
           <p className="text-xs uppercase tracking-[0.3em] text-emerald-900 mb-4 text-center">FAQ</p>
-          <StaggeredText as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight text-center mb-14" text="Najczęstsze pytania." />
+          <StaggeredText as="h2" className="justify-center font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight text-center mb-14" text="Najczęstsze pytania." />
           <div className="divide-y divide-stone-200">
             {faq.map((f, i) => (
               <details key={i} className="py-6 group">

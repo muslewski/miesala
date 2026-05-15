@@ -115,7 +115,7 @@ export default function Page() {
       <section id="oferta" className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Oferta</p>
-          <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Wszystko, czego potrzebujesz przy kredycie." />
+          <StaggeredText as="h2" className="justify-center text-4xl md:text-5xl font-bold tracking-tight" text="Wszystko, czego potrzebujesz przy kredycie." />
         </div>
         <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
@@ -134,7 +134,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Proces</p>
-            <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Cztery kroki do podpisanej umowy." />
+            <StaggeredText as="h2" className="justify-center text-4xl md:text-5xl font-bold tracking-tight" text="Cztery kroki do podpisanej umowy." />
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {[

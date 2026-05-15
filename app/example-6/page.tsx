@@ -158,7 +158,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-24">
-        <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10" text="Pytanie? Mam odpowiedź." />
+        <StaggeredText as="h2" className="justify-center text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10" text="Pytanie? Mam odpowiedź." />
         <div className="space-y-5">
           {faq.map((f, i) => (
             <details key={i} className={`${raised} rounded-2xl bg-neutral-200 group open:bg-neutral-200`}>
@@ -176,7 +176,7 @@ export default function Page() {
       <section className="max-w-6xl mx-auto px-6 pb-16">
         <div className={`${raised} rounded-[2rem] bg-neutral-200 p-10 md:p-16 text-center`}>
           <p className={`${sunken} inline-flex px-4 py-2 rounded-full bg-neutral-200 text-xs uppercase tracking-widest text-neutral-500`}>Krok pierwszy</p>
-          <StaggeredText as="h2" className="text-4xl md:text-6xl font-extrabold tracking-tight mt-6 leading-tight" text="Wystarczy jedna rozmowa." />
+          <StaggeredText as="h2" className="justify-center text-4xl md:text-6xl font-extrabold tracking-tight mt-6 leading-tight" text="Wystarczy jedna rozmowa." />
           <p className="mt-5 text-neutral-600 max-w-2xl mx-auto">30 minut, byś wiedział, na co realnie Cię stać i w którym banku jest dla Ciebie najlepiej.</p>
           <a href={company.contact.phoneTel} className={`${raised} mt-8 inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-neutral-200 text-lg font-bold hover:translate-y-[2px] transition`}>{company.contact.phone} →</a>
         </div>

@@ -199,7 +199,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-4xl mx-auto px-6 pb-20">
-        <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10" text="A może masz pytania?" />
+        <StaggeredText as="h2" className="justify-center text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10" text="A może masz pytania?" />
         <div className="space-y-4">
           {faq.map((f, i) => (
             <details key={i} className={`${clayCard} group p-0`}>

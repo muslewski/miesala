@@ -117,7 +117,7 @@ export default function Page() {
       <section id="oferta" className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-sm font-medium text-orange-800 mb-3 uppercase tracking-widest">W czym pomagam</p>
-          <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight" text="Sześć rzeczy, które robię dla Ciebie." />
+          <StaggeredText as="h2" className="justify-center font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight" text="Sześć rzeczy, które robię dla Ciebie." />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => {
@@ -183,7 +183,7 @@ export default function Page() {
 
       {/* Blog */}
       <section id="blog" className="max-w-6xl mx-auto px-6 pb-24">
-        <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-12" text="Listy z gabinetu." />
+        <StaggeredText as="h2" className="justify-center font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-12" text="Listy z gabinetu." />
         <div className="grid md:grid-cols-3 gap-6">
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 overflow-hidden ${i === 1 ? "md:translate-y-6" : ""}`}>
@@ -215,7 +215,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-24">
-        <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10" text="A może masz pytania?" />
+        <StaggeredText as="h2" className="justify-center font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10" text="A może masz pytania?" />
         <div className="space-y-4">
           {faq.map((f, i) => (
             <details key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 group`}>
