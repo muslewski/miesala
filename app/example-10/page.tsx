@@ -13,7 +13,7 @@ import CountUp from "@/components/react-bits/CountUp";
  * Ciepła paleta (sand, terracotta, sage), Fraunces + Inter, miękkie blob-y, ludzki ton.
  */
 
-const hero = pick(pixabay.happy_couple, 2);
+const hero = pick(pixabay.real_estate, 3);
 const couple = pick(pixabay.couple_apartment, 0);
 const top3Reviews = reviews.reviews.slice(2, 5);
 const top3Posts = blogIndex.slice(0, 3);
