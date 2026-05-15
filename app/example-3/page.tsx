@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import TextType from "@/components/react-bits/TextType";
@@ -42,6 +43,14 @@ export default function Page() {
   const year = new Date().getFullYear();
   return (
     <main className="min-h-screen bg-zinc-900 text-zinc-100 font-[family-name:var(--font-inter)] selection:bg-orange-500 selection:text-zinc-950">
+      <SitePreloader
+        storageKey="miesala-pre-example-3"
+        variant="stairs"
+        bgColor="#09090b"
+        loadingText="EXPERT UNIT 014"
+        textClassName="font-[family-name:var(--font-bebas)] text-4xl md:text-6xl text-orange-400 tracking-wider"
+        stairCount={8}
+      />
       {/* Top hazard bar */}
       <div className="h-2" style={cautionStripe} />
 

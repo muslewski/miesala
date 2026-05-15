@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
@@ -28,6 +29,13 @@ const ChipIcon = ({ children }: { children: React.ReactNode }) => (
 export default function Page() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-sky-100 via-white to-rose-100 text-slate-800 font-[family-name:var(--font-jakarta)] selection:bg-sky-400 selection:text-white">
+      <SitePreloader
+        storageKey="miesala-pre-example-5"
+        variant="circle"
+        bgColor="#f0f9ff"
+        loadingText="Artur Miesała"
+        textClassName="font-[family-name:var(--font-jakarta)] text-3xl md:text-5xl font-extrabold text-sky-700 tracking-tight"
+      />
       <header className="sticky top-3 z-40 mx-3 md:mx-6">
         <nav className={`${clayCard} max-w-6xl mx-auto px-6 h-16 flex items-center justify-between`}>
           <Link href="/" className="flex items-center gap-3 font-bold">

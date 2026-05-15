@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -42,6 +43,14 @@ const marqueeRun = [...marqueeWords, ...marqueeWords]; // doubled for seamless l
 export default function Page() {
   return (
     <main className="min-h-screen bg-white text-black font-[family-name:var(--font-inter)]">
+      <SitePreloader
+        storageKey="miesala-pre-example-8"
+        variant="stairs"
+        bgColor="#ffffff"
+        loadingText="Miesała Ekspert"
+        textClassName="text-3xl md:text-5xl font-bold text-black uppercase tracking-tighter"
+        stairCount={10}
+      />
       {/* Top header */}
       <header className="border-b border-black sticky top-0 z-40 bg-white/95 backdrop-blur">
         <div className="max-w-7xl mx-auto px-6 h-14 grid grid-cols-12 items-center gap-6">

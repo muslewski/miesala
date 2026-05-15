@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
@@ -28,6 +29,13 @@ const indigoSoft = "bg-indigo-50 border border-indigo-200 text-zinc-900";
 export default function Page() {
   return (
     <main className="min-h-screen bg-zinc-50 text-zinc-900 font-[family-name:var(--font-inter)]">
+      <SitePreloader
+        storageKey="miesala-pre-example-4"
+        variant="slide"
+        bgColor="#fafafa"
+        loadingText="Miesała Kredyt"
+        textClassName="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tight"
+      />
       <header className="sticky top-0 z-40 bg-zinc-50/80 backdrop-blur border-b border-zinc-200">
         <nav className="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">

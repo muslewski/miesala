@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
@@ -24,6 +25,13 @@ const sunken = "shadow-[inset_6px_6px_12px_rgba(0,0,0,0.12),inset_-6px_-6px_12px
 export default function Page() {
   return (
     <main className="min-h-screen bg-neutral-200 text-neutral-800 font-[family-name:var(--font-manrope)]">
+      <SitePreloader
+        storageKey="miesala-pre-example-6"
+        variant="slide"
+        bgColor="#e5e5e5"
+        loadingText="Miesała"
+        textClassName="font-[family-name:var(--font-manrope)] text-3xl md:text-5xl font-extrabold text-neutral-800 tracking-tight"
+      />
       <header className="sticky top-5 z-40 mx-4 md:mx-8">
         <nav className={`${raisedSm} max-w-6xl mx-auto px-6 h-16 rounded-2xl bg-neutral-200 flex items-center justify-between`}>
           <Link href="/" className="flex items-center gap-3 font-bold">

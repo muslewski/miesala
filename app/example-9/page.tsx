@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
@@ -20,6 +21,13 @@ const top3Posts = blogIndex.slice(0, 3);
 export default function Page() {
   return (
     <main className="min-h-screen bg-white text-slate-900 font-[family-name:var(--font-inter)]">
+      <SitePreloader
+        storageKey="miesala-pre-example-9"
+        variant="percentage"
+        bgColor="#ffffff"
+        loadingText="Miesała Kredyt"
+        textClassName="text-3xl md:text-5xl font-bold text-blue-700 tracking-tight"
+      />
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold tracking-tight">

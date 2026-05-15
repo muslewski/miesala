@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
@@ -22,6 +23,13 @@ const blob = "rounded-[3rem]";
 export default function Page() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-orange-50 via-rose-50 to-amber-50 text-stone-800 font-[family-name:var(--font-inter)] selection:bg-orange-700 selection:text-amber-50 overflow-hidden">
+      <SitePreloader
+        storageKey="miesala-pre-example-10"
+        variant="circle"
+        bgColor="#fff7ed"
+        loadingText="Artur Miesała"
+        textClassName="font-[family-name:var(--font-fraunces)] text-3xl md:text-5xl font-light text-orange-800 tracking-tight"
+      />
       {/* Soft background blobs */}
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-orange-200/40 blur-3xl" />

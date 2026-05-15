@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
@@ -24,6 +25,13 @@ const accent = "text-emerald-900";
 export default function Page() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900 font-[family-name:var(--font-inter)] selection:bg-emerald-900 selection:text-stone-50">
+      <SitePreloader
+        storageKey="miesala-pre-example-1"
+        variant="slide"
+        bgColor="#fafaf9"
+        loadingText="Ekspert Finansowy Artur Miesała"
+        textClassName="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl font-medium text-stone-900 tracking-tight"
+      />
 
       {/* Nav */}
       <header className="border-b border-stone-200 bg-stone-50/80 backdrop-blur sticky top-0 z-40">

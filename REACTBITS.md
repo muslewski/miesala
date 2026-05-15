@@ -42,6 +42,7 @@ Set `REACTBITS_LICENSE_KEY=...` in `.env.local` (already gitignored).
 | 🟢 | `BlurText-JS-CSS` | Free | https://reactbits.dev/text-animations/blur-text | `components/react-bits/BlurText.jsx` | ex-5 testimonials h2 ("Klienci mówią to samo."), ex-10 testimonials h2 ("Słowa, które mnie napędzają.") — fits soft pastel / warm organic variants |
 | 🟢 | `SplitText-JS-CSS` | Free | https://reactbits.dev/text-animations/split-text | `components/react-bits/SplitText.jsx` | ex-1 blog teaser h2 ("Wiedza, którą mogę się podzielić.") — char-by-char GSAP animation pairs with the editorial serif |
 | 🟢 | `TextType-JS-CSS` | Free | https://reactbits.dev/text-animations/text-type | `components/react-bits/TextType.jsx` + `TextType.css` | ex-3 (Industrial) hero eyebrow — rotates between "DORADZTWO KREDYTOWE / KREDYT HIPOTECZNY / REFINANSOWANIE / KONSOLIDACJA / PROGRAMY RZĄDOWE" with terminal-style cursor |
+| 🟢 | `preloader-tw` | Starter (paid) | https://pro.reactbits.dev/components/preloader | `components/react-bits/preloader.tsx` + wrapper at `components/layout/SitePreloader.tsx` | First-visit brand intro on every example page. SessionStorage gates so it only plays once per session per variant (key pattern: `miesala-pre-example-N`). Per-variant params (variant / bgColor / loadingText / textClassName) match each example's design language — see SitePreloader call-sites in each `app/example-N/page.tsx` |
 
 ## Local patches applied
 

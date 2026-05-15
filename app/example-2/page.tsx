@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
@@ -21,6 +22,13 @@ const cardYellow = "border-[3px] border-black bg-yellow-300 shadow-[8px_8px_0_0_
 export default function Page() {
   return (
     <main className="min-h-screen bg-yellow-300 text-black font-[family-name:var(--font-grotesk)] selection:bg-black selection:text-yellow-300">
+      <SitePreloader
+        storageKey="miesala-pre-example-2"
+        variant="curtain"
+        bgColor="#fde047"
+        loadingText="MIESAŁA EKSPERT"
+        textClassName="font-[family-name:var(--font-grotesk)] text-4xl md:text-6xl font-black text-black uppercase tracking-tighter"
+      />
       <header className="border-b-[3px] border-black bg-yellow-300 sticky top-0 z-40">
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between font-[family-name:var(--font-mono)] text-sm">
           <Link href="/" className="font-bold tracking-tight uppercase">[ MIESAŁA / EKSPERT ]</Link>
