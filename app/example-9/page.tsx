@@ -314,35 +314,118 @@ export default function Page() {
       </section>
 
       {/* Footer */}
+      {/* Footer — SaaS banking. Top brand block + Google rating chip,
+          four-column nav grid (Oferta / Firma / Wsparcie / Prawne),
+          supplier strip, and a divided legal bar with privacy/terms. */}
       <footer id="kontakt" className="bg-slate-900 text-slate-300">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-8 h-8 rounded-lg bg-blue-700 grid place-items-center text-white text-xs font-black">M</span>
-              <p className="font-bold text-white">{company.shortName}</p>
+
+        {/* Top — brand + rating chip + phone CTA */}
+        <div className="max-w-7xl mx-auto px-6 pt-16 pb-10 grid lg:grid-cols-12 gap-8 items-end border-b border-slate-800">
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="w-10 h-10 rounded-lg bg-blue-700 grid place-items-center text-white text-sm font-black">M</span>
+              <p className="font-bold text-white text-lg">{company.shortName}</p>
             </div>
-            <p className="text-sm">{company.contact.address.full}</p>
-            <p className="text-sm">{company.contact.phone}</p>
+            <p className="text-slate-400 max-w-md leading-relaxed">
+              Niezależny ekspert kredytowy. Porównuję oferty 15+ banków i prowadzę Cię przez cały proces — od zdolności po klucze.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 ring-1 ring-slate-700 text-xs">
+                <span className="text-amber-400">★</span>
+                <span className="text-white font-semibold tabular-nums">{company.rating.value}</span>
+                <span className="text-slate-400">· {company.rating.count} opinii Google</span>
+              </span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 ring-1 ring-slate-700 text-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="text-slate-300">15+ banków</span>
+              </span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 ring-1 ring-slate-700 text-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="text-slate-300">Bezpłatna konsultacja</span>
+              </span>
+            </div>
           </div>
-          <div className="lg:col-span-4">
-            <p className="text-xs uppercase tracking-widest text-slate-500 mb-3">Godziny</p>
-            <ul className="text-sm space-y-1">
-              {Object.entries(company.hours.displayPL).map(([d, h]) => (
-                <li key={d} className="flex justify-between"><span>{d}</span><span className={h === "Zamknięte" ? "text-slate-500" : "text-white"}>{h}</span></li>
+          <div className="lg:col-span-5 lg:text-right">
+            <a href={company.contact.phoneTel} className="inline-flex items-center gap-3 px-7 py-3.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-500 transition shadow-lg shadow-blue-700/20 tabular-nums">
+              {company.contact.phone}
+              <span aria-hidden>→</span>
+            </a>
+            <p className="mt-3 text-xs text-slate-500">Pon–Pt 09:00–19:00</p>
+          </div>
+        </div>
+
+        {/* Middle — link columns */}
+        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 lg:grid-cols-12 gap-8 border-b border-slate-800">
+          <div className="col-span-1 lg:col-span-3">
+            <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">Oferta</p>
+            <ul className="text-sm space-y-2.5">
+              {services.slice(0, 5).map((s) => (
+                <li key={s.slug}>
+                  <a href="#oferta" className="text-slate-300 hover:text-white transition">{s.title}</a>
+                </li>
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-4">
+          <div className="col-span-1 lg:col-span-3">
+            <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">Firma</p>
+            <ul className="text-sm space-y-2.5">
+              <li><a href="#" className="text-slate-300 hover:text-white transition">O mnie</a></li>
+              <li><a href="#proces" className="text-slate-300 hover:text-white transition">Jak to działa</a></li>
+              <li><a href="#opinie" className="text-slate-300 hover:text-white transition">Opinie klientów</a></li>
+              <li><a href="#blog" className="text-slate-300 hover:text-white transition">Blog</a></li>
+              <li><a href="#kontakt" className="text-slate-300 hover:text-white transition">Kontakt</a></li>
+            </ul>
+          </div>
+          <div className="col-span-1 lg:col-span-3">
+            <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">Wsparcie</p>
+            <ul className="text-sm space-y-2.5">
+              <li><a href="#faq" className="text-slate-300 hover:text-white transition">FAQ</a></li>
+              <li><a href={company.contact.phoneTel} className="text-slate-300 hover:text-white transition">Bezpłatna konsultacja</a></li>
+              <li><a href="#" className="text-slate-300 hover:text-white transition">Kalkulator kredytowy</a></li>
+              <li><a href="#" className="text-slate-300 hover:text-white transition">Lista dokumentów</a></li>
+            </ul>
+          </div>
+          <div className="col-span-2 lg:col-span-3">
+            <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">Mapa</p>
             <div className="aspect-video rounded-xl overflow-hidden ring-1 ring-slate-700">
               <iframe src={company.contact.googleMaps.embed} className="w-full h-full" loading="lazy" title="Mapa" />
             </div>
+            <p className="mt-3 text-xs text-slate-400">{company.contact.address.full}</p>
           </div>
         </div>
-        <div className="border-t border-slate-800">
-          <p className="max-w-7xl mx-auto px-6 py-5 text-xs text-slate-500 flex flex-wrap justify-between gap-3">
-            <span>© {new Date().getFullYear()} {company.owner} · Wariant 9 — Trust Banking</span>
-            <Link href="/" className="underline hover:text-white">← all variants</Link>
-          </p>
+
+        {/* Hours strip + Banks strip */}
+        <div className="max-w-7xl mx-auto px-6 py-8 grid lg:grid-cols-12 gap-8 border-b border-slate-800">
+          <div className="lg:col-span-5">
+            <p className="text-xs uppercase tracking-widest text-slate-500 mb-3">Godziny</p>
+            <ul className="text-sm grid grid-cols-2 gap-x-6 gap-y-1 tabular-nums">
+              {Object.entries(company.hours.displayPL).map(([d, h]) => (
+                <li key={d} className="flex justify-between">
+                  <span className="text-slate-400">{d}</span>
+                  <span className={h === "Zamknięte" ? "text-slate-500" : "text-white"}>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="lg:col-span-7">
+            <p className="text-xs uppercase tracking-widest text-slate-500 mb-3">Współpracuję z bankami</p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {trustBanks.map((b) => (
+                <span key={b} className="text-slate-300 font-semibold text-sm tracking-tight">{b}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom legal bar */}
+        <div className="max-w-7xl mx-auto px-6 py-5 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+          <p>© {new Date().getFullYear()} {company.owner}. Wszelkie prawa zastrzeżone.</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a href="#" className="hover:text-white transition">Polityka prywatności</a>
+            <a href="#" className="hover:text-white transition">Regulamin</a>
+            <a href="#" className="hover:text-white transition">RODO</a>
+            <Link href="/" className="hover:text-white transition">← Warianty</Link>
+          </div>
         </div>
       </footer>
     </main>

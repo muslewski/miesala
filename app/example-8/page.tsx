@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
@@ -386,43 +386,97 @@ export default function Page() {
       </section>
 
       {/* Footer */}
+      {/* Footer — Swiss colophon. Big wordmark + section ref, four
+          dense info columns with hairline dividers, supplier list,
+          numbered legal links, and a metadata bottom bar. */}
       <footer id="kontakt" className="border-t border-black">
-        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-12 gap-x-6 gap-y-8">
-          <div className="col-span-12 md:col-span-3">
+
+        {/* Masthead — wordmark + REF */}
+        <div className="max-w-7xl mx-auto px-6 pt-14 pb-10 grid grid-cols-12 gap-x-6 items-end border-b border-black">
+          <div className="col-span-12 md:col-span-8">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3 tabular-nums">— Sekcja 08 / Stopka</p>
+            <p className="text-6xl md:text-8xl font-bold tracking-tighter uppercase leading-none">
+              Miesała<span className="text-red-600">.</span>
+            </p>
+          </div>
+          <div className="col-span-12 md:col-span-4 mt-6 md:mt-0 md:text-right">
+            <a href={company.contact.phoneTel} className="inline-flex items-center gap-3 bg-black text-white px-5 py-3 text-xs uppercase tracking-widest tabular-nums hover:bg-red-600 transition-colors">
+              {company.contact.phone}
+              <span aria-hidden>→</span>
+            </a>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-black/60 mt-3 tabular-nums">PN–PT 09:00&minus;19:00</p>
+          </div>
+        </div>
+
+        {/* Four-column info grid */}
+        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-12 gap-x-6 gap-y-10 border-b border-black">
+          <div className="col-span-6 md:col-span-3 border-t border-black pt-3">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3 tabular-nums">N&deg; 01 / Adres</p>
             <p className="text-sm font-bold">{company.shortName}</p>
             <p className="text-sm mt-2 text-black/70">{company.contact.address.full}</p>
-            <p className="text-sm tabular-nums">{company.contact.phone}</p>
+            <p className="text-sm mt-3 tabular-nums">{company.contact.phone}</p>
           </div>
-          <div className="col-span-12 md:col-span-3 text-sm">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3">Godziny</p>
+
+          <div className="col-span-6 md:col-span-3 border-t border-black pt-3">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3 tabular-nums">N&deg; 02 / Nawigacja</p>
+            <ul className="text-sm space-y-1 tabular-nums">
+              <li className="flex justify-between border-b border-black/20 py-1"><span>01</span><a href="#oferta" className="font-bold hover:text-red-600 transition">Oferta</a></li>
+              <li className="flex justify-between border-b border-black/20 py-1"><span>02</span><a href="#opinie" className="font-bold hover:text-red-600 transition">Opinie</a></li>
+              <li className="flex justify-between border-b border-black/20 py-1"><span>03</span><a href="#blog" className="font-bold hover:text-red-600 transition">Blog</a></li>
+              <li className="flex justify-between border-b border-black/20 py-1"><span>04</span><a href="#galeria" className="font-bold hover:text-red-600 transition">Galeria</a></li>
+              <li className="flex justify-between py-1"><span>05</span><a href="#faq" className="font-bold hover:text-red-600 transition">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div className="col-span-12 md:col-span-3 border-t border-black pt-3 text-sm">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3 tabular-nums">N&deg; 03 / Godziny</p>
             <ul className="space-y-1 tabular-nums">
               {Object.entries(company.hours.displayPL).map(([d, h]) => (
-                <li key={d} className="flex justify-between border-b border-black/30 py-1">
+                <li key={d} className="flex justify-between border-b border-black/20 py-1">
                   <span>{d}</span>
                   <span className={h === "Zamknięte" ? "text-black/40" : "font-bold"}>{h}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="col-span-12 md:col-span-3">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3">Mapa</p>
+
+          <div className="col-span-12 md:col-span-3 border-t border-black pt-3">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3 tabular-nums">N&deg; 04 / Mapa</p>
             <div className="aspect-video border border-black">
               <iframe src={company.contact.googleMaps.embed} className="w-full h-full grayscale" loading="lazy" title="Mapa" />
             </div>
           </div>
-          <div className="col-span-12 md:col-span-3 text-[11px] leading-relaxed text-black/70">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3">Colophon</p>
-            <p>Typografia: <span className="text-black font-bold">Inter</span> (Helvetica stand-in).</p>
-            <p>Siatka: 12-kol, gutter 24px, max-w-7xl.</p>
-            <p>Paleta: czerń (#000), biel (#fff), Swiss red (#dc2626).</p>
-            <p className="mt-2 text-black/40">Editorial v2 — {new Date().getFullYear()}</p>
+        </div>
+
+        {/* Supplier list — banks */}
+        <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-12 gap-x-6 border-b border-black">
+          <p className="col-span-12 md:col-span-3 text-[10px] uppercase tracking-[0.3em] text-red-600 tabular-nums">N&deg; 05 / Banki</p>
+          <div className="col-span-12 md:col-span-9 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold tracking-tight">
+            {trustBanks.map((b) => (
+              <span key={b}>{b}</span>
+            ))}
           </div>
         </div>
-        <p className="max-w-7xl mx-auto px-6 py-4 text-[10px] uppercase tracking-widest flex flex-wrap items-center gap-3 justify-between border-t border-black">
-          <span>© {new Date().getFullYear()} {company.owner}</span>
-          <span>Wariant 08 · Swiss Modernist · Editorial v2</span>
-          <Link href="/" className="underline hover:text-red-600">← Wszystkie warianty</Link>
-        </p>
+
+        {/* Colophon — design system attribution */}
+        <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-12 gap-x-6 gap-y-3 border-b border-black text-[11px] leading-relaxed text-black/70">
+          <p className="col-span-12 md:col-span-3 text-[10px] uppercase tracking-[0.3em] text-red-600 tabular-nums">N&deg; 06 / Colophon</p>
+          <p className="col-span-12 md:col-span-3"><span className="text-[10px] uppercase tracking-widest text-black/40 block">Typografia</span><span className="text-black font-bold">Inter</span></p>
+          <p className="col-span-12 md:col-span-3"><span className="text-[10px] uppercase tracking-widest text-black/40 block">Siatka</span>12-kol · gutter 24px · max-w-7xl</p>
+          <p className="col-span-12 md:col-span-3"><span className="text-[10px] uppercase tracking-widest text-black/40 block">Paleta</span>#000 · #fff · <span className="text-red-600 font-bold">#dc2626</span></p>
+        </div>
+
+        {/* Bottom legal bar — meta + nav */}
+        <div className="max-w-7xl mx-auto px-6 py-5 text-[10px] uppercase tracking-widest grid grid-cols-12 gap-x-6 gap-y-2 items-center">
+          <p className="col-span-12 md:col-span-5 tabular-nums">© {new Date().getFullYear()} {company.owner}</p>
+          <div className="col-span-12 md:col-span-5 md:text-center flex flex-wrap md:justify-center gap-x-5 gap-y-2 tabular-nums">
+            <a href="#" className="hover:text-red-600 transition">Polityka prywatności</a>
+            <a href="#" className="hover:text-red-600 transition">Regulamin</a>
+          </div>
+          <div className="col-span-12 md:col-span-2 md:text-right">
+            <Link href="/" className="hover:text-red-600 transition">← Warianty</Link>
+          </div>
+        </div>
       </footer>
     </main>
   );

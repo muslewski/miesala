@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
@@ -275,31 +275,92 @@ export default function Page() {
       </section>
 
       {/* Contact + map + footer */}
+      {/* Footer — editorial masthead. Big serif wordmark + an italic
+          tagline, 4-column link/contact grid, bank trust strip, and a
+          divided legal bar. Stone-900 base mirrors the About section
+          above so the closing chord feels intentional. */}
       <footer id="kontakt" className="bg-stone-900 text-stone-300">
-        <div className="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-4">
-            <p className="font-[family-name:var(--font-playfair)] text-2xl text-stone-50">{company.shortName}</p>
-            <p className="mt-3 text-sm">{company.contact.address.full}</p>
-            <p className="mt-1 text-sm">{company.contact.phone}</p>
+        {/* Top — wordmark + italic tagline */}
+        <div className="max-w-6xl mx-auto px-6 pt-20 pb-12 grid lg:grid-cols-12 gap-10 items-end border-b border-stone-800">
+          <div className="lg:col-span-7">
+            <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-4">Ekspert kredytowy</p>
+            <p className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl text-stone-50 leading-[1.0]">
+              Miesała<span className="text-emerald-500">.</span>
+            </p>
+            <p className="mt-5 font-[family-name:var(--font-playfair)] italic text-2xl text-stone-400 max-w-md">
+              &ldquo;Twoja jasna ścieżka do własnego domu.&rdquo;
+            </p>
           </div>
-          <div className="lg:col-span-4">
-            <p className="text-xs uppercase tracking-widest text-stone-500 mb-3">Godziny</p>
-            <ul className="text-sm space-y-1">
-              {Object.entries(company.hours.displayPL).map(([d, h]) => (
-                <li key={d} className="flex justify-between"><span>{d}</span><span className={h === "Zamknięte" ? "text-stone-500" : ""}>{h}</span></li>
+          <div className="lg:col-span-5 lg:text-right">
+            <a href={company.contact.phoneTel} className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-stone-50 text-stone-900 font-medium hover:bg-amber-300 transition">
+              {company.contact.phone}
+              <span aria-hidden>→</span>
+            </a>
+            <p className="mt-3 text-xs uppercase tracking-widest text-stone-500">Pon–Pt · 09:00–19:00</p>
+          </div>
+        </div>
+
+        {/* Middle — 4-col content */}
+        <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-2 lg:grid-cols-12 gap-10 border-b border-stone-800">
+          <div className="col-span-2 lg:col-span-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-500 mb-4">Nawigacja</p>
+            <ul className="text-sm space-y-2">
+              <li><a href="#oferta" className="hover:text-stone-50 transition">Oferta</a></li>
+              <li><a href="#opinie" className="hover:text-stone-50 transition">Opinie</a></li>
+              <li><a href="#blog" className="hover:text-stone-50 transition">Blog</a></li>
+              <li><a href="#faq" className="hover:text-stone-50 transition">FAQ</a></li>
+              <li><a href="#kontakt" className="hover:text-stone-50 transition">Kontakt</a></li>
+            </ul>
+          </div>
+          <div className="col-span-2 lg:col-span-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-500 mb-4">Usługi</p>
+            <ul className="text-sm space-y-2">
+              {services.map((s) => (
+                <li key={s.slug} className="text-stone-400 hover:text-stone-50 transition">
+                  <a href={`#oferta`}>{s.title}</a>
+                </li>
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-4">
-            <div className="aspect-video w-full rounded-sm overflow-hidden border border-stone-700">
-              <iframe src={company.contact.googleMaps.embed} className="w-full h-full" loading="lazy" title="Mapa" />
-            </div>
+          <div className="col-span-2 lg:col-span-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-500 mb-4">Kontakt</p>
+            <ul className="text-sm space-y-2 text-stone-400">
+              <li className="text-stone-50">{company.contact.address.full}</li>
+              <li className="tabular-nums">{company.contact.phone}</li>
+              <li className="text-xs uppercase tracking-widest mt-4 text-stone-500">Obszar</li>
+              <li>{company.contact.serviceArea.join(" · ")}</li>
+            </ul>
+          </div>
+          <div className="col-span-2 lg:col-span-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-500 mb-4">Godziny</p>
+            <ul className="text-sm space-y-1.5 tabular-nums">
+              {Object.entries(company.hours.displayPL).map(([d, h]) => (
+                <li key={d} className="flex justify-between">
+                  <span>{d}</span>
+                  <span className={h === "Zamknięte" ? "text-stone-600" : "text-stone-50"}>{h}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="border-t border-stone-800">
-          <div className="max-w-6xl mx-auto px-6 py-6 text-xs text-stone-500 flex flex-wrap items-center justify-between gap-3">
-            <p>© {new Date().getFullYear()} {company.owner}. Wariant 1 — Editorial Minimal.</p>
-            <Link href="/" className="hover:text-stone-300">← Zobacz wszystkie warianty</Link>
+
+        {/* Trust strip */}
+        <div className="max-w-6xl mx-auto px-6 py-10 border-b border-stone-800">
+          <p className="text-xs uppercase tracking-[0.3em] text-stone-500 mb-4">Współpracuję z bankami</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {trustBanks.map((b) => (
+              <span key={b} className="font-[family-name:var(--font-playfair)] text-lg text-stone-300">{b}</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom legal bar */}
+        <div className="max-w-6xl mx-auto px-6 py-6 text-xs text-stone-500 flex flex-wrap items-center justify-between gap-3">
+          <p>© {new Date().getFullYear()} {company.owner}. Wszelkie prawa zastrzeżone.</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a href="#" className="hover:text-stone-300 transition">Polityka prywatności</a>
+            <a href="#" className="hover:text-stone-300 transition">Regulamin</a>
+            <Link href="/" className="hover:text-stone-300 transition">← Warianty</Link>
           </div>
         </div>
       </footer>

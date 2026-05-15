@@ -210,28 +210,97 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <footer id="kontakt" className="max-w-6xl mx-auto px-6 pb-10">
-        <div className={`${raised} rounded-3xl bg-neutral-200 p-10 grid lg:grid-cols-12 gap-8`}>
-          <div className="lg:col-span-4">
-            <p className="font-bold">{company.shortName}</p>
-            <p className="text-sm text-neutral-600 mt-2">{company.contact.address.full}</p>
-            <p className="text-sm text-neutral-600">{company.contact.phone}</p>
+      {/* Footer — layered neumorphic cards. Raised section panels each
+          frame their own content; the map sits in a sunken pressed
+          frame for visual contrast. The whole footer is one big
+          surface where every block reads as a physical control. */}
+      <footer id="kontakt" className="max-w-6xl mx-auto px-6 pb-10 space-y-5">
+
+        {/* Top — brand card with phone CTA pill */}
+        <div className={`${raised} rounded-3xl bg-neutral-200 p-8 md:p-10 grid md:grid-cols-12 gap-6 items-center`}>
+          <div className="md:col-span-7">
+            <p className={`${sunken} inline-flex px-3 py-1.5 rounded-full bg-neutral-200 text-[10px] uppercase tracking-widest text-neutral-500 mb-4`}>Niezależny ekspert kredytowy</p>
+            <p className="text-3xl md:text-4xl font-extrabold tracking-tight">{company.shortName}</p>
+            <p className="mt-2 text-sm text-neutral-600 max-w-md">Spokojny proces. Konkretny wynik. Bez kosztu po Twojej stronie.</p>
           </div>
-          <div className="lg:col-span-4 text-sm">
-            <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3">Godziny</p>
-            <ul className="space-y-1">
-              {Object.entries(company.hours.displayPL).map(([d, h]) => (
-                <li key={d} className="flex justify-between"><span>{d}</span><span className={h === "Zamknięte" ? "text-neutral-400" : ""}>{h}</span></li>
+          <div className="md:col-span-5 md:text-right">
+            <a href={company.contact.phoneTel} className={`${raised} inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-neutral-200 font-semibold hover:translate-y-[2px] transition tabular-nums`}>
+              {company.contact.phone}
+              <span aria-hidden>→</span>
+            </a>
+            <p className="mt-3 text-[10px] uppercase tracking-widest text-neutral-500">Pon–Pt · 09:00–19:00</p>
+          </div>
+        </div>
+
+        {/* Middle — three raised cards: nav, services, hours */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className={`${raised} rounded-3xl bg-neutral-200 p-7`}>
+            <p className="text-[10px] uppercase tracking-widest text-neutral-500 mb-4">Nawigacja</p>
+            <ul className="space-y-2.5 text-sm font-semibold">
+              <li><a href="#oferta" className="hover:translate-x-0.5 inline-block transition">Oferta</a></li>
+              <li><a href="#opinie" className="hover:translate-x-0.5 inline-block transition">Opinie</a></li>
+              <li><a href="#blog" className="hover:translate-x-0.5 inline-block transition">Blog</a></li>
+              <li><a href="#faq" className="hover:translate-x-0.5 inline-block transition">FAQ</a></li>
+            </ul>
+          </div>
+          <div className={`${raised} rounded-3xl bg-neutral-200 p-7`}>
+            <p className="text-[10px] uppercase tracking-widest text-neutral-500 mb-4">Usługi</p>
+            <ul className="space-y-2.5 text-sm">
+              {services.slice(0, 5).map((s) => (
+                <li key={s.slug}>
+                  <a href="#oferta" className="text-neutral-700 hover:text-neutral-900 transition">{s.title}</a>
+                </li>
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-4">
-            <div className={`${sunken} aspect-video rounded-2xl overflow-hidden`}>
+          <div className={`${raised} rounded-3xl bg-neutral-200 p-7`}>
+            <p className="text-[10px] uppercase tracking-widest text-neutral-500 mb-4">Godziny</p>
+            <ul className="space-y-1.5 text-sm tabular-nums">
+              {Object.entries(company.hours.displayPL).map(([d, h]) => (
+                <li key={d} className="flex justify-between">
+                  <span className="text-neutral-600">{d}</span>
+                  <span className={h === "Zamknięte" ? "text-neutral-400" : "font-bold"}>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom — contact card + sunken map */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+          <div className={`${raised} rounded-3xl bg-neutral-200 p-7 md:col-span-5`}>
+            <p className="text-[10px] uppercase tracking-widest text-neutral-500 mb-4">Kontakt</p>
+            <div className="space-y-3">
+              <div className={`${sunken} px-4 py-3 rounded-2xl bg-neutral-200 text-sm`}>
+                <p className="text-[10px] uppercase tracking-widest text-neutral-500">Adres</p>
+                <p className="font-semibold mt-0.5">{company.contact.address.full}</p>
+              </div>
+              <div className={`${sunken} px-4 py-3 rounded-2xl bg-neutral-200 text-sm`}>
+                <p className="text-[10px] uppercase tracking-widest text-neutral-500">Telefon</p>
+                <p className="font-semibold mt-0.5 tabular-nums">{company.contact.phone}</p>
+              </div>
+              <div className={`${sunken} px-4 py-3 rounded-2xl bg-neutral-200 text-sm`}>
+                <p className="text-[10px] uppercase tracking-widest text-neutral-500">Obszar</p>
+                <p className="font-semibold mt-0.5">{company.contact.serviceArea.slice(0, 3).join(" · ")}</p>
+              </div>
+            </div>
+          </div>
+          <div className={`${raised} rounded-3xl bg-neutral-200 p-3 md:col-span-7`}>
+            <div className={`${sunken} aspect-video md:aspect-auto md:h-full rounded-2xl overflow-hidden`}>
               <iframe src={company.contact.googleMaps.embed} className="w-full h-full" loading="lazy" title="Mapa" />
             </div>
           </div>
         </div>
-        <p className="text-center text-xs text-neutral-500 mt-6">© {new Date().getFullYear()} {company.owner} · Wariant 6 — Neumorphism · <Link href="/" className="underline">all variants</Link></p>
+
+        {/* Legal bar — its own sunken pill so it doesn't compete */}
+        <div className={`${sunken} rounded-2xl bg-neutral-200 px-6 py-4 text-xs text-neutral-600 flex flex-wrap items-center justify-between gap-3`}>
+          <p>© {new Date().getFullYear()} {company.owner} · Wariant 6 — Neumorphism</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a href="#" className="hover:text-neutral-900 transition">Polityka prywatności</a>
+            <a href="#" className="hover:text-neutral-900 transition">Regulamin</a>
+            <Link href="/" className="hover:text-neutral-900 transition">← Warianty</Link>
+          </div>
+        </div>
       </footer>
     </main>
   );
