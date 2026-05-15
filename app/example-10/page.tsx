@@ -47,7 +47,7 @@ export default function Page() {
           <div className="hidden md:flex items-center gap-7 text-sm text-stone-700">
             <a href="#oferta">Pomoc</a><a href="#opinie">Klienci</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
           </div>
-          <a href={company.contact.phoneTel} className="text-sm font-semibold px-5 py-2.5 rounded-full bg-orange-700 text-amber-50 hover:bg-orange-800 transition">{company.contact.phone}</a>
+          <a href={company.contact.phoneTel} className="max-md:hidden text-sm font-semibold px-5 py-2.5 rounded-full bg-orange-700 text-amber-50 hover:bg-orange-800 transition">{company.contact.phone}</a>
         <MobileNav
             tone="light"
             items={ [{ label: "Pomoc", href: "#oferta" }, { label: "Klienci", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
