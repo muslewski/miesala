@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import SplitText from "@/components/react-bits/SplitText";
@@ -217,13 +218,18 @@ export default function Page() {
           <StaggeredText as="h2" className="justify-center font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight text-center mb-14" text="Najczęstsze pytania." />
           <div className="divide-y divide-stone-200">
             {faq.map((f, i) => (
-              <details key={i} className="py-6 group">
-                <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
-                  <span className="font-[family-name:var(--font-playfair)] text-xl pr-6">{f.q}</span>
-                  <span className="mt-1 text-2xl text-emerald-900 transition group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 text-stone-600 leading-relaxed pr-12">{f.a}</p>
-              </details>
+              <FaqItem
+                key={i}
+                className="py-6"
+                question={
+                  <span className="flex items-start justify-between gap-6">
+                    <span className="font-[family-name:var(--font-playfair)] text-xl pr-6">{f.q}</span>
+                    <span className="mt-1 text-2xl text-emerald-900 transition group-data-[state=open]/faq:rotate-45">+</span>
+                  </span>
+                }
+                contentClassName="mt-4 text-stone-600 leading-relaxed pr-12"
+                answer={f.a}
+              />
             ))}
           </div>
         </div>

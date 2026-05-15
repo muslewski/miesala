@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -166,16 +167,21 @@ export default function Page() {
           <StaggeredText as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12" text="FAQ." />
           <div className="space-y-4">
             {faq.map((f, i) => (
-              <details key={i} className={`${card} group p-0 open:bg-yellow-300`}>
-                <summary className="flex items-center justify-between gap-6 cursor-pointer list-none p-5 font-bold uppercase tracking-tight">
-                  <span className="flex items-baseline gap-3">
-                    <span className="font-[family-name:var(--font-mono)] text-xs">{`${i + 1}`.padStart(2, "0")}_</span>
-                    {f.q}
+              <FaqItem
+                key={i}
+                className={`${card} data-[state=open]:bg-yellow-300 transition-colors`}
+                question={
+                  <span className="flex items-center justify-between gap-6 p-5 font-bold uppercase tracking-tight">
+                    <span className="flex items-baseline gap-3">
+                      <span className="font-[family-name:var(--font-mono)] text-xs">{`${i + 1}`.padStart(2, "0")}_</span>
+                      {f.q}
+                    </span>
+                    <span className="text-3xl transition leading-none group-data-[state=open]/faq:rotate-45">+</span>
                   </span>
-                  <span className="text-3xl transition group-open:rotate-45 leading-none">+</span>
-                </summary>
-                <p className="p-5 pt-0 leading-relaxed">{f.a}</p>
-              </details>
+                }
+                contentClassName="p-5 pt-0 leading-relaxed"
+                answer={f.a}
+              />
             ))}
           </div>
         </div>

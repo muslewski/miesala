@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -325,14 +326,19 @@ export default function Page() {
 
           <div className="col-span-12 md:col-span-8 divide-y divide-black border-y border-black">
             {faq.map((f, i) => (
-              <details key={i} className="py-5 group">
-                <summary className="grid grid-cols-12 gap-4 items-baseline cursor-pointer list-none">
-                  <span className="col-span-2 md:col-span-1 text-xs uppercase tracking-widest text-red-600 tabular-nums">Q.{String(i + 1).padStart(2, "0")}</span>
-                  <span className="col-span-9 md:col-span-10 font-bold text-lg leading-snug group-hover:text-red-600 transition">{f.q}</span>
-                  <span className="col-span-1 text-right text-black transition group-open:rotate-90">▸</span>
-                </summary>
-                <p className="mt-3 ml-[16.66%] md:ml-[8.33%] text-sm text-black/70 leading-relaxed">{f.a}</p>
-              </details>
+              <FaqItem
+                key={i}
+                className="py-5"
+                question={
+                  <span className="grid grid-cols-12 gap-4 items-baseline">
+                    <span className="col-span-2 md:col-span-1 text-xs uppercase tracking-widest text-red-600 tabular-nums">Q.{String(i + 1).padStart(2, "0")}</span>
+                    <span className="col-span-9 md:col-span-10 font-bold text-lg leading-snug hover:text-red-600 transition">{f.q}</span>
+                    <span className="col-span-1 text-right text-black transition group-data-[state=open]/faq:rotate-90">▸</span>
+                  </span>
+                }
+                contentClassName="mt-3 ml-[16.66%] md:ml-[8.33%] text-sm text-black/70 leading-relaxed"
+                answer={f.a}
+              />
             ))}
           </div>
         </div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -169,13 +170,18 @@ export default function Page() {
         <StaggeredText as="h2" className="justify-center text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10" text="Pytanie? Mam odpowiedź." />
         <div className="space-y-5">
           {faq.map((f, i) => (
-            <details key={i} className={`${raised} rounded-2xl bg-neutral-200 group open:bg-neutral-200`}>
-              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none p-6">
-                <span className="font-semibold pr-4">{f.q}</span>
-                <span className={`${sunken} w-9 h-9 rounded-xl bg-neutral-200 grid place-items-center text-lg transition group-open:rotate-45 leading-none`}>+</span>
-              </summary>
-              <p className="px-6 pb-6 text-neutral-600 leading-relaxed">{f.a}</p>
-            </details>
+            <FaqItem
+              key={i}
+              className={`${raised} rounded-2xl bg-neutral-200`}
+              question={
+                <span className="flex items-start justify-between gap-6 p-6">
+                  <span className="font-semibold pr-4">{f.q}</span>
+                  <span className={`${sunken} w-9 h-9 rounded-xl bg-neutral-200 grid place-items-center text-lg transition leading-none group-data-[state=open]/faq:rotate-45`}>+</span>
+                </span>
+              }
+              contentClassName="px-6 pb-6 text-neutral-600 leading-relaxed"
+              answer={f.a}
+            />
           ))}
         </div>
       </section>

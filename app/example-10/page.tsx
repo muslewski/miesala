@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
@@ -226,13 +227,18 @@ export default function Page() {
         <StaggeredText as="h2" className="justify-center font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10" text="A może masz pytania?" />
         <div className="space-y-4">
           {faq.map((f, i) => (
-            <details key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 group`}>
-              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none p-6">
-                <span className="font-[family-name:var(--font-fraunces)] text-lg">{f.q}</span>
-                <span className="mt-1 w-9 h-9 rounded-full bg-orange-100 text-orange-800 grid place-items-center transition group-open:rotate-45 leading-none">+</span>
-              </summary>
-              <p className="px-6 pb-6 text-stone-600 leading-relaxed">{f.a}</p>
-            </details>
+            <FaqItem
+              key={i}
+              className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60`}
+              question={
+                <span className="flex items-start justify-between gap-6 p-6">
+                  <span className="font-[family-name:var(--font-fraunces)] text-lg">{f.q}</span>
+                  <span className="mt-1 w-9 h-9 rounded-full bg-orange-100 text-orange-800 grid place-items-center transition leading-none group-data-[state=open]/faq:rotate-45">+</span>
+                </span>
+              }
+              contentClassName="px-6 pb-6 text-stone-600 leading-relaxed"
+              answer={f.a}
+            />
           ))}
         </div>
       </section>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
@@ -210,13 +211,18 @@ export default function Page() {
         <StaggeredText as="h2" className="justify-center text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10" text="A może masz pytania?" />
         <div className="space-y-4">
           {faq.map((f, i) => (
-            <details key={i} className={`${clayCard} group p-0`}>
-              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none p-6">
-                <span className="font-semibold">{f.q}</span>
-                <span className="mt-1 w-9 h-9 rounded-2xl bg-gradient-to-br from-sky-100 to-rose-100 grid place-items-center text-sky-600 transition group-open:rotate-45 leading-none">+</span>
-              </summary>
-              <p className="px-6 pb-6 text-slate-600 leading-relaxed">{f.a}</p>
-            </details>
+            <FaqItem
+              key={i}
+              className={`${clayCard} p-0`}
+              question={
+                <span className="flex items-start justify-between gap-6 p-6">
+                  <span className="font-semibold">{f.q}</span>
+                  <span className="mt-1 w-9 h-9 rounded-2xl bg-gradient-to-br from-sky-100 to-rose-100 grid place-items-center text-sky-600 transition leading-none group-data-[state=open]/faq:rotate-45">+</span>
+                </span>
+              }
+              contentClassName="px-6 pb-6 text-slate-600 leading-relaxed"
+              answer={f.a}
+            />
           ))}
         </div>
       </section>

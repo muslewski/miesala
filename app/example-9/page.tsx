@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -262,13 +263,18 @@ export default function Page() {
           </div>
           <div className="lg:col-span-8 space-y-3">
             {faq.map((f, i) => (
-              <details key={i} className="bg-white rounded-2xl border border-slate-200 group open:shadow-md transition">
-                <summary className="flex items-start justify-between gap-6 cursor-pointer list-none p-6">
-                  <span className="font-semibold">{f.q}</span>
-                  <span className="mt-1 w-7 h-7 rounded-full bg-blue-50 grid place-items-center text-blue-700 transition group-open:rotate-45 leading-none">+</span>
-                </summary>
-                <p className="px-6 pb-6 text-slate-600 leading-relaxed">{f.a}</p>
-              </details>
+              <FaqItem
+                key={i}
+                className="bg-white rounded-2xl border border-slate-200 data-[state=open]:shadow-md transition"
+                question={
+                  <span className="flex items-start justify-between gap-6 p-6">
+                    <span className="font-semibold">{f.q}</span>
+                    <span className="mt-1 w-7 h-7 rounded-full bg-blue-50 grid place-items-center text-blue-700 transition leading-none group-data-[state=open]/faq:rotate-45">+</span>
+                  </span>
+                }
+                contentClassName="px-6 pb-6 text-slate-600 leading-relaxed"
+                answer={f.a}
+              />
             ))}
           </div>
         </div>

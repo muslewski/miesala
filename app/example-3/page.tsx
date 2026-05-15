@@ -3,6 +3,7 @@ import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
+import { FaqItem } from "@/components/motion/FaqItem";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import TextType from "@/components/react-bits/TextType";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
@@ -374,14 +375,19 @@ export default function Page() {
           </div>
           <div className="lg:col-span-8 divide-y divide-zinc-800 border-y border-zinc-800">
             {faq.map((f, i) => (
-              <details key={i} className="group bg-zinc-900/40 open:bg-zinc-900">
-                <summary className="grid grid-cols-12 gap-4 items-baseline cursor-pointer list-none p-5">
-                  <span className={`col-span-2 md:col-span-1 ${mono} text-[10px] text-orange-400`}>{`Q.${String(i + 1).padStart(2, "0")}`}</span>
-                  <span className="col-span-9 md:col-span-10 font-[family-name:var(--font-bebas)] text-xl tracking-wide leading-snug">{f.q.toUpperCase()}</span>
-                  <span className="col-span-1 text-right text-orange-400 transition group-open:rotate-45 leading-none text-xl">+</span>
-                </summary>
-                <p className="px-5 pb-5 pl-[16.66%] md:pl-[8.33%] text-zinc-300 leading-relaxed">{f.a}</p>
-              </details>
+              <FaqItem
+                key={i}
+                className="bg-zinc-900/40 data-[state=open]:bg-zinc-900 transition-colors"
+                question={
+                  <span className="grid grid-cols-12 gap-4 items-baseline p-5">
+                    <span className={`col-span-2 md:col-span-1 ${mono} text-[10px] text-orange-400`}>{`Q.${String(i + 1).padStart(2, "0")}`}</span>
+                    <span className="col-span-9 md:col-span-10 font-[family-name:var(--font-bebas)] text-xl tracking-wide leading-snug">{f.q.toUpperCase()}</span>
+                    <span className="col-span-1 text-right text-orange-400 transition leading-none text-xl group-data-[state=open]/faq:rotate-45">+</span>
+                  </span>
+                }
+                contentClassName="px-5 pb-5 pl-[16.66%] md:pl-[8.33%] text-zinc-300 leading-relaxed"
+                answer={f.a}
+              />
             ))}
           </div>
         </div>
