@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 2 — Neo-Brutalism
  * Czarno-żółty, grube krawędzie, offset shadows, all-caps, Space Grotesk + JetBrains Mono.
@@ -110,10 +110,10 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-20">
           <h2 className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">Notatki ekspresowe</h2>
           <div className="grid md:grid-cols-3 gap-7">
-            {top3Posts.map((p) => (
+            {top3Posts.map((p, i) => (
               <article key={p.slug} className={`${card} overflow-hidden`}>
                 <div className="aspect-[4/3] relative border-b-[3px] border-black bg-yellow-300">
-                  {p.image ? <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized /> : null}
+                  <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
                 </div>
                 <div className="p-6">
                   <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase mb-2">{p.dateDisplay}</p>

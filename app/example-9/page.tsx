@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 9 — Trust Banking Blue
  * Profesjonalny SaaS/banking, Inter, deep blue + jasne tło, zielony "safe" akcent.
@@ -202,13 +202,11 @@ export default function Page() {
           <a href="#" className="text-sm font-semibold text-blue-700 hover:underline">Wszystkie wpisy →</a>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {top3Posts.map((p) => (
+          {top3Posts.map((p, i) => (
             <article key={p.slug} className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition flex flex-col">
-              {p.image && (
-                <div className="aspect-[16/10] relative">
-                  <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized />
-                </div>
-              )}
+              <div className="aspect-[16/10] relative">
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+              </div>
               <div className="p-6">
                 <p className="text-xs text-slate-500 mb-3">{p.dateDisplay}</p>
                 <h3 className="font-bold leading-snug">{p.title}</h3>

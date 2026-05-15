@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 10 — Warm Organic
  * Ciepła paleta (sand, terracotta, sage), Fraunces + Inter, miękkie blob-y, ludzki ton.
@@ -172,11 +172,9 @@ export default function Page() {
         <div className="grid md:grid-cols-3 gap-6">
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 overflow-hidden ${i === 1 ? "md:translate-y-6" : ""}`}>
-              {p.image && (
-                <div className="aspect-[4/3] relative m-3 rounded-[2rem] overflow-hidden">
-                  <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized />
-                </div>
-              )}
+              <div className="aspect-[4/3] relative m-3 rounded-[2rem] overflow-hidden">
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+              </div>
               <div className="px-6 pb-6">
                 <p className="text-xs text-orange-800 font-medium mb-2 uppercase tracking-widest">{p.dateDisplay}</p>
                 <h3 className="font-[family-name:var(--font-fraunces)] text-xl leading-snug">{p.title}</h3>

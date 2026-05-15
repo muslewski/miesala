@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 4 — Bento Grid
  * Modułowe kafelki o różnych rozmiarach, Inter, jasne tło + indigo akcent.
@@ -84,9 +84,9 @@ export default function Page() {
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Wszystko, czego potrzebujesz w jednym pakiecie.</h2>
           </div>
         </div>
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-12 gap-4">
           {services.map((s, i) => {
-            const span = i === 0 ? "col-span-6 md:col-span-3 lg:col-span-3" : "col-span-6 sm:col-span-3 lg:col-span-2";
+            const span = i === 0 ? "col-span-12 lg:col-span-6" : "col-span-12 sm:col-span-6 lg:col-span-3";
             const bg = i === 0 ? "bg-zinc-900 text-white border-zinc-900" : i === 3 ? "bg-indigo-50 border-indigo-200" : "";
             return (
               <article key={s.slug} className={`${tile} ${span} p-7 ${bg} flex flex-col gap-4`}>
@@ -137,17 +137,22 @@ export default function Page() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Blog</h2>
           <a href="#" className="text-sm font-medium text-indigo-600">Zobacz wszystkie →</a>
         </div>
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-12 gap-4 auto-rows-min">
           {top3Posts.map((p, i) => (
-            <article key={p.slug} className={`${tile} ${i === 0 ? "col-span-6 lg:col-span-3" : "col-span-6 sm:col-span-3 lg:col-span-1.5"} ${i === 0 ? "" : "lg:col-span-[1.5]"} flex flex-col`}>
-              {p.image ? (
-                <div className={`relative ${i === 0 ? "aspect-[16/9]" : "aspect-[16/10]"}`}>
-                  <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized />
-                </div>
-              ) : <div className="aspect-[16/10] bg-gradient-to-br from-indigo-100 to-zinc-100" />}
+            <article
+              key={p.slug}
+              className={`${tile} ${
+                i === 0
+                  ? "col-span-12 lg:col-span-6 lg:row-span-2"
+                  : "col-span-12 md:col-span-6 lg:col-span-6"
+              } flex flex-col`}
+            >
+              <div className={`relative ${i === 0 ? "aspect-[16/10] lg:aspect-[16/12]" : "aspect-[16/9]"}`}>
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" unoptimized />
+              </div>
               <div className="p-6">
                 <p className="text-xs text-zinc-500 mb-2">{p.dateDisplay}</p>
-                <h3 className="font-bold leading-snug">{p.title}</h3>
+                <h3 className={`font-bold leading-snug ${i === 0 ? "text-2xl" : ""}`}>{p.title}</h3>
               </div>
             </article>
           ))}
@@ -157,12 +162,19 @@ export default function Page() {
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-5 mt-16">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Galeria</h2>
-        <div className="grid grid-cols-6 gap-3">
-          {images.gallery.slice(0, 6).map((g, i) => (
-            <div key={i} className={`${tile} ${i === 0 ? "col-span-6 sm:col-span-3 row-span-2 aspect-[4/5] sm:aspect-auto" : "col-span-3 sm:col-span-2 lg:col-span-1 aspect-square"} relative`}>
-              <Image src={gImg(g.url, 800)} alt="" fill className="object-cover" sizes="33vw" unoptimized />
-            </div>
-          ))}
+        <div className="grid grid-cols-12 gap-3 auto-rows-[180px]">
+          {images.gallery.slice(0, 7).map((g, i) => {
+            const span =
+              i === 0 ? "col-span-12 sm:col-span-6 row-span-2"
+              : i === 1 ? "col-span-6 sm:col-span-3 row-span-1"
+              : i === 2 ? "col-span-6 sm:col-span-3 row-span-1"
+              : "col-span-6 sm:col-span-3 lg:col-span-3 row-span-1";
+            return (
+              <div key={i} className={`${tile} ${span} relative`}>
+                <Image src={gImg(g.url, 800)} alt="" fill className="object-cover" sizes="(min-width:1024px) 25vw, 50vw" unoptimized />
+              </div>
+            );
+          })}
         </div>
       </section>
 

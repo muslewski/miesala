@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 5 — Claymorphism Soft
  * Pastele, miękkie 3D, multi-shadow, Plus Jakarta Sans, mocno zaokrąglone kształty.
@@ -153,10 +153,10 @@ export default function Page() {
       <section id="blog" className="max-w-6xl mx-auto px-6 pb-20">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Z bloga</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {top3Posts.map((p) => (
+          {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${clayCard} overflow-hidden flex flex-col`}>
               <div className="aspect-[16/10] relative bg-gradient-to-br from-sky-100 to-rose-100 m-3 rounded-[1.75rem] overflow-hidden">
-                {p.image ? <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized /> : null}
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
               </div>
               <div className="px-6 pb-6">
                 <p className="text-xs text-sky-600 font-semibold mb-2">{p.dateDisplay}</p>

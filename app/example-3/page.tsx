@@ -1,254 +1,411 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 
-/* Variant 3 — Dark Luxury Glassmorphism
- * Ciemny granat + złoto, Cormorant Garamond + Inter, frosted glass.
+/* Variant 3 — Industrial
+ * Concrete + steel + safety orange.
+ * Bebas Neue (condensed display) + JetBrains Mono (specs/labels) + Inter (body).
+ * Sharp corners, hard rules, blueprint grid, caution stripes.
  */
 
 const hero      = pick(pixabay.city_building, 0);
-const portrait  = pick(pixabay.financial_advisor, 0);
-const gradient  = pick(pixabay.abstract_gradient, 0);
+const machinery = pick(pixabay.documents_desk, 1);
+const skyline   = pick(pixabay.warsaw_poland, 0);
+
 const top3Reviews = reviews.reviews.slice(0, 3);
 const top3Posts   = blogIndex.slice(0, 3);
 
-const glass = "backdrop-blur-2xl bg-white/[0.04] border border-white/10 rounded-3xl";
+// caution-stripe background pattern (yellow + black diagonal)
+const cautionStripe = {
+  backgroundImage:
+    "repeating-linear-gradient(45deg, #f59e0b 0 14px, #0a0a0a 14px 28px)",
+};
+
+// blueprint grid
+const blueprint = {
+  backgroundImage:
+    "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+  backgroundSize: "40px 40px",
+};
+
+// reusable mono label
+const mono = "font-[family-name:var(--font-mono)] uppercase tracking-[0.2em]";
 
 export default function Page() {
+  const year = new Date().getFullYear();
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 font-[family-name:var(--font-inter)] selection:bg-amber-300 selection:text-slate-950 overflow-hidden">
-      {/* Background ornaments */}
-      <div className="fixed inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-amber-400/10 blur-[120px]" />
-        <div className="absolute bottom-[-30%] right-[-15%] w-[70vw] h-[70vw] rounded-full bg-indigo-600/20 blur-[140px]" />
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4'><circle cx='2' cy='2' r='0.5' fill='white'/></svg>\")" }} />
-      </div>
+    <main className="min-h-screen bg-zinc-900 text-zinc-100 font-[family-name:var(--font-inter)] selection:bg-orange-500 selection:text-zinc-950">
+      {/* Top hazard bar */}
+      <div className="h-2" style={cautionStripe} />
 
       {/* Nav */}
-      <header className="sticky top-4 z-40 mx-4">
-        <nav className={`${glass} max-w-6xl mx-auto px-6 h-16 flex items-center justify-between`}>
-          <Link href="/" className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_20px_4px_rgba(251,191,36,0.6)]" />
-            <span className="font-[family-name:var(--font-cormorant)] text-xl tracking-wide">Miesała · Capital</span>
+      <header className="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur border-b border-zinc-800">
+        <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 group">
+            <span className="w-9 h-9 grid place-items-center bg-orange-500 text-zinc-950 font-bold text-xs">
+              ☰
+            </span>
+            <div className="leading-none">
+              <p className={`${mono} text-[10px] text-orange-400`}>EXPERT.UNIT</p>
+              <p className="font-[family-name:var(--font-bebas)] text-xl tracking-wider mt-0.5">MIESAŁA / 014</p>
+            </div>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm text-slate-300">
-            <a href="#oferta" className="hover:text-amber-300">Oferta</a>
-            <a href="#opinie" className="hover:text-amber-300">Opinie</a>
-            <a href="#blog" className="hover:text-amber-300">Insights</a>
-            <a href="#faq" className="hover:text-amber-300">FAQ</a>
+          <div className={`hidden md:flex items-center gap-7 ${mono} text-[11px] text-zinc-400`}>
+            <a href="#oferta" className="hover:text-orange-400">// oferta</a>
+            <a href="#opinie" className="hover:text-orange-400">// opinie</a>
+            <a href="#blog" className="hover:text-orange-400">// raporty</a>
+            <a href="#faq" className="hover:text-orange-400">// faq</a>
           </div>
-          <a href={company.contact.phoneTel} className="text-sm px-4 py-2 rounded-full bg-amber-400 text-slate-950 font-medium hover:bg-amber-300 transition">
+          <a href={company.contact.phoneTel} className={`${mono} text-[11px] px-4 h-10 inline-flex items-center gap-2 bg-orange-500 text-zinc-950 hover:bg-orange-400 transition`}>
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-950 animate-pulse" />
             {company.contact.phone}
           </a>
         </nav>
       </header>
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 pt-24 pb-32 grid lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-7">
-          <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-[0.3em] text-amber-300">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" /> Premium · Mortgage Advisory
+      <section className="relative border-b border-zinc-800">
+        <div className="absolute inset-0 opacity-60 pointer-events-none" style={blueprint} />
+        <div className="relative max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10 items-end">
+          {/* Crosshairs */}
+          <div className="absolute top-6 right-6 w-8 h-8 border-2 border-orange-400 grid place-items-center text-orange-400 hidden md:grid">
+            <span className="w-1 h-1 bg-orange-400" />
           </div>
-          <h1 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-7xl lg:text-8xl font-light mt-7 leading-[1.0]">
-            Kredyt hipoteczny<br/>
-            <span className="italic bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">na poziomie.</span>
-          </h1>
-          <p className="mt-7 max-w-xl text-slate-300 text-lg leading-relaxed">
-            Dyskretna, niezależna obsługa procesu kredytowego. Pracuję z klientami, dla których liczy się czas, jasność warunków i spokój ducha — od pierwszej rozmowy po klucze w dłoni.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
-            <a href={company.contact.phoneTel} className="px-8 py-4 rounded-full bg-amber-400 text-slate-950 font-medium hover:bg-amber-300 transition shadow-[0_0_60px_-10px_rgba(251,191,36,0.6)]">
-              Umów konsultację
-            </a>
-            <div className="flex items-center gap-3 text-sm text-slate-400">
-              <span className="text-amber-400">{"★★★★★"}</span>
-              <span><span className="text-white">{company.rating.value}</span> · {company.rating.count} opinii</span>
+
+          <div className="lg:col-span-7">
+            <div className={`${mono} text-[10px] text-orange-400 flex items-center gap-4 mb-8`}>
+              <span className="inline-flex items-center gap-2">
+                <span className="w-2 h-2 bg-orange-400" />
+                REF.001 / DORADZTWO KREDYTOWE
+              </span>
+              <span className="text-zinc-600">|</span>
+              <span>{company.contact.address.city.toUpperCase()}, PL</span>
+              <span className="text-zinc-600">|</span>
+              <span>EST. 2014</span>
+            </div>
+
+            <h1 className="font-[family-name:var(--font-bebas)] text-[18vw] md:text-[12vw] lg:text-[9.5vw] tracking-wide leading-[0.85]">
+              KREDYT.<br/>
+              <span className="text-orange-400">HIPOTECZNY.</span><br/>
+              <span className="text-zinc-500">BEZ BŁĘDÓW.</span>
+            </h1>
+
+            <p className="mt-8 max-w-xl text-zinc-300 text-lg leading-relaxed">
+              Inżynierskie podejście do finansowania nieruchomości. Liczby, procedury, audyt dokumentów — wszystko prowadzone z dokładnością do dnia, bez kosztu po Twojej stronie.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a href={company.contact.phoneTel} className={`${mono} text-[12px] inline-flex items-center gap-3 bg-orange-500 text-zinc-950 px-6 h-14 hover:bg-orange-400 transition`}>
+                ▶ ROZPOCZNIJ_PROCES
+              </a>
+              <a href="#oferta" className={`${mono} text-[12px] inline-flex items-center gap-3 border border-zinc-700 px-6 h-14 hover:border-orange-400 hover:text-orange-400 transition`}>
+                SPECYFIKACJA →
+              </a>
             </div>
           </div>
-        </div>
-        <div className="lg:col-span-5">
-          <div className={`${glass} p-3 rotate-[1.5deg]`}>
-            <div className="aspect-[4/5] relative rounded-2xl overflow-hidden">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority unoptimized />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
-                <p className="font-[family-name:var(--font-cormorant)] italic text-3xl">&ldquo;Każdy klient to inna historia.&rdquo;</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-amber-300">{company.owner}</p>
+
+          {/* Hero image with tech overlay */}
+          <div className="lg:col-span-5 relative">
+            <div className="absolute -top-3 left-0 right-0 flex justify-between items-center">
+              <span className={`${mono} text-[10px] text-orange-400`}>FIG.01 / EKSPERT</span>
+              <span className={`${mono} text-[10px] text-zinc-500`}>SCALE 1:1</span>
+            </div>
+            <div className="border-2 border-orange-400/40 p-1.5 relative">
+              <div className="aspect-[4/5] relative overflow-hidden">
+                <Image src={hero.largeImageURL} alt="" fill className="object-cover saturate-50 contrast-110" priority unoptimized />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
+                {/* corner brackets */}
+                <span className="absolute top-2 left-2 w-5 h-5 border-t-2 border-l-2 border-orange-400" />
+                <span className="absolute top-2 right-2 w-5 h-5 border-t-2 border-r-2 border-orange-400" />
+                <span className="absolute bottom-2 left-2 w-5 h-5 border-b-2 border-l-2 border-orange-400" />
+                <span className="absolute bottom-2 right-2 w-5 h-5 border-b-2 border-r-2 border-orange-400" />
+              </div>
+            </div>
+            {/* spec card */}
+            <div className="mt-3 grid grid-cols-2 text-[11px] border border-zinc-800 divide-x divide-zinc-800">
+              <div className="p-3">
+                <p className={`${mono} text-zinc-500 text-[9px]`}>RATING</p>
+                <p className="font-[family-name:var(--font-bebas)] text-3xl text-orange-400 leading-none mt-1">{company.rating.value}<span className="text-zinc-600 text-xl">/5</span></p>
+              </div>
+              <div className="p-3">
+                <p className={`${mono} text-zinc-500 text-[9px]`}>OPINII</p>
+                <p className="font-[family-name:var(--font-bebas)] text-3xl text-zinc-100 leading-none mt-1">{company.rating.count}+</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="max-w-6xl mx-auto px-6 mb-32">
-        <div className={`${glass} grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10`}>
-          {stats.map((s) => (
-            <div key={s.label} className="px-6 py-10 text-center">
-              <p className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl text-amber-300">{s.value}</p>
-              <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-slate-400">{s.label}</p>
+      {/* Stats — gauges */}
+      <section className="border-b border-zinc-800 bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-zinc-800">
+          {stats.map((s, i) => (
+            <div key={s.label} className="px-6 py-8 relative">
+              <p className={`${mono} text-[10px] text-orange-400 mb-2`}>{`PARAM.${String(i + 1).padStart(2, "0")}`}</p>
+              <p className="font-[family-name:var(--font-bebas)] text-5xl md:text-6xl leading-none tracking-wide">{s.value}</p>
+              <p className={`${mono} text-[10px] text-zinc-500 mt-3`}>{s.label.toUpperCase()}</p>
+              <span className="absolute top-3 right-3 w-1.5 h-1.5 bg-orange-400" />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Trust strip — banks like supplier list */}
+      <section className="border-b border-zinc-800 bg-zinc-900">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <p className={`${mono} text-[10px] text-orange-400 mb-4 flex items-center gap-3`}>
+            <span className="h-px w-8 bg-orange-400" />
+            ZATWIERDZONE INSTYTUCJE [{trustBanks.length}]
+          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            {trustBanks.map((b) => (
+              <span key={b} className="font-[family-name:var(--font-bebas)] text-xl text-zinc-400 hover:text-orange-400 transition tracking-wide">{b}</span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Services */}
-      <section id="oferta" className="max-w-6xl mx-auto px-6 mb-32">
-        <div className="max-w-2xl mb-14">
-          <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-4">Oferta</p>
-          <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl leading-[1.05]">Kompletny portfel usług kredytowych.</h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s, i) => (
-            <article key={s.slug} className={`${glass} p-7 hover:bg-white/[0.06] transition group`}>
-              <div className="flex items-center justify-between mb-6">
-                <span className="font-[family-name:var(--font-cormorant)] text-3xl text-amber-300">0{i + 1}</span>
-                <span className="w-9 h-9 rounded-full bg-white/5 grid place-items-center border border-white/10 group-hover:bg-amber-400 group-hover:border-amber-400 transition"><span className="text-slate-100 group-hover:text-slate-950">→</span></span>
-              </div>
-              <h3 className="font-[family-name:var(--font-cormorant)] text-2xl mb-3">{s.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{s.long}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Portrait + about */}
-      <section className="max-w-6xl mx-auto px-6 mb-32 grid lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-5 relative">
-          <div className={`${glass} p-3 -rotate-2`}>
-            <div className="aspect-[3/4] relative rounded-2xl overflow-hidden">
-              <Image src={portrait.largeImageURL} alt="" fill className="object-cover" unoptimized />
+      <section id="oferta" className="border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="grid lg:grid-cols-12 gap-8 mb-12">
+            <div className="lg:col-span-4">
+              <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-02 / OFERTA</p>
+              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">
+                ZAKRES<br/>USŁUG.
+              </h2>
             </div>
+            <p className="lg:col-span-7 lg:col-start-6 text-zinc-300 text-lg leading-relaxed self-end">
+              Sześć dokumentowanych procedur, w których prowadzę klienta od pierwszej rozmowy aż do uruchomienia środków przez bank.
+            </p>
           </div>
-          <div className={`${glass} absolute -bottom-6 -right-6 p-5 rotate-3 hidden md:block`}>
-            <p className="font-[family-name:var(--font-cormorant)] text-3xl text-amber-300">10+</p>
-            <p className="text-xs uppercase tracking-[0.3em] text-slate-400 mt-1">lat doświadczenia</p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-800">
+            {services.map((s, i) => (
+              <article key={s.slug} className="bg-zinc-900 p-7 hover:bg-zinc-800 transition group relative">
+                <div className="flex items-start justify-between">
+                  <span className={`${mono} text-[10px] text-orange-400`}>{`PROC.${String(i + 1).padStart(2, "0")}`}</span>
+                  <span className="w-8 h-8 border border-zinc-700 grid place-items-center group-hover:border-orange-400 group-hover:text-orange-400 transition">→</span>
+                </div>
+                <h3 className="font-[family-name:var(--font-bebas)] text-3xl mt-6 tracking-wide">{s.title}</h3>
+                <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{s.long}</p>
+                <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-orange-400 group-hover:w-full transition-all duration-500" />
+              </article>
+            ))}
           </div>
         </div>
-        <div className="lg:col-span-7">
-          <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-4">Filozofia pracy</p>
-          <h2 className="font-[family-name:var(--font-cormorant)] text-4xl md:text-5xl leading-tight italic font-light">
-            Nie sprzedaję kredytów.<br/>Pomagam <span className="not-italic font-normal bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">podejmować decyzje</span>, z którymi&nbsp;dobrze się żyje.
-          </h2>
-          <p className="mt-6 text-slate-400 leading-relaxed">Niezależność od banku, indywidualne podejście i pełna obsługa procesu kredytowego — od analizy zdolności po podpisanie umowy.</p>
-        </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="opinie" className="max-w-6xl mx-auto px-6 mb-32">
-        <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-4">Zaufanie</p>
-          <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl">{company.rating.value} / 5 · {company.rating.count} opinii Google</h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {top3Reviews.map((r, i) => (
-            <figure key={i} className={`${glass} p-7`}>
-              <p className="text-amber-400 mb-4">{"★★★★★"}</p>
-              <blockquote className="font-[family-name:var(--font-cormorant)] text-xl italic leading-snug text-slate-100">&ldquo;{r.text.length > 220 ? r.text.slice(0, 220) + "…" : r.text}&rdquo;</blockquote>
-              <figcaption className="mt-6 text-xs uppercase tracking-[0.3em] text-slate-400">— {r.author}</figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      {/* Blog */}
-      <section id="blog" className="max-w-6xl mx-auto px-6 mb-32">
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
-          <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl">Insights</h2>
-          <p className="text-sm text-slate-400">aktualności rynku kredytowego</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {top3Posts.map((p, i) => (
-            <article key={p.slug} className={`${glass} overflow-hidden group`}>
-              <div className="aspect-[16/10] relative">
-                {p.image ? <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized /> : <div className="absolute inset-0 bg-gradient-to-br from-amber-400/30 to-indigo-600/30" /> }
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent" />
-                <span className="absolute top-3 left-3 text-xs px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 font-medium">#{i + 1}</span>
+      {/* About — spec sheet */}
+      <section className="border-b border-zinc-800 relative">
+        <div className="absolute inset-0 opacity-30 pointer-events-none" style={blueprint} />
+        <div className="relative max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-5">
+            <div className="border-2 border-orange-400/40 p-1.5">
+              <div className="aspect-square relative overflow-hidden">
+                <Image src={machinery.largeImageURL} alt="" fill className="object-cover saturate-50 contrast-110" unoptimized />
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-zinc-950/40" />
               </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-3">{p.dateDisplay}</p>
-                <h3 className="font-[family-name:var(--font-cormorant)] text-2xl leading-snug">{p.title}</h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="max-w-6xl mx-auto px-6 mb-32">
-        <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl mb-10">Atelier</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {images.gallery.slice(0, 8).map((g, i) => (
-            <div key={i} className={`${glass} aspect-square relative overflow-hidden p-0`}>
-              <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
             </div>
-          ))}
+            <div className="mt-3 grid grid-cols-3 gap-3 text-[11px]">
+              <div className="border border-zinc-800 p-3">
+                <p className={`${mono} text-zinc-500 text-[9px]`}>EST.</p>
+                <p className="font-[family-name:var(--font-bebas)] text-2xl text-orange-400 leading-none mt-1">2014</p>
+              </div>
+              <div className="border border-zinc-800 p-3">
+                <p className={`${mono} text-zinc-500 text-[9px]`}>UNIT</p>
+                <p className="font-[family-name:var(--font-bebas)] text-2xl leading-none mt-1">001</p>
+              </div>
+              <div className="border border-zinc-800 p-3">
+                <p className={`${mono} text-zinc-500 text-[9px]`}>OPS</p>
+                <p className="font-[family-name:var(--font-bebas)] text-2xl leading-none mt-1">15+</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-7">
+            <p className={`${mono} text-[10px] text-orange-400 mb-4`}>SECT-03 / OPERATOR</p>
+            <h2 className="font-[family-name:var(--font-bebas)] text-5xl md:text-7xl tracking-wide leading-[0.9]">
+              ARTUR MIESAŁA<br/>
+              <span className="text-orange-400">// MOTOR PROCESU.</span>
+            </h2>
+            <p className="mt-6 text-zinc-300 leading-relaxed max-w-xl">
+              Doradca z zacięciem inżyniera. Zamiast obietnic — checklisty, harmonogramy i dokumentacja. Tłumaczę bankowy żargon na język ludzi, którzy chcą wiedzieć, na czym dokładnie stoją.
+            </p>
+            <div className="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { v: "0 zł", l: "KOSZT KLIENTA" },
+                { v: "21 dni", l: "DECYZJA BANKU" },
+                { v: "PL", l: "ZASIĘG" },
+                { v: "100%", l: "TRANSPARENTNOŚĆ" },
+              ].map((x) => (
+                <div key={x.l} className="border-t-2 border-orange-400 pt-2">
+                  <p className="font-[family-name:var(--font-bebas)] text-2xl leading-none">{x.v}</p>
+                  <p className={`${mono} text-[9px] text-zinc-500 mt-1.5`}>{x.l}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="max-w-4xl mx-auto px-6 mb-32">
-        <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-4 text-center">FAQ</p>
-        <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl text-center mb-14">Najczęstsze pytania.</h2>
-        <div className="space-y-3">
-          {faq.map((f, i) => (
-            <details key={i} className={`${glass} group p-0 open:bg-white/[0.07]`}>
-              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none p-6">
-                <span className="font-[family-name:var(--font-cormorant)] text-xl">{f.q}</span>
-                <span className="mt-1 text-amber-300 text-2xl transition group-open:rotate-45 leading-none">+</span>
-              </summary>
-              <p className="px-6 pb-6 text-slate-400 leading-relaxed">{f.a}</p>
-            </details>
-          ))}
+      {/* Testimonials — file cards */}
+      <section id="opinie" className="border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+            <div>
+              <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-04 / RAPORTY KLIENTÓW</p>
+              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CASE FILES.</h2>
+            </div>
+            <p className={`${mono} text-[10px] text-zinc-500`}>{`SAMPLE = ${top3Reviews.length} / TOTAL = ${company.rating.count}`}</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-px bg-zinc-800">
+            {top3Reviews.map((r, i) => (
+              <figure key={i} className="bg-zinc-900 p-7 relative">
+                <div className="flex items-center justify-between mb-5">
+                  <span className={`${mono} text-[10px] text-orange-400`}>{`FILE.${String(i + 1).padStart(3, "0")}`}</span>
+                  <span className="text-orange-400 text-lg tracking-widest">{"★★★★★"}</span>
+                </div>
+                <blockquote className="text-zinc-200 leading-relaxed">&ldquo;{r.text.length > 220 ? r.text.slice(0, 220) + "…" : r.text}&rdquo;</blockquote>
+                <figcaption className={`${mono} text-[10px] text-zinc-500 mt-5 pt-5 border-t border-zinc-800`}>// {r.author.toUpperCase()}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog — newsfeed */}
+      <section id="blog" className="border-b border-zinc-800 bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+            <div>
+              <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-05 / RAPORTY RYNKOWE</p>
+              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">BIULETYN.</h2>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-px bg-zinc-800">
+            {top3Posts.map((p, i) => (
+              <article key={p.slug} className="bg-zinc-900 group">
+                <div className="aspect-[16/10] relative overflow-hidden border-b border-zinc-800">
+                  <Image src={blogImage(p, i)} alt="" fill className="object-cover saturate-50 group-hover:saturate-100 transition duration-500" unoptimized />
+                  <span className={`absolute top-3 left-3 ${mono} text-[10px] bg-zinc-950/80 backdrop-blur px-2 py-1 text-orange-400 border border-orange-400/40`}>
+                    NR.{String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <p className={`${mono} text-[10px] text-orange-400 mb-3`}>{p.dateDisplay.toUpperCase()}</p>
+                  <h3 className="font-[family-name:var(--font-bebas)] text-2xl leading-tight tracking-wide">{p.title}</h3>
+                  <p className={`${mono} text-[10px] text-zinc-500 mt-4 group-hover:text-orange-400 transition`}>OTWÓRZ &rarr;</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery — contact sheets */}
+      <section className="border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+            <div>
+              <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-06 / DOKUMENTACJA WIZUALNA</p>
+              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CONTACT SHEET.</h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
+            {images.gallery.slice(0, 8).map((g, i) => (
+              <div key={i} className="aspect-square relative border border-zinc-800 group overflow-hidden">
+                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover saturate-50 group-hover:saturate-100 transition" sizes="25vw" unoptimized />
+                <span className={`absolute top-2 left-2 ${mono} text-[9px] bg-zinc-950/80 px-1.5 py-0.5 text-orange-400`}>
+                  IMG.{String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ — technical sheet */}
+      <section id="faq" className="border-b border-zinc-800 relative">
+        <div className="absolute inset-0 opacity-30 pointer-events-none" style={blueprint} />
+        <div className="relative max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-07 / DIAGNOSTYKA</p>
+            <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">FAQ /<br/>TROUBLE<br/>SHOOTING.</h2>
+            <p className="mt-6 text-zinc-400 max-w-xs">Najczęściej zgłaszane &bdquo;dlaczego&rdquo; w procesie kredytowym. Inżynierskie odpowiedzi.</p>
+          </div>
+          <div className="lg:col-span-8 divide-y divide-zinc-800 border-y border-zinc-800">
+            {faq.map((f, i) => (
+              <details key={i} className="group bg-zinc-900/40 open:bg-zinc-900">
+                <summary className="grid grid-cols-12 gap-4 items-baseline cursor-pointer list-none p-5">
+                  <span className={`col-span-2 md:col-span-1 ${mono} text-[10px] text-orange-400`}>{`Q.${String(i + 1).padStart(2, "0")}`}</span>
+                  <span className="col-span-9 md:col-span-10 font-[family-name:var(--font-bebas)] text-xl tracking-wide leading-snug">{f.q.toUpperCase()}</span>
+                  <span className="col-span-1 text-right text-orange-400 transition group-open:rotate-45 leading-none text-xl">+</span>
+                </summary>
+                <p className="px-5 pb-5 pl-[16.66%] md:pl-[8.33%] text-zinc-300 leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA above footer */}
-      <section className="max-w-6xl mx-auto px-6 mb-16">
-        <div className="relative rounded-3xl overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <Image src={gradient.largeImageURL} alt="" fill className="object-cover opacity-30" unoptimized />
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/30 via-slate-950/80 to-indigo-700/30" />
+      <section className="border-b border-zinc-800 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <Image src={skyline.largeImageURL} alt="" fill className="object-cover saturate-0 opacity-30" unoptimized />
+          <div className="absolute inset-0 bg-zinc-950/80" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-7">
+            <p className={`${mono} text-[10px] text-orange-400 mb-4`}>SECT-08 / URUCHOMIENIE</p>
+            <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-8xl tracking-wide leading-[0.85]">
+              ROZRUCH<br/>PROCESU.<br/><span className="text-orange-400">JEDEN TELEFON.</span>
+            </h2>
+            <p className="mt-6 text-zinc-300 max-w-lg">Konsultacja diagnostyczna — 30 minut. Bez zobowiązań. Po niej wiesz, na czym stoisz.</p>
           </div>
-          <div className="px-8 md:px-16 py-20 grid md:grid-cols-12 gap-10 items-center">
-            <div className="md:col-span-7">
-              <h2 className="font-[family-name:var(--font-cormorant)] text-4xl md:text-6xl leading-[1.05]">
-                Porozmawiajmy o Twojej<br/><span className="italic text-amber-300">nieruchomości.</span>
-              </h2>
-              <p className="mt-5 text-slate-300 max-w-lg">Konsultacja bez zobowiązań. Pierwsza rozmowa — 30 minut spokoju i jasności.</p>
-            </div>
-            <div className="md:col-span-5 md:text-right">
-              <a href={company.contact.phoneTel} className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-amber-400 text-slate-950 text-lg font-medium hover:bg-amber-300 transition shadow-[0_0_60px_-10px_rgba(251,191,36,0.8)]">
-                {company.contact.phone} →
-              </a>
-            </div>
+          <div className="md:col-span-5 md:text-right space-y-4">
+            <a href={company.contact.phoneTel} className={`${mono} inline-flex items-center gap-3 bg-orange-500 text-zinc-950 px-7 h-14 hover:bg-orange-400 transition text-[12px]`}>
+              ▶ {company.contact.phone}
+            </a>
+            <p className={`${mono} text-[10px] text-zinc-500`}>OPERACYJNE PN-PT 09:00&minus;19:00</p>
           </div>
         </div>
+        {/* bottom hazard bar */}
+        <div className="h-2" style={cautionStripe} />
       </section>
 
       {/* Footer */}
-      <footer id="kontakt" className="max-w-6xl mx-auto px-6 pb-12">
-        <div className={`${glass} p-10 grid lg:grid-cols-12 gap-10`}>
+      <footer id="kontakt" className="bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-6 py-14 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <p className="font-[family-name:var(--font-cormorant)] text-2xl">Miesała · Capital</p>
-            <p className="text-sm text-slate-400 mt-3">{company.contact.address.full}</p>
-            <p className="text-sm text-slate-400">{company.contact.phone}</p>
+            <p className={`${mono} text-[10px] text-orange-400`}>EXPERT.UNIT // {year}</p>
+            <p className="font-[family-name:var(--font-bebas)] text-3xl tracking-wide mt-2">{company.shortName.toUpperCase()}</p>
+            <p className="text-sm text-zinc-400 mt-3">{company.contact.address.full}</p>
+            <p className={`${mono} text-sm mt-1`}>{company.contact.phone}</p>
           </div>
-          <div className="lg:col-span-4 text-sm text-slate-300">
-            <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-3">Godziny</p>
-            <ul className="space-y-1">
+          <div className="lg:col-span-4">
+            <p className={`${mono} text-[10px] text-orange-400 mb-3`}>HARMONOGRAM</p>
+            <ul className={`${mono} text-[11px] space-y-1`}>
               {Object.entries(company.hours.displayPL).map(([d, h]) => (
-                <li key={d} className="flex justify-between"><span>{d}</span><span className={h === "Zamknięte" ? "text-slate-500" : ""}>{h}</span></li>
+                <li key={d} className="flex justify-between border-b border-zinc-800 pb-1">
+                  <span className="text-zinc-400">{d.toUpperCase()}</span>
+                  <span className={h === "Zamknięte" ? "text-zinc-600" : "text-orange-400"}>{h.toUpperCase()}</span>
+                </li>
               ))}
             </ul>
           </div>
           <div className="lg:col-span-4">
-            <div className="aspect-video rounded-2xl overflow-hidden border border-white/10">
+            <p className={`${mono} text-[10px] text-orange-400 mb-3`}>LOKALIZACJA</p>
+            <div className="aspect-video border border-zinc-800 grayscale contrast-125">
               <iframe src={company.contact.googleMaps.embed} className="w-full h-full" loading="lazy" title="Mapa" />
             </div>
           </div>
         </div>
-        <p className="text-xs text-slate-500 text-center mt-8">© {new Date().getFullYear()} {company.owner} · Wariant 3 — Dark Luxury Glass · <Link href="/" className="underline hover:text-amber-300">all variants</Link></p>
+        <div className="border-t border-zinc-800">
+          <p className={`${mono} max-w-7xl mx-auto px-6 py-5 text-[10px] text-zinc-500 flex flex-wrap items-center justify-between gap-3`}>
+            <span>© {year} {company.owner.toUpperCase()} // WARIANT 03 — INDUSTRIAL</span>
+            <Link href="/" className="hover:text-orange-400">← WSZYSTKIE WARIANTY</Link>
+          </p>
+        </div>
       </footer>
     </main>
   );

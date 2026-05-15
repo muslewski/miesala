@@ -9,6 +9,7 @@ import {
   Cormorant_Garamond,
   Manrope,
   Plus_Jakarta_Sans,
+  Bebas_Neue,
 } from "next/font/google";
 import "./globals.css";
 
@@ -21,6 +22,7 @@ const dmSerif = DM_Serif_Display({ subsets: ["latin", "latin-ext"], variable: "-
 const cormorant = Cormorant_Garamond({ subsets: ["latin", "latin-ext"], variable: "--font-cormorant", weight: ["300", "400", "500", "600", "700"], display: "swap" });
 const manrope = Manrope({ subsets: ["latin", "latin-ext"], variable: "--font-manrope", display: "swap" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext"], variable: "--font-jakarta", display: "swap" });
+const bebas = Bebas_Neue({ subsets: ["latin", "latin-ext"], variable: "--font-bebas", weight: "400", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Ekspert Finansowy Artur Miesała — 10 wariantów designu",
@@ -38,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     cormorant.variable,
     manrope.variable,
     jakarta.variable,
+    bebas.variable,
   ].join(" ");
   return (
     <html lang="pl" className={`${cls} antialiased`}>

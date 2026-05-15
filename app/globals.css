@@ -10,6 +10,7 @@
   --font-cormorant: var(--font-cormorant);
   --font-manrope: var(--font-manrope);
   --font-jakarta: var(--font-jakarta);
+  --font-bebas: var(--font-bebas);
 }
 
 html, body { background: #fff; color: #111; }

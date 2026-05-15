@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 8 — Swiss Modernist Grid
  * Biel + czerń + czerwony akcent, Inter (helveticowy vibe), strict 12-col grid, numery, ascetyzm.
@@ -124,11 +124,9 @@ export default function Page() {
           {top3Posts.map((p, i) => (
             <article key={p.slug} className="col-span-12 md:col-span-4 border-t border-black pt-4">
               <p className="text-[10px] uppercase tracking-widest mb-2">N&deg; 0{i + 1} · {p.dateDisplay}</p>
-              {p.image && (
-                <div className="aspect-[4/3] relative mb-4">
-                  <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized />
-                </div>
-              )}
+              <div className="aspect-[4/3] relative mb-4">
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+              </div>
               <h3 className="text-xl font-bold leading-snug">{p.title}</h3>
             </article>
           ))}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 1 — Editorial Minimal
  * Style: prasowy spokój, dużo bieli, serif Playfair + sans Inter, jeden ciemnozielony akcent.
@@ -164,12 +164,10 @@ export default function Page() {
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
-            {top3Posts.map((p) => (
+            {top3Posts.map((p, i) => (
               <article key={p.slug} className="group">
                 <div className="aspect-[4/3] relative overflow-hidden mb-6 bg-stone-200">
-                  {p.image ? (
-                    <Image src={gImg(p.image, 800)} alt="" fill className="object-cover group-hover:scale-105 transition duration-700" unoptimized />
-                  ) : null}
+                  <Image src={blogImage(p, i)} alt="" fill className="object-cover group-hover:scale-105 transition duration-700" unoptimized />
                 </div>
                 <p className="text-xs uppercase tracking-widest text-stone-500 mb-3">{p.dateDisplay}</p>
                 <h3 className="font-[family-name:var(--font-playfair)] text-xl leading-snug">{p.title}</h3>

@@ -35,6 +35,28 @@ export function gImg(url: string, size: number): string {
   return url.endsWith("=s0") ? url.replace("=s0", `=s${size}`) : `${url}=s${size}`;
 }
 
+/** Fallback stock images used when a blog post lacks a thumbnail. */
+const blogFallbackCategories = [
+  "modern_house", "calculator_money", "documents_desk",
+  "city_building", "real_estate", "interior_modern",
+] as const;
+
+/**
+ * Return an image URL for a blog post, resized for ~800px width.
+ * Falls back to a stable Pixabay stock image when the post itself has no image.
+ */
+export function blogImage(
+  post: { image?: string | null; slug: string },
+  idx: number,
+  size: number = 800,
+): string {
+  if (post.image) return gImg(post.image, size);
+  const cat = blogFallbackCategories[idx % blogFallbackCategories.length];
+  const pool = pixabay[cat] ?? [];
+  const pick = pool[idx % Math.max(pool.length, 1)] ?? pool[0];
+  return pick?.largeImageURL ?? "";
+}
+
 /** Services derived from the blog topics & company offer */
 export const services = [
   {

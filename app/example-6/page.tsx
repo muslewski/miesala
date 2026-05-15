@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, pick } from "@/lib/content";
+import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 
 /* Variant 6 — Neumorphism Mono
  * Jeden kolor (neutral-200), wypukłe i wklęsłe formy, Manrope, mały akcent stalowy.
@@ -115,10 +115,10 @@ export default function Page() {
       <section id="blog" className="max-w-6xl mx-auto px-6 pb-24">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Notatnik eksperta</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {top3Posts.map((p) => (
+          {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${raised} rounded-3xl bg-neutral-200 overflow-hidden`}>
               <div className="m-3 aspect-[16/10] relative rounded-2xl overflow-hidden shadow-[inset_4px_4px_10px_rgba(0,0,0,0.12),inset_-4px_-4px_10px_rgba(255,255,255,0.6)]">
-                {p.image ? <Image src={gImg(p.image, 800)} alt="" fill className="object-cover" unoptimized /> : null}
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
               </div>
               <div className="px-6 pb-6">
                 <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">{p.dateDisplay}</p>
