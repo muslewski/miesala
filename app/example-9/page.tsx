@@ -281,11 +281,12 @@ export default function Page() {
             {faq.map((f, i) => (
               <FaqItem
                 key={i}
-                className="bg-white rounded-2xl border border-slate-200 data-[state=open]:shadow-md transition"
+                animated={false}
+                className="bg-white rounded-2xl border border-slate-200 data-[state=open]:shadow-md transition-shadow duration-200"
                 question={
                   <span className="flex items-start justify-between gap-6 p-6">
                     <span className="font-semibold">{f.q}</span>
-                    <span className="mt-1 w-7 h-7 rounded-full bg-blue-50 grid place-items-center text-blue-700 transition leading-none group-data-[state=open]/faq:rotate-45">+</span>
+                    <span className="mt-1 w-7 h-7 rounded-full bg-blue-50 grid place-items-center text-blue-700 transition-transform leading-none group-data-[state=open]/faq:rotate-45">+</span>
                   </span>
                 }
                 contentClassName="px-6 pb-6 text-slate-600 leading-relaxed"
