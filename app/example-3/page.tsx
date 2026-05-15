@@ -5,7 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import StaggeredText from "@/components/react-bits/staggered-text";
-import TextType from "@/components/react-bits/TextType";
+import { SmartTextType } from "@/components/motion/SmartTextType";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -102,7 +102,7 @@ export default function Page() {
               <span className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 bg-orange-400" />
                 REF.001 /{" "}
-                <TextType
+                <SmartTextType
                   as="span"
                   text={[
                     "DORADZTWO KREDYTOWE",
@@ -152,7 +152,7 @@ export default function Page() {
             </div>
             <div className="border-2 border-orange-400/40 p-1.5 relative">
               <div className="aspect-[4/5] relative overflow-hidden">
-                <Image src={hero.largeImageURL} alt="" fill className="object-cover saturate-50 contrast-110" priority unoptimized />
+                <Image src={hero.largeImageURL} alt="" fill className="object-cover saturate-50 contrast-110" priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
                 {/* corner brackets */}
                 <span className="absolute top-2 left-2 w-5 h-5 border-t-2 border-l-2 border-orange-400" />
@@ -243,7 +243,7 @@ export default function Page() {
           <div className="lg:col-span-5">
             <div className="border-2 border-orange-400/40 p-1.5">
               <div className="aspect-square relative overflow-hidden">
-                <Image src={machinery.largeImageURL} alt="" fill className="object-cover saturate-50 contrast-110" unoptimized />
+                <Image src={machinery.largeImageURL} alt="" fill className="object-cover saturate-50 contrast-110" />
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-zinc-950/40" />
               </div>
             </div>
@@ -326,7 +326,7 @@ export default function Page() {
             {top3Posts.map((p, i) => (
               <article key={p.slug} className="bg-zinc-900 group">
                 <div className="aspect-[16/10] relative overflow-hidden border-b border-zinc-800">
-                  <Image src={blogImage(p, i)} alt="" fill className="object-cover saturate-50 group-hover:saturate-100 transition duration-500" unoptimized />
+                  <Image src={blogImage(p, i)} alt="" fill className="object-cover saturate-50 group-hover:saturate-100 transition duration-500" />
                   <span className={`absolute top-3 left-3 ${mono} text-[10px] bg-zinc-950/80 backdrop-blur px-2 py-1 text-orange-400 border border-orange-400/40`}>
                     NR.{String(i + 1).padStart(2, "0")}
                   </span>
@@ -354,7 +354,7 @@ export default function Page() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
             {images.gallery.slice(0, 8).map((g, i) => (
               <div key={i} className="aspect-square relative border border-zinc-800 group overflow-hidden">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover saturate-50 group-hover:saturate-100 transition" sizes="25vw" unoptimized />
+                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover saturate-50 group-hover:saturate-100 transition" sizes="25vw" />
                 <span className={`absolute top-2 left-2 ${mono} text-[9px] bg-zinc-950/80 px-1.5 py-0.5 text-orange-400`}>
                   IMG.{String(i + 1).padStart(2, "0")}
                 </span>
@@ -396,7 +396,7 @@ export default function Page() {
       {/* CTA above footer */}
       <section className="border-b border-zinc-800 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <Image src={skyline.largeImageURL} alt="" fill className="object-cover saturate-0 opacity-30" unoptimized />
+          <Image src={skyline.largeImageURL} alt="" fill className="object-cover saturate-0 opacity-30" />
           <div className="absolute inset-0 bg-zinc-950/80" />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-10 items-center">

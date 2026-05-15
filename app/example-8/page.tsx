@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { EditorialMarquee } from "@/components/motion/EditorialMarquee";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 
@@ -39,7 +40,6 @@ const marqueeWords = [
   "OSIELSKO  ·  BYDGOSZCZ  ·  POLSKA",
   "OD 2014 ROKU",
 ];
-const marqueeRun = [...marqueeWords, ...marqueeWords]; // doubled for seamless loop
 
 export default function Page() {
   return (
@@ -138,7 +138,7 @@ export default function Page() {
           {/* Full-bleed hero photo */}
           <div className="col-span-12 grid grid-cols-12 gap-6 mt-6">
             <div className="col-span-12 md:col-span-9 aspect-[16/8] relative overflow-hidden">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover grayscale contrast-110" sizes="(min-width:768px) 75vw, 100vw" priority unoptimized />
+              <Image src={hero.largeImageURL} alt="" fill className="object-cover grayscale contrast-110" sizes="(min-width:768px) 75vw, 100vw" priority />
               <span className="absolute top-3 left-3 text-[10px] uppercase tracking-widest bg-white px-2 py-1 border border-black tabular-nums">FIG. 01 / Nieruchomość</span>
               <span className="absolute bottom-3 right-3 text-[10px] uppercase tracking-widest bg-white px-2 py-1 border border-black tabular-nums">SCALE 1:1</span>
             </div>
@@ -155,16 +155,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Editorial marquee */}
-      <section aria-hidden className="border-b border-black overflow-hidden bg-red-600 text-white">
-        <div className="flex w-max animate-marquee whitespace-nowrap py-3">
-          {marqueeRun.map((w, i) => (
-            <span key={i} className="flex items-center px-6 text-sm uppercase tracking-[0.3em] font-bold">
-              {w}<span className="ml-6 text-white/60">+</span>
-            </span>
-          ))}
-        </div>
-      </section>
+      {/* Editorial marquee — pauses when off-screen + on low-perf devices */}
+      <EditorialMarquee words={marqueeWords} />
 
       {/* Services */}
       <section id="oferta" className="border-b border-black">
@@ -274,7 +266,7 @@ export default function Page() {
                 <span className="col-span-10 md:col-span-2 text-[10px] uppercase tracking-[0.3em] text-black/60 tabular-nums">{p.dateDisplay}</span>
                 <h3 className="col-span-12 md:col-span-6 text-xl md:text-2xl font-bold leading-tight group-hover:text-red-600 transition">{p.title}</h3>
                 <div className="col-span-12 md:col-span-3 aspect-[16/10] relative grayscale">
-                  <Image src={blogImage(p, i)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
+                  <Image src={blogImage(p, i)} alt="" fill className="object-cover" sizes="25vw" />
                 </div>
               </li>
             ))}
@@ -291,13 +283,13 @@ export default function Page() {
           </div>
           <div className="col-span-12 md:col-span-9 grid grid-cols-12 gap-1">
             <div className="col-span-12 md:col-span-6 aspect-[4/5] relative">
-              <Image src={spread.largeImageURL} alt="" fill className="object-cover grayscale contrast-110" sizes="50vw" unoptimized />
+              <Image src={spread.largeImageURL} alt="" fill className="object-cover grayscale contrast-110" sizes="50vw" />
               <span className="absolute top-2 left-2 text-[10px] uppercase tracking-widest bg-white border border-black px-1.5 py-0.5 tabular-nums">FIG. 02</span>
             </div>
             <div className="col-span-12 md:col-span-6 grid grid-cols-2 gap-1">
               {images.gallery.slice(0, 6).map((g, i) => (
                 <div key={i} className="aspect-square relative">
-                  <Image src={gImg(g.url, 600)} alt="" fill className="object-cover grayscale hover:grayscale-0 transition" sizes="25vw" unoptimized />
+                  <Image src={gImg(g.url, 600)} alt="" fill className="object-cover grayscale hover:grayscale-0 transition" sizes="25vw" />
                   <span className="absolute top-1 left-1 text-[9px] uppercase tracking-widest bg-white border border-black px-1 py-0.5 tabular-nums">{String(i + 3).padStart(2, "0")}</span>
                 </div>
               ))}

@@ -22,6 +22,7 @@
  */
 
 import Preloader from "@/components/react-bits/preloader";
+import { usePerfMode } from "@/lib/hooks/use-perf-mode";
 import { useEffect, useState } from "react";
 
 const DEFAULT_HOLD_MS = 900;
@@ -53,6 +54,7 @@ export function SitePreloader({
 }: SitePreloaderProps) {
   const [loading, setLoading] = useState(true);
   const [skip, setSkip] = useState(false);
+  const perf = usePerfMode();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -78,7 +80,11 @@ export function SitePreloader({
     return () => window.clearTimeout(t);
   }, [storageKey, holdMs]);
 
-  if (skip) return null;
+  // Skip the entire preloader on low-perf devices. The reactbits
+  // Preloader spins up a fairly heavy motion tree (stairs / percentage
+  // variants animate many layers), so on slow networks / low-memory
+  // phones it's worse than just rendering content immediately.
+  if (skip || perf === "low") return null;
 
   return (
     <Preloader

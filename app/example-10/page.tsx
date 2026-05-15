@@ -89,7 +89,7 @@ export default function Page() {
         <div className="lg:col-span-5 relative">
           <div className={`${blob} bg-gradient-to-br from-orange-200 to-rose-200 p-3 rotate-2 shadow-2xl shadow-orange-300/40`}>
             <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden relative">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority unoptimized />
+              <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority />
             </div>
           </div>
           {/* Floating chips */}
@@ -154,7 +154,7 @@ export default function Page() {
         <div className="lg:col-span-5 relative">
           <div className={`${blob} bg-gradient-to-br from-amber-200 to-orange-200 p-3 -rotate-2 shadow-2xl shadow-orange-300/40`}>
             <div className="aspect-square rounded-[2.5rem] overflow-hidden relative">
-              <Image src={couple.largeImageURL} alt="" fill className="object-cover" unoptimized />
+              <Image src={couple.largeImageURL} alt="" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ export default function Page() {
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 overflow-hidden ${i === 1 ? "md:translate-y-6" : ""}`}>
               <div className="aspect-[4/3] relative m-3 rounded-[2rem] overflow-hidden">
-                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" />
               </div>
               <div className="px-6 pb-6">
                 <p className="text-xs text-orange-800 font-medium mb-2 uppercase tracking-widest">{p.dateDisplay}</p>
@@ -215,7 +215,7 @@ export default function Page() {
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 p-2 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}>
               <div className="aspect-square relative rounded-[1.75rem] overflow-hidden">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
+                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
               </div>
             </div>
           ))}

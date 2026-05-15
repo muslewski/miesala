@@ -86,7 +86,7 @@ export default function Page() {
           <div className="lg:col-span-5">
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden relative shadow-2xl shadow-blue-700/15 ring-1 ring-slate-200">
-                <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority unoptimized />
+                <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl ring-1 ring-slate-200 p-5 max-w-xs">
                 <p className="text-xs text-slate-500 mb-1">Rata kredytu — symulacja</p>
@@ -165,7 +165,7 @@ export default function Page() {
       {/* About */}
       <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5 aspect-square rounded-2xl overflow-hidden relative ring-1 ring-slate-200">
-          <Image src={handshake.largeImageURL} alt="" fill className="object-cover" unoptimized />
+          <Image src={handshake.largeImageURL} alt="" fill className="object-cover" />
         </div>
         <div className="lg:col-span-7">
           <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">O mnie</p>
@@ -228,7 +228,7 @@ export default function Page() {
           {top3Posts.map((p, i) => (
             <article key={p.slug} className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition flex flex-col">
               <div className="aspect-[16/10] relative">
-                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" />
               </div>
               <div className="p-6">
                 <p className="text-xs text-slate-500 mb-3">{p.dateDisplay}</p>
@@ -246,7 +246,7 @@ export default function Page() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className="aspect-square relative rounded-xl overflow-hidden ring-1 ring-slate-200">
-              <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
+              <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
             </div>
           ))}
         </div>

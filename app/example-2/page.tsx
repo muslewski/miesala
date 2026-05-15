@@ -69,7 +69,7 @@ export default function Page() {
           </div>
           <div className="lg:col-span-5 flex flex-col gap-5">
             <div className={`${card} relative aspect-[4/3] overflow-hidden`}>
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover" unoptimized />
+              <Image src={hero.largeImageURL} alt="" fill className="object-cover" />
               <span className="absolute top-3 left-3 bg-yellow-300 px-2 py-1 font-[family-name:var(--font-mono)] text-xs border-2 border-black uppercase">// klucze</span>
             </div>
             <div className={`${cardYellow} p-5 font-[family-name:var(--font-mono)] text-sm`}>
@@ -135,7 +135,7 @@ export default function Page() {
             {top3Posts.map((p, i) => (
               <article key={p.slug} className={`${card} overflow-hidden`}>
                 <div className="aspect-[4/3] relative border-b-[3px] border-black bg-yellow-300">
-                  <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+                  <Image src={blogImage(p, i)} alt="" fill className="object-cover" />
                 </div>
                 <div className="p-6">
                   <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase mb-2">{p.dateDisplay}</p>
@@ -154,7 +154,7 @@ export default function Page() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {images.gallery.slice(0, 8).map((g, i) => (
               <div key={i} className="border-[3px] border-yellow-300 aspect-square relative overflow-hidden hover:-translate-y-1 transition">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
+                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
               </div>
             ))}
           </div>

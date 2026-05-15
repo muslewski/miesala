@@ -78,7 +78,7 @@ export default function Page() {
         <div className="lg:col-span-5">
           <div className={`${raised} p-4 rounded-[2rem] bg-neutral-200`}>
             <div className="aspect-[4/5] rounded-[1.5rem] overflow-hidden relative shadow-[inset_8px_8px_16px_rgba(0,0,0,0.12),inset_-8px_-8px_16px_rgba(255,255,255,0.6)]">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover mix-blend-luminosity opacity-90" priority unoptimized />
+              <Image src={hero.largeImageURL} alt="" fill className="object-cover mix-blend-luminosity opacity-90" priority />
             </div>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function Page() {
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${raised} rounded-3xl bg-neutral-200 overflow-hidden`}>
               <div className="m-3 aspect-[16/10] relative rounded-2xl overflow-hidden shadow-[inset_4px_4px_10px_rgba(0,0,0,0.12),inset_-4px_-4px_10px_rgba(255,255,255,0.6)]">
-                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" />
               </div>
               <div className="px-6 pb-6">
                 <p className="text-xs uppercase tracking-widest text-neutral-500 mb-2">{p.dateDisplay}</p>
@@ -158,7 +158,7 @@ export default function Page() {
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className={`${raised} p-2 rounded-2xl bg-neutral-200`}>
               <div className="aspect-square relative rounded-xl overflow-hidden shadow-[inset_4px_4px_8px_rgba(0,0,0,0.12),inset_-4px_-4px_8px_rgba(255,255,255,0.6)]">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
+                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
               </div>
             </div>
           ))}

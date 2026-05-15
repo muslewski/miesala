@@ -92,7 +92,7 @@ export default function Page() {
 
           {/* Photo tile */}
           <div className={`${tile} ${white} col-span-3 lg:col-span-2 row-span-2 relative`}>
-            <Image src={hero.largeImageURL} alt="" fill className="object-cover" sizes="40vw" priority unoptimized />
+            <Image src={hero.largeImageURL} alt="" fill className="object-cover" sizes="40vw" priority />
           </div>
 
           {/* Stats mini tiles */}
@@ -155,7 +155,7 @@ export default function Page() {
           ))}
 
           <div className={`${tile} ${white} col-span-6 lg:col-span-3 relative aspect-[16/10]`}>
-            <Image src={handshake.largeImageURL} alt="" fill className="object-cover" unoptimized />
+            <Image src={handshake.largeImageURL} alt="" fill className="object-cover" />
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function Page() {
               } flex flex-col`}
             >
               <div className={`relative ${i === 0 ? "aspect-[16/10] lg:aspect-[16/12]" : "aspect-[16/9]"}`}>
-                <Image src={blogImage(p, i)} alt="" fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" unoptimized />
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
               </div>
               <div className="p-6">
                 <p className="text-xs text-zinc-500 mb-2">{p.dateDisplay}</p>
@@ -200,7 +200,7 @@ export default function Page() {
               : "col-span-6 sm:col-span-3 lg:col-span-3 row-span-1";
             return (
               <div key={i} className={`${tile} ${white} ${span} relative`}>
-                <Image src={gImg(g.url, 800)} alt="" fill className="object-cover" sizes="(min-width:1024px) 25vw, 50vw" unoptimized />
+                <Image src={gImg(g.url, 800)} alt="" fill className="object-cover" sizes="(min-width:1024px) 25vw, 50vw" />
               </div>
             );
           })}

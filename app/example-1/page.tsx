@@ -87,10 +87,10 @@ export default function Page() {
         </div>
         <div className="lg:col-span-5 relative">
           <div className="aspect-[4/5] relative overflow-hidden rounded-sm">
-            <Image src={hero.largeImageURL} alt="Nowoczesny dom" fill className="object-cover" sizes="(min-width:1024px) 40vw, 100vw" priority unoptimized />
+            <Image src={hero.largeImageURL} alt="Nowoczesny dom" fill className="object-cover" sizes="(min-width:1024px) 40vw, 100vw" priority />
           </div>
           <figure className="absolute -bottom-8 -left-8 w-44 h-44 rounded-full overflow-hidden ring-8 ring-stone-50 hidden md:block">
-            <Image src={gImg(images.avatar.url, 320)} alt="Artur Miesała" fill className="object-cover" unoptimized />
+            <Image src={gImg(images.avatar.url, 320)} alt="Artur Miesała" fill className="object-cover" />
           </figure>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function Page() {
       <section className="bg-emerald-950 text-stone-100">
         <div className="max-w-6xl mx-auto px-6 py-28 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 aspect-[4/5] relative overflow-hidden">
-            <Image src={handshake.largeImageURL} alt="Doradca" fill className="object-cover grayscale" sizes="(min-width:1024px) 40vw, 100vw" unoptimized />
+            <Image src={handshake.largeImageURL} alt="Doradca" fill className="object-cover grayscale" sizes="(min-width:1024px) 40vw, 100vw" />
           </div>
           <div className="lg:col-span-7">
             <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-4">Kim jestem</p>
@@ -188,7 +188,7 @@ export default function Page() {
             {top3Posts.map((p, i) => (
               <article key={p.slug} className="group">
                 <div className="aspect-[4/3] relative overflow-hidden mb-6 bg-stone-200">
-                  <Image src={blogImage(p, i)} alt="" fill className="object-cover group-hover:scale-105 transition duration-700" unoptimized />
+                  <Image src={blogImage(p, i)} alt="" fill className="object-cover group-hover:scale-105 transition duration-700" />
                 </div>
                 <p className="text-xs uppercase tracking-widest text-stone-500 mb-3">{p.dateDisplay}</p>
                 <h3 className="font-[family-name:var(--font-playfair)] text-xl leading-snug">{p.title}</h3>
@@ -205,7 +205,7 @@ export default function Page() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className="aspect-square relative overflow-hidden">
-              <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
+              <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
             </div>
           ))}
         </div>

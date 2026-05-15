@@ -84,7 +84,7 @@ export default function Page() {
         <div className="lg:col-span-5 relative">
           <div className={`${clayCard} p-4 -rotate-3`}>
             <div className="aspect-[4/5] rounded-[1.75rem] overflow-hidden relative">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority unoptimized />
+              <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority />
             </div>
           </div>
           {/* Floating chips */}
@@ -159,7 +159,7 @@ export default function Page() {
         <div className={`${clayCard} p-8 md:p-12 grid lg:grid-cols-12 gap-10 items-center`}>
           <div className="lg:col-span-5">
             <div className="aspect-square rounded-[2rem] overflow-hidden relative shadow-inner">
-              <Image src={family.largeImageURL} alt="" fill className="object-cover" unoptimized />
+              <Image src={family.largeImageURL} alt="" fill className="object-cover" />
             </div>
           </div>
           <div className="lg:col-span-7">
@@ -181,7 +181,7 @@ export default function Page() {
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${clayCard} overflow-hidden flex flex-col`}>
               <div className="aspect-[16/10] relative bg-gradient-to-br from-sky-100 to-rose-100 m-3 rounded-[1.75rem] overflow-hidden">
-                <Image src={blogImage(p, i)} alt="" fill className="object-cover" unoptimized />
+                <Image src={blogImage(p, i)} alt="" fill className="object-cover" />
               </div>
               <div className="px-6 pb-6">
                 <p className="text-xs text-sky-600 font-semibold mb-2">{p.dateDisplay}</p>
@@ -199,7 +199,7 @@ export default function Page() {
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className={`${clayCard} aspect-square overflow-hidden p-2`}>
               <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" unoptimized />
+                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
               </div>
             </div>
           ))}
