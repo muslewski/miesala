@@ -8,6 +8,8 @@ import StaggeredText from "@/components/react-bits/staggered-text";
 import { SmartTextType } from "@/components/motion/SmartTextType";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { HeroImage } from "@/components/motion/HeroImage";
+import { LightboxProvider } from "@/components/gallery/LightboxProvider";
+import { GalleryImage } from "@/components/gallery/GalleryImage";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -363,16 +365,26 @@ export default function Page() {
               <StaggeredText as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]" text="CONTACT SHEET." />
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
-            {images.gallery.slice(0, 8).map((g, i) => (
-              <div key={i} className="aspect-square relative border border-zinc-800 group overflow-hidden">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover saturate-50 group-hover:saturate-100 transition" sizes="25vw" />
-                <span className={`absolute top-2 left-2 ${mono} text-[9px] bg-zinc-950/80 px-1.5 py-0.5 text-orange-400`}>
-                  IMG.{String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-            ))}
-          </div>
+          <LightboxProvider
+            items={images.gallery.slice(0, 8).map((g) => ({ src: gImg(g.url, 1600) }))}
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
+              {images.gallery.slice(0, 8).map((g, i) => (
+                <GalleryImage
+                  key={i}
+                  index={i}
+                  src={gImg(g.url, 600)}
+                  wrapperClassName="aspect-square border border-zinc-800 overflow-hidden"
+                  className="object-cover saturate-50 group-hover/gallery:saturate-100 transition"
+                  sizes="25vw"
+                >
+                  <span className={`absolute top-2 left-2 ${mono} text-[9px] bg-zinc-950/80 px-1.5 py-0.5 text-orange-400 z-10`}>
+                    IMG.{String(i + 1).padStart(2, "0")}
+                  </span>
+                </GalleryImage>
+              ))}
+            </div>
+          </LightboxProvider>
         </div>
       </section>
 

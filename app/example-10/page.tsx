@@ -6,6 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { HeroImage } from "@/components/motion/HeroImage";
+import { LightboxProvider } from "@/components/gallery/LightboxProvider";
+import { GalleryImage } from "@/components/gallery/GalleryImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -214,15 +216,23 @@ export default function Page() {
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight mb-10" text="Codziennie tutaj." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {images.gallery.slice(0, 8).map((g, i) => (
-            <div key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 p-2 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}>
-              <div className="aspect-square relative rounded-[1.75rem] overflow-hidden">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
-              </div>
-            </div>
-          ))}
-        </div>
+        <LightboxProvider
+          items={images.gallery.slice(0, 8).map((g) => ({ src: gImg(g.url, 1600) }))}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {images.gallery.slice(0, 8).map((g, i) => (
+              <GalleryImage
+                key={i}
+                index={i}
+                src={gImg(g.url, 600)}
+                wrapperClassName={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 p-2 aspect-square ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
+                frameClassName="rounded-[1.75rem] overflow-hidden"
+                className="object-cover"
+                sizes="25vw"
+              />
+            ))}
+          </div>
+        </LightboxProvider>
       </section>
 
       {/* FAQ — editorial list with serif numerals on the left, an arrow that

@@ -6,6 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { HeroImage } from "@/components/motion/HeroImage";
+import { LightboxProvider } from "@/components/gallery/LightboxProvider";
+import { GalleryImage } from "@/components/gallery/GalleryImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -212,20 +214,29 @@ export default function Page() {
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-5 mt-16">
         <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight mb-8" text="Galeria" />
-        <div className="grid grid-cols-12 gap-3 auto-rows-[180px]">
-          {images.gallery.slice(0, 7).map((g, i) => {
-            const span =
-              i === 0 ? "col-span-12 sm:col-span-6 row-span-2"
-              : i === 1 ? "col-span-6 sm:col-span-3 row-span-1"
-              : i === 2 ? "col-span-6 sm:col-span-3 row-span-1"
-              : "col-span-6 sm:col-span-3 lg:col-span-3 row-span-1";
-            return (
-              <div key={i} className={`${tile} ${white} ${span} relative`}>
-                <Image src={gImg(g.url, 800)} alt="" fill className="object-cover" sizes="(min-width:1024px) 25vw, 50vw" />
-              </div>
-            );
-          })}
-        </div>
+        <LightboxProvider
+          items={images.gallery.slice(0, 7).map((g) => ({ src: gImg(g.url, 1600) }))}
+        >
+          <div className="grid grid-cols-12 gap-3 auto-rows-[180px]">
+            {images.gallery.slice(0, 7).map((g, i) => {
+              const span =
+                i === 0 ? "col-span-12 sm:col-span-6 row-span-2"
+                : i === 1 ? "col-span-6 sm:col-span-3 row-span-1"
+                : i === 2 ? "col-span-6 sm:col-span-3 row-span-1"
+                : "col-span-6 sm:col-span-3 lg:col-span-3 row-span-1";
+              return (
+                <GalleryImage
+                  key={i}
+                  index={i}
+                  src={gImg(g.url, 800)}
+                  wrapperClassName={`${tile} ${white} ${span}`}
+                  className="object-cover"
+                  sizes="(min-width:1024px) 25vw, 50vw"
+                />
+              );
+            })}
+          </div>
+        </LightboxProvider>
       </section>
 
       {/* FAQ */}

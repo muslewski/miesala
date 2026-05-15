@@ -7,6 +7,8 @@ import { FaqItem } from "@/components/motion/FaqItem";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
 import { HeroImage } from "@/components/motion/HeroImage";
+import { LightboxProvider } from "@/components/gallery/LightboxProvider";
+import { GalleryImage } from "@/components/gallery/GalleryImage";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -198,15 +200,23 @@ export default function Page() {
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 pb-20">
         <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10" text="Wspomnienia z gabinetu" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {images.gallery.slice(0, 8).map((g, i) => (
-            <div key={i} className={`${clayCard} aspect-square overflow-hidden p-2`}>
-              <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
-              </div>
-            </div>
-          ))}
-        </div>
+        <LightboxProvider
+          items={images.gallery.slice(0, 8).map((g) => ({ src: gImg(g.url, 1600) }))}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {images.gallery.slice(0, 8).map((g, i) => (
+              <GalleryImage
+                key={i}
+                index={i}
+                src={gImg(g.url, 600)}
+                wrapperClassName={`${clayCard} aspect-square overflow-hidden p-2`}
+                frameClassName="rounded-[1.25rem] overflow-hidden"
+                className="object-cover"
+                sizes="25vw"
+              />
+            ))}
+          </div>
+        </LightboxProvider>
       </section>
 
       {/* FAQ */}

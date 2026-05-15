@@ -6,6 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { HeroImage } from "@/components/motion/HeroImage";
+import { LightboxProvider } from "@/components/gallery/LightboxProvider";
+import { GalleryImage } from "@/components/gallery/GalleryImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -248,13 +250,22 @@ export default function Page() {
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
         <StaggeredText as="h2" className="text-3xl font-bold tracking-tight mb-8" text="Z gabinetu w Osielsku" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {images.gallery.slice(0, 8).map((g, i) => (
-            <div key={i} className="aspect-square relative rounded-xl overflow-hidden ring-1 ring-slate-200">
-              <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
-            </div>
-          ))}
-        </div>
+        <LightboxProvider
+          items={images.gallery.slice(0, 8).map((g) => ({ src: gImg(g.url, 1600) }))}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {images.gallery.slice(0, 8).map((g, i) => (
+              <GalleryImage
+                key={i}
+                index={i}
+                src={gImg(g.url, 600)}
+                wrapperClassName="aspect-square rounded-xl overflow-hidden ring-1 ring-slate-200"
+                className="object-cover"
+                sizes="25vw"
+              />
+            ))}
+          </div>
+        </LightboxProvider>
       </section>
 
       {/* FAQ */}

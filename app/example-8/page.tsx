@@ -6,6 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { HeroImage } from "@/components/motion/HeroImage";
+import { LightboxProvider } from "@/components/gallery/LightboxProvider";
+import { GalleryImage } from "@/components/gallery/GalleryImage";
 import { EditorialMarquee } from "@/components/motion/EditorialMarquee";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -293,14 +295,24 @@ export default function Page() {
               <Image src={spread.largeImageURL} alt="" fill className="object-cover grayscale contrast-110" sizes="50vw" />
               <span className="absolute top-2 left-2 text-[10px] uppercase tracking-widest bg-white border border-black px-1.5 py-0.5 tabular-nums">FIG. 02</span>
             </div>
-            <div className="col-span-12 md:col-span-6 grid grid-cols-2 gap-1">
-              {images.gallery.slice(0, 6).map((g, i) => (
-                <div key={i} className="aspect-square relative">
-                  <Image src={gImg(g.url, 600)} alt="" fill className="object-cover grayscale hover:grayscale-0 transition" sizes="25vw" />
-                  <span className="absolute top-1 left-1 text-[9px] uppercase tracking-widest bg-white border border-black px-1 py-0.5 tabular-nums">{String(i + 3).padStart(2, "0")}</span>
-                </div>
-              ))}
-            </div>
+            <LightboxProvider
+              items={images.gallery.slice(0, 6).map((g) => ({ src: gImg(g.url, 1600) }))}
+            >
+              <div className="col-span-12 md:col-span-6 grid grid-cols-2 gap-1">
+                {images.gallery.slice(0, 6).map((g, i) => (
+                  <GalleryImage
+                    key={i}
+                    index={i}
+                    src={gImg(g.url, 600)}
+                    wrapperClassName="aspect-square"
+                    className="object-cover grayscale group-hover/gallery:grayscale-0 transition"
+                    sizes="25vw"
+                  >
+                    <span className="absolute top-1 left-1 text-[9px] uppercase tracking-widest bg-white border border-black px-1 py-0.5 tabular-nums z-10">{String(i + 3).padStart(2, "0")}</span>
+                  </GalleryImage>
+                ))}
+              </div>
+            </LightboxProvider>
           </div>
         </div>
       </section>

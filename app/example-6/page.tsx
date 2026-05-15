@@ -6,6 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { HeroImage } from "@/components/motion/HeroImage";
+import { LightboxProvider } from "@/components/gallery/LightboxProvider";
+import { GalleryImage } from "@/components/gallery/GalleryImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -157,15 +159,23 @@ export default function Page() {
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10" text="Galeria" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {images.gallery.slice(0, 8).map((g, i) => (
-            <div key={i} className={`${raised} p-2 rounded-2xl bg-neutral-200`}>
-              <div className="aspect-square relative rounded-xl overflow-hidden shadow-[inset_4px_4px_8px_rgba(0,0,0,0.12),inset_-4px_-4px_8px_rgba(255,255,255,0.6)]">
-                <Image src={gImg(g.url, 600)} alt="" fill className="object-cover" sizes="25vw" />
-              </div>
-            </div>
-          ))}
-        </div>
+        <LightboxProvider
+          items={images.gallery.slice(0, 8).map((g) => ({ src: gImg(g.url, 1600) }))}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {images.gallery.slice(0, 8).map((g, i) => (
+              <GalleryImage
+                key={i}
+                index={i}
+                src={gImg(g.url, 600)}
+                wrapperClassName={`${raised} p-2 rounded-2xl bg-neutral-200 aspect-square`}
+                frameClassName="rounded-xl overflow-hidden shadow-[inset_4px_4px_8px_rgba(0,0,0,0.12),inset_-4px_-4px_8px_rgba(255,255,255,0.6)]"
+                className="object-cover"
+                sizes="25vw"
+              />
+            ))}
+          </div>
+        </LightboxProvider>
       </section>
 
       {/* FAQ */}
