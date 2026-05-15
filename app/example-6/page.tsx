@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -78,7 +79,9 @@ export default function Page() {
         <div className="lg:col-span-5">
           <div className={`${raised} p-4 rounded-[2rem] bg-neutral-200`}>
             <div className="aspect-[4/5] rounded-[1.5rem] overflow-hidden relative shadow-[inset_8px_8px_16px_rgba(0,0,0,0.12),inset_-8px_-8px_16px_rgba(255,255,255,0.6)]">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover mix-blend-luminosity opacity-90" priority />
+              <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform mix-blend-luminosity opacity-90">
+                <HeroImage src={hero.largeImageURL} alt="" className="object-cover" priority />
+              </div>
             </div>
           </div>
         </div>

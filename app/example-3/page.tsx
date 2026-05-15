@@ -7,6 +7,7 @@ import { FaqItem } from "@/components/motion/FaqItem";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { SmartTextType } from "@/components/motion/SmartTextType";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -161,7 +162,9 @@ export default function Page() {
             </div>
             <div className="border-2 border-orange-400/40 p-1.5 relative">
               <div className="aspect-[4/5] relative overflow-hidden">
-                <Image src={hero.largeImageURL} alt="" fill className="object-cover saturate-50 contrast-110" priority />
+                <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+                  <HeroImage src={hero.largeImageURL} alt="" className="object-cover saturate-50 contrast-110" priority />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
                 {/* corner brackets */}
                 <span className="absolute top-2 left-2 w-5 h-5 border-t-2 border-l-2 border-orange-400" />

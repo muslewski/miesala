@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -89,7 +90,9 @@ export default function Page() {
         <div className="lg:col-span-5 relative">
           <div className={`${blob} bg-gradient-to-br from-orange-200 to-rose-200 p-3 rotate-2 shadow-2xl shadow-orange-300/40`}>
             <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden relative">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority />
+              <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+                <HeroImage src={hero.largeImageURL} alt="" className="object-cover" priority />
+              </div>
             </div>
           </div>
           {/* Floating chips */}

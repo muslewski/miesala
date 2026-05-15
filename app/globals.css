@@ -32,3 +32,29 @@ body { font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif; }
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee { animation: none; }
 }
+
+/*
+ * Hero image entrance — pattern ported from liceum7bydgoszcz.
+ * Wrap the hero photo in a `.animate-hero-zoom` div with
+ * `overflow-hidden`; the inner scale (1.18 → 1) + blur (12 → 0) +
+ * subtle rotate reads as a cinematic settle when the page loads.
+ * Pairs with the <HeroImage> component which fades the underlying
+ * <img> from opacity 0 → 1 on load — together: clean blur-in entrance.
+ */
+@keyframes hero-zoom {
+  0% {
+    transform: scale(1.18) rotate(-1.5deg);
+    filter: blur(12px) saturate(0.7);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: blur(0) saturate(1);
+  }
+}
+.animate-hero-zoom {
+  animation: hero-zoom 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, filter;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-zoom { animation: none; }
+}

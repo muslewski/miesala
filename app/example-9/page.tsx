@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -88,7 +89,9 @@ export default function Page() {
           <div className="lg:col-span-5">
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden relative shadow-2xl shadow-blue-700/15 ring-1 ring-slate-200">
-                <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority />
+                <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+                  <HeroImage src={hero.largeImageURL} alt="" className="object-cover" priority />
+                </div>
               </div>
               <div className="absolute -bottom-6 left-2 right-2 sm:left-2 sm:right-auto md:-left-6 md:right-auto bg-white rounded-2xl shadow-xl ring-1 ring-slate-200 p-5 sm:max-w-xs">
                 <p className="text-xs text-slate-500 mb-1">Rata kredytu — symulacja</p>

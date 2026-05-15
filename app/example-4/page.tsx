@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -98,7 +99,9 @@ export default function Page() {
 
           {/* Photo tile */}
           <div className={`${tile} ${white} col-span-3 lg:col-span-2 row-span-2 relative`}>
-            <Image src={hero.largeImageURL} alt="" fill className="object-cover" sizes="40vw" priority />
+            <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+              <HeroImage src={hero.largeImageURL} alt="" className="object-cover" sizes="40vw" priority />
+            </div>
           </div>
 
           {/* Stats mini tiles — `col-span-2` (1/3 of the row) only leaves

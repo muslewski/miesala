@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import { EditorialMarquee } from "@/components/motion/EditorialMarquee";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -143,7 +144,9 @@ export default function Page() {
           {/* Full-bleed hero photo */}
           <div className="col-span-12 grid grid-cols-12 gap-6 mt-6">
             <div className="col-span-12 md:col-span-9 aspect-[16/8] relative overflow-hidden">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover grayscale contrast-110" sizes="(min-width:768px) 75vw, 100vw" priority />
+              <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+                <HeroImage src={hero.largeImageURL} alt="" className="object-cover grayscale contrast-110" sizes="(min-width:768px) 75vw, 100vw" priority />
+              </div>
               <span className="absolute top-3 left-3 text-[10px] uppercase tracking-widest bg-white px-2 py-1 border border-black tabular-nums">FIG. 01 / Nieruchomość</span>
               <span className="absolute bottom-3 right-3 text-[10px] uppercase tracking-widest bg-white px-2 py-1 border border-black tabular-nums">SCALE 1:1</span>
             </div>

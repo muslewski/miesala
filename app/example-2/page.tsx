@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -69,7 +70,9 @@ export default function Page() {
           </div>
           <div className="lg:col-span-5 flex flex-col gap-5">
             <div className={`${card} relative aspect-[4/3] overflow-hidden`}>
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover" />
+              <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+                <HeroImage src={hero.largeImageURL} alt="" className="object-cover" priority />
+              </div>
               <span className="absolute top-3 left-3 bg-yellow-300 px-2 py-1 font-[family-name:var(--font-mono)] text-xs border-2 border-black uppercase">// klucze</span>
             </div>
             <div className={`${cardYellow} p-5 font-[family-name:var(--font-mono)] text-sm`}>

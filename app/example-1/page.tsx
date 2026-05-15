@@ -5,6 +5,7 @@ import { SitePreloader } from "@/components/layout/SitePreloader";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
+import { HeroImage } from "@/components/motion/HeroImage";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import SplitText from "@/components/react-bits/SplitText";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -87,7 +88,9 @@ export default function Page() {
         </div>
         <div className="lg:col-span-5 relative">
           <div className="aspect-[4/5] relative overflow-hidden rounded-sm">
-            <Image src={hero.largeImageURL} alt="Nowoczesny dom" fill className="object-cover" sizes="(min-width:1024px) 40vw, 100vw" priority />
+            <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+              <HeroImage src={hero.largeImageURL} alt="Nowoczesny dom" className="object-cover" sizes="(min-width:1024px) 40vw, 100vw" priority />
+            </div>
           </div>
           <figure className="absolute -bottom-8 -left-8 w-44 h-44 rounded-full overflow-hidden ring-8 ring-stone-50 hidden md:block">
             <Image src={gImg(images.avatar.url, 320)} alt="Artur Miesała" fill className="object-cover" />

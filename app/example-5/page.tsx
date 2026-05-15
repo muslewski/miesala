@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqItem } from "@/components/motion/FaqItem";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
+import { HeroImage } from "@/components/motion/HeroImage";
 import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -84,7 +85,9 @@ export default function Page() {
         <div className="lg:col-span-5 relative">
           <div className={`${clayCard} p-4 -rotate-3`}>
             <div className="aspect-[4/5] rounded-[1.75rem] overflow-hidden relative">
-              <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority />
+              <div className="absolute inset-0 overflow-hidden animate-hero-zoom will-change-transform">
+                <HeroImage src={hero.largeImageURL} alt="" className="object-cover" priority />
+              </div>
             </div>
           </div>
           {/* Floating chips */}
