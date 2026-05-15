@@ -92,8 +92,15 @@ export default function Page() {
               <HeroImage src={hero.largeImageURL} alt="Nowoczesny dom" className="object-cover" sizes="(min-width:1024px) 40vw, 100vw" priority />
             </div>
           </div>
-          <figure className="absolute -bottom-8 -left-8 w-44 h-44 rounded-full overflow-hidden ring-8 ring-stone-50 hidden md:block">
-            <Image src={gImg(images.avatar.url, 320)} alt="Artur Miesała" fill className="object-cover" />
+          {/* Editorial monogram — replaces the original circular avatar,
+              which was actually the Lendi network logo (320×155) and looked
+              distorted when forced into a 176×176 cover-crop. A typographic
+              badge fits Editorial Minimal better: Playfair italic on the
+              same emerald-950 used in the About section, with a faint EST.
+              line for that signed-seal feel. */}
+          <figure className="absolute -bottom-8 -left-8 w-44 h-44 rounded-full bg-emerald-950 text-stone-50 ring-8 ring-stone-50 hidden md:flex flex-col items-center justify-center">
+            <span className="font-[family-name:var(--font-playfair)] text-6xl italic font-medium leading-none">AM</span>
+            <span className="text-[9px] uppercase tracking-[0.3em] mt-2 text-amber-300">Est. 2014</span>
           </figure>
         </div>
       </section>
