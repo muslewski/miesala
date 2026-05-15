@@ -13,7 +13,7 @@ import CountUp from "@/components/react-bits/CountUp";
  * Ciepła paleta (sand, terracotta, sage), Fraunces + Inter, miękkie blob-y, ludzki ton.
  */
 
-const hero = pick(pixabay.family_home, 1);
+const hero = pick(pixabay.happy_couple, 2);
 const couple = pick(pixabay.couple_apartment, 0);
 const top3Reviews = reviews.reviews.slice(2, 5);
 const top3Posts = blogIndex.slice(0, 3);
@@ -22,7 +22,7 @@ const blob = "rounded-[3rem]";
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-orange-50 via-rose-50 to-amber-50 text-stone-800 font-[family-name:var(--font-inter)] selection:bg-orange-700 selection:text-amber-50 overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-orange-50 via-rose-50 to-amber-50 text-stone-800 font-[family-name:var(--font-inter)] selection:bg-orange-700 selection:text-amber-50 overflow-x-clip">
       <SitePreloader
         storageKey="miesala-pre-example-10"
         variant="circle"
