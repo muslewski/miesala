@@ -11,7 +11,13 @@ const handshake = pick(pixabay.businessman_handshake, 1);
 const top3Reviews = reviews.reviews.slice(2, 5);
 const top3Posts = blogIndex.slice(0, 3);
 
-const tile = "rounded-3xl bg-white border border-zinc-200 shadow-sm hover:shadow-md transition-all overflow-hidden";
+// Shape only — bg/text/border MUST be set per-tile so Tailwind doesn't
+// drop our color overrides under the bg-white default.
+const tile = "rounded-3xl shadow-sm hover:shadow-md transition-all overflow-hidden";
+const white = "bg-white border border-zinc-200 text-zinc-900";
+const dark = "bg-zinc-900 border border-zinc-900 text-white";
+const indigo = "bg-indigo-600 border border-indigo-600 text-white";
+const indigoSoft = "bg-indigo-50 border border-indigo-200 text-zinc-900";
 
 export default function Page() {
   return (
@@ -33,7 +39,7 @@ export default function Page() {
       <section className="max-w-7xl mx-auto px-5 pt-10">
         <div className="grid grid-cols-6 auto-rows-[140px] gap-4">
           {/* Big hero tile */}
-          <div className={`${tile} col-span-6 lg:col-span-4 row-span-4 p-8 md:p-10 relative flex flex-col justify-between`}>
+          <div className={`${tile} ${white} col-span-6 lg:col-span-4 row-span-4 p-8 md:p-10 relative flex flex-col justify-between`}>
             <div>
               <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-700 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" /> Niezależny ekspert kredytowy
@@ -53,7 +59,7 @@ export default function Page() {
           </div>
 
           {/* Rating tile */}
-          <div className={`${tile} col-span-3 lg:col-span-2 row-span-2 p-6 flex flex-col justify-between bg-indigo-600 text-white border-indigo-600`}>
+          <div className={`${tile} ${indigo} col-span-3 lg:col-span-2 row-span-2 p-6 flex flex-col justify-between`}>
             <div className="flex items-center gap-2 text-amber-300 text-lg">{"★★★★★"}</div>
             <div>
               <p className="text-5xl font-bold">{company.rating.value}</p>
@@ -62,13 +68,13 @@ export default function Page() {
           </div>
 
           {/* Photo tile */}
-          <div className={`${tile} col-span-3 lg:col-span-2 row-span-2 relative`}>
+          <div className={`${tile} ${white} col-span-3 lg:col-span-2 row-span-2 relative`}>
             <Image src={hero.largeImageURL} alt="" fill className="object-cover" sizes="40vw" priority unoptimized />
           </div>
 
           {/* Stats mini tiles */}
           {stats.slice(0, 3).map((s) => (
-            <div key={s.label} className={`${tile} col-span-2 lg:col-span-2 p-5 flex flex-col justify-between`}>
+            <div key={s.label} className={`${tile} ${white} col-span-2 lg:col-span-2 p-5 flex flex-col justify-between`}>
               <p className="text-xs uppercase tracking-widest text-zinc-500">{s.label}</p>
               <p className="text-3xl font-bold text-zinc-900">{s.value}</p>
             </div>
@@ -87,9 +93,9 @@ export default function Page() {
         <div className="grid grid-cols-12 gap-4">
           {services.map((s, i) => {
             const span = i === 0 ? "col-span-12 lg:col-span-6" : "col-span-12 sm:col-span-6 lg:col-span-3";
-            const bg = i === 0 ? "bg-zinc-900 text-white border-zinc-900" : i === 3 ? "bg-indigo-50 border-indigo-200" : "";
+            const variant = i === 0 ? dark : i === 3 ? indigoSoft : white;
             return (
-              <article key={s.slug} className={`${tile} ${span} p-7 ${bg} flex flex-col gap-4`}>
+              <article key={s.slug} className={`${tile} ${variant} ${span} p-7 flex flex-col gap-4`}>
                 <div className="flex items-center justify-between">
                   <span className={`text-xs px-2.5 py-1 rounded-full ${i === 0 ? "bg-white/10 text-white" : "bg-zinc-100 text-zinc-600"} font-mono`}>0{i + 1}</span>
                   <span className={`w-10 h-10 rounded-2xl grid place-items-center ${i === 0 ? "bg-indigo-500 text-white" : "bg-indigo-600 text-white"}`}>→</span>
@@ -105,7 +111,7 @@ export default function Page() {
       {/* Mixed bento: testimonials + photo + about */}
       <section id="opinie" className="max-w-7xl mx-auto px-5 mt-16">
         <div className="grid grid-cols-6 gap-4 auto-rows-min">
-          <article className={`${tile} col-span-6 lg:col-span-3 p-7 row-span-2 flex flex-col`}>
+          <article className={`${tile} ${white} col-span-6 lg:col-span-3 p-7 row-span-2 flex flex-col`}>
             <p className="text-xs uppercase tracking-widest text-indigo-600 mb-3">O mnie</p>
             <h3 className="text-3xl font-bold tracking-tight mb-4">Po stronie klienta. Zawsze.</h3>
             <p className="text-zinc-600 leading-relaxed flex-1">
@@ -115,7 +121,7 @@ export default function Page() {
           </article>
 
           {top3Reviews.map((r, i) => (
-            <figure key={i} className={`${tile} col-span-6 sm:col-span-3 lg:col-span-3 p-7`}>
+            <figure key={i} className={`${tile} ${white} col-span-6 sm:col-span-3 lg:col-span-3 p-7`}>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-amber-500">{"★★★★★"}</span>
                 <span className="text-xs text-zinc-400">Google</span>
@@ -125,7 +131,7 @@ export default function Page() {
             </figure>
           ))}
 
-          <div className={`${tile} col-span-6 lg:col-span-3 relative aspect-[16/10]`}>
+          <div className={`${tile} ${white} col-span-6 lg:col-span-3 relative aspect-[16/10]`}>
             <Image src={handshake.largeImageURL} alt="" fill className="object-cover" unoptimized />
           </div>
         </div>
@@ -141,7 +147,7 @@ export default function Page() {
           {top3Posts.map((p, i) => (
             <article
               key={p.slug}
-              className={`${tile} ${
+              className={`${tile} ${white} ${
                 i === 0
                   ? "col-span-12 lg:col-span-6 lg:row-span-2"
                   : "col-span-12 md:col-span-6 lg:col-span-6"
@@ -170,7 +176,7 @@ export default function Page() {
               : i === 2 ? "col-span-6 sm:col-span-3 row-span-1"
               : "col-span-6 sm:col-span-3 lg:col-span-3 row-span-1";
             return (
-              <div key={i} className={`${tile} ${span} relative`}>
+              <div key={i} className={`${tile} ${white} ${span} relative`}>
                 <Image src={gImg(g.url, 800)} alt="" fill className="object-cover" sizes="(min-width:1024px) 25vw, 50vw" unoptimized />
               </div>
             );
@@ -181,7 +187,7 @@ export default function Page() {
       {/* FAQ */}
       <section id="faq" className="max-w-7xl mx-auto px-5 mt-16">
         <div className="grid lg:grid-cols-12 gap-6">
-          <div className={`${tile} lg:col-span-4 p-8 bg-indigo-600 text-white border-indigo-600 sticky top-24 self-start`}>
+          <div className={`${tile} ${indigo} lg:col-span-4 p-8 sticky top-24 self-start`}>
             <p className="text-xs uppercase tracking-widest text-indigo-200 mb-3">FAQ</p>
             <h2 className="text-3xl font-bold tracking-tight">Najczęściej zadawane pytania.</h2>
             <p className="mt-4 text-indigo-100">Jeśli nie znajdziesz odpowiedzi — zadzwoń. Wyjaśniam wszystko prostym językiem.</p>
@@ -189,7 +195,7 @@ export default function Page() {
           </div>
           <div className="lg:col-span-8 space-y-3">
             {faq.map((f, i) => (
-              <details key={i} className={`${tile} group open:bg-zinc-50`}>
+              <details key={i} className={`${tile} ${white} group open:bg-zinc-50`}>
                 <summary className="flex items-start justify-between gap-6 cursor-pointer list-none p-5">
                   <span className="font-semibold">{f.q}</span>
                   <span className="mt-1 w-7 h-7 rounded-full bg-zinc-100 grid place-items-center text-indigo-600 transition group-open:rotate-45 leading-none">+</span>
@@ -203,7 +209,7 @@ export default function Page() {
 
       {/* CTA above footer */}
       <section className="max-w-7xl mx-auto px-5 mt-16">
-        <div className={`${tile} bg-zinc-900 text-white border-zinc-900 p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center`}>
+        <div className={`${tile} ${dark} p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center`}>
           <div className="md:col-span-7">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
               Pierwsza rozmowa<br/><span className="text-indigo-400">jest za darmo.</span>
@@ -219,12 +225,12 @@ export default function Page() {
       {/* Footer */}
       <footer id="kontakt" className="max-w-7xl mx-auto px-5 mt-16 mb-10">
         <div className="grid grid-cols-6 gap-4">
-          <div className={`${tile} col-span-6 lg:col-span-2 p-6`}>
+          <div className={`${tile} ${white} col-span-6 lg:col-span-2 p-6`}>
             <p className="font-semibold mb-2">{company.shortName}</p>
             <p className="text-sm text-zinc-600">{company.contact.address.full}</p>
             <p className="text-sm text-zinc-600">{company.contact.phone}</p>
           </div>
-          <div className={`${tile} col-span-6 lg:col-span-2 p-6 text-sm`}>
+          <div className={`${tile} ${white} col-span-6 lg:col-span-2 p-6 text-sm`}>
             <p className="text-xs uppercase tracking-widest text-zinc-500 mb-3">Godziny</p>
             <ul className="space-y-1">
               {Object.entries(company.hours.displayPL).map(([d, h]) => (
@@ -232,7 +238,7 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <div className={`${tile} col-span-6 lg:col-span-2 overflow-hidden`}>
+          <div className={`${tile} ${white} col-span-6 lg:col-span-2 overflow-hidden`}>
             <div className="aspect-video">
               <iframe src={company.contact.googleMaps.embed} className="w-full h-full" loading="lazy" title="Mapa" />
             </div>
