@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 
@@ -91,11 +92,11 @@ export default function Page() {
           {/* Big headline */}
           <div className="col-span-12 md:col-span-7">
             <p className="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-3">— Doradca kredytowy / 01</p>
-            <h1 className="text-[14vw] md:text-[10vw] lg:text-[8.5vw] font-bold tracking-tighter leading-[0.82] uppercase">
-              <span className="block">Kredyt.</span>
-              <span className="block text-red-600">Hipoteczny.</span>
-              <span className="block font-light italic">Niezależny.</span>
-            </h1>
+            <HeroLines className="text-[14vw] md:text-[10vw] lg:text-[8.5vw] font-bold tracking-tighter leading-[0.82] uppercase">
+              <HeroLine>Kredyt.</HeroLine>
+              <HeroLine className="text-red-600">Hipoteczny.</HeroLine>
+              <HeroLine className="font-light italic">Niezależny.</HeroLine>
+            </HeroLines>
             <div className="mt-8 max-w-md text-sm leading-relaxed text-black/80">
               <p>
                 Niezależny ekspert finansowy. Pośrednictwo kredytów hipotecznych w Osielsku i&nbsp;Bydgoszczy. Bezpłatna konsultacja, kompleksowa obsługa, 15+&nbsp;banków w&nbsp;portfelu.

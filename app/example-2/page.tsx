@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -43,11 +44,11 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7">
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest mb-6 inline-block bg-black text-yellow-300 px-3 py-1.5">★ 4.8/5 · 44 OPINII</p>
-            <h1 className="font-black uppercase leading-[0.85] tracking-tighter text-[15vw] md:text-[10vw] lg:text-[9vw]">
-              Kredyt.<br/>
-              <span className="block bg-black text-yellow-300 px-3 -ml-1 inline-block">Hipoteczny.</span><br/>
-              <span className="italic underline decoration-[6px] underline-offset-[10px] decoration-black">Bez ściemy.</span>
-            </h1>
+            <HeroLines className="font-black uppercase leading-[0.85] tracking-tighter text-[15vw] md:text-[10vw] lg:text-[9vw] flex flex-col items-start">
+              <HeroLine>Kredyt.</HeroLine>
+              <HeroLine className="bg-black text-yellow-300 px-3 -ml-1">Hipoteczny.</HeroLine>
+              <HeroLine className="italic underline decoration-[6px] underline-offset-[10px] decoration-black">Bez ściemy.</HeroLine>
+            </HeroLines>
             <div className="mt-10 flex flex-wrap gap-5">
               <a href={company.contact.phoneTel} className="bg-black text-yellow-300 px-7 py-4 text-xl font-bold uppercase border-[3px] border-black shadow-[8px_8px_0_0_rgba(0,0,0,0)] hover:shadow-[8px_8px_0_0_#ffffff] transition-all hover:-translate-y-1">
                 Zadzwoń teraz →

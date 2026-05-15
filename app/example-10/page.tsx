@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -55,10 +56,11 @@ export default function Page() {
           <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-100 text-orange-800 text-xs font-medium">
             ✺ Niezależny ekspert kredytowy — Bydgoszcz
           </p>
-          <h1 className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mt-7 leading-[1.0]">
-            Kredyt to droga.<br/>
-            <span className="italic text-orange-800">Towarzyszę</span> Ci<br/>na każdym jej zakręcie.
-          </h1>
+          <HeroLines className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mt-7 leading-[1.0]">
+            <HeroLine>Kredyt to droga.</HeroLine>
+            <HeroLine><span className="italic text-orange-800">Towarzyszę</span> Ci</HeroLine>
+            <HeroLine>na każdym jej zakręcie.</HeroLine>
+          </HeroLines>
           <p className="mt-7 text-lg text-stone-600 max-w-xl leading-relaxed">
             Nazywam się Artur. Od ponad dekady pomagam parom, rodzinom i singlom w finansowaniu domów i mieszkań. Bez bankowej nowomowy — po ludzku, w Twoim tempie.
           </p>

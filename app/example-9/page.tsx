@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -47,10 +48,10 @@ export default function Page() {
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 text-blue-800 text-xs font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Niezależny ekspert · 15+ banków
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-6 leading-[1.05]">
-              Kredyt hipoteczny<br/>
-              <span className="text-blue-700">który po prostu działa.</span>
-            </h1>
+            <HeroLines className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-6 leading-[1.05]">
+              <HeroLine>Kredyt hipoteczny</HeroLine>
+              <HeroLine className="text-blue-700">który po prostu działa.</HeroLine>
+            </HeroLines>
             <p className="mt-6 text-xl text-slate-600 max-w-xl leading-relaxed">
               Bezpłatne porównanie ofert 15+ banków, kompletny proces dokumentowy i Twój własny ekspert na każdym etapie — od pierwszej rozmowy po klucze w dłoni.
             </p>

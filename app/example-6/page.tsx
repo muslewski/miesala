@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -50,10 +51,10 @@ export default function Page() {
           <p className={`${sunken} inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-200 text-xs uppercase tracking-widest text-neutral-500`}>
             <span className="w-1.5 h-1.5 rounded-full bg-neutral-700" /> Niezależny ekspert kredytowy
           </p>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-6 leading-[1.05]">
-            Spokojny <span className="font-light italic">kredyt.</span><br/>
-            Konkretny <span className="font-light italic">wynik.</span>
-          </h1>
+          <HeroLines className="text-5xl md:text-7xl font-extrabold tracking-tight mt-6 leading-[1.05]">
+            <HeroLine>Spokojny <span className="font-light italic">kredyt.</span></HeroLine>
+            <HeroLine>Konkretny <span className="font-light italic">wynik.</span></HeroLine>
+          </HeroLines>
           <p className="mt-6 text-lg text-neutral-600 max-w-xl leading-relaxed">
             Pracuję bez pośpiechu, w jasnym procesie. Krok po kroku, dokument po dokumencie — aż do podpisania umowy w banku, który naprawdę pasuje do Twojej sytuacji.
           </p>

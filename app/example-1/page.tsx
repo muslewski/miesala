@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import SplitText from "@/components/react-bits/SplitText";
 import { MobileNav } from "@/components/nav/MobileNav";
@@ -55,11 +56,12 @@ export default function Page() {
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-24 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div className="lg:col-span-7">
           <p className="text-xs uppercase tracking-[0.3em] text-stone-500 mb-6">{company.category}</p>
-          <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.05]">
-            Kredyt hipoteczny<br />
-            <span className="italic text-emerald-900">bez chaosu</span> &mdash;<br />
-            tylko jasna ścieżka<br />do własnego domu.
-          </h1>
+          <HeroLines className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.05]">
+            <HeroLine>Kredyt hipoteczny</HeroLine>
+            <HeroLine className="italic text-emerald-900">bez chaosu &mdash;</HeroLine>
+            <HeroLine>tylko jasna ścieżka</HeroLine>
+            <HeroLine>do własnego domu.</HeroLine>
+          </HeroLines>
           <p className="mt-7 max-w-xl text-lg text-stone-600 leading-relaxed">
             Jestem niezależnym ekspertem finansowym. Porównuję oferty 15+ banków, zajmuję się dokumentami i prowadzę Cię od pierwszej rozmowy do odbioru kluczy. Bez kosztów po Twojej stronie.
           </p>

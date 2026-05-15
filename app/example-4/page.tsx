@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
@@ -57,10 +58,10 @@ export default function Page() {
               <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-700 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" /> Niezależny ekspert kredytowy
               </span>
-              <h1 className="font-[family-name:var(--font-inter)] text-4xl md:text-6xl font-bold tracking-tight mt-6 leading-[1.05]">
-                Twój kredyt hipoteczny<br/>
-                w <span className="text-indigo-600">jednym</span> dobrym miejscu.
-              </h1>
+              <HeroLines className="font-[family-name:var(--font-inter)] text-4xl md:text-6xl font-bold tracking-tight mt-6 leading-[1.05]">
+                <HeroLine>Twój kredyt hipoteczny</HeroLine>
+                <HeroLine>w <span className="text-indigo-600">jednym</span> dobrym miejscu.</HeroLine>
+              </HeroLines>
               <p className="mt-5 text-zinc-600 max-w-lg">
                 Porównuję oferty 15+ banków i prowadzę Cię przez cały proces — od zdolności po klucze. Bez kosztów po Twojej stronie.
               </p>

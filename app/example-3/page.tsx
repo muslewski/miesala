@@ -4,6 +4,7 @@ import { company, reviews, blogIndex, pixabay, services, faq, stats, images, tru
 import { Reveal } from "@/components/motion/Reveal";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import TextType from "@/components/react-bits/TextType";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -113,11 +114,11 @@ export default function Page() {
               <span>EST. 2014</span>
             </div>
 
-            <h1 className="font-[family-name:var(--font-bebas)] text-[18vw] md:text-[12vw] lg:text-[9.5vw] tracking-wide leading-[0.85]">
-              KREDYT.<br/>
-              <span className="text-orange-400">HIPOTECZNY.</span><br/>
-              <span className="text-zinc-500">BEZ BŁĘDÓW.</span>
-            </h1>
+            <HeroLines className="font-[family-name:var(--font-bebas)] text-[18vw] md:text-[12vw] lg:text-[9.5vw] tracking-wide leading-[0.85]">
+              <HeroLine>KREDYT.</HeroLine>
+              <HeroLine className="text-orange-400">HIPOTECZNY.</HeroLine>
+              <HeroLine className="text-zinc-500">BEZ BŁĘDÓW.</HeroLine>
+            </HeroLines>
 
             <p className="mt-8 max-w-xl text-zinc-300 text-lg leading-relaxed">
               Inżynierskie podejście do finansowania nieruchomości. Liczby, procedury, audyt dokumentów — wszystko prowadzone z dokładnością do dnia, bez kosztu po Twojej stronie.

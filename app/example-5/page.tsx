@@ -4,6 +4,7 @@ import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gIm
 import { Reveal } from "@/components/motion/Reveal";
 import StaggeredText from "@/components/react-bits/staggered-text";
 import BlurText from "@/components/react-bits/BlurText";
+import { HeroLines, HeroLine } from "@/components/motion/HeroLines";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 
@@ -54,9 +55,11 @@ export default function Page() {
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 text-sm font-medium text-sky-700 shadow-[4px_4px_10px_rgba(186,200,224,0.35),-4px_-4px_10px_rgba(255,255,255,0.9)]">
             <span className="text-amber-500">★</span> {company.rating.value} · {company.rating.count} opinii Google
           </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-7 leading-[1.05]">
-            Klucze do <span className="bg-gradient-to-br from-sky-500 to-indigo-500 bg-clip-text text-transparent">własnego domu</span> bez stresu.
-          </h1>
+          <HeroLines className="text-5xl md:text-7xl font-extrabold tracking-tight mt-7 leading-[1.05]">
+            <HeroLine>Klucze do</HeroLine>
+            <HeroLine className="bg-gradient-to-br from-sky-500 to-indigo-500 bg-clip-text text-transparent">własnego domu</HeroLine>
+            <HeroLine>bez stresu.</HeroLine>
+          </HeroLines>
           <p className="mt-6 text-lg text-slate-600 max-w-xl leading-relaxed">
             Cześć! Jestem Artur. Pomagam ludziom dostać kredyt hipoteczny — spokojnie, dokładnie i prostym językiem. Pierwsza rozmowa jest za darmo.
           </p>
