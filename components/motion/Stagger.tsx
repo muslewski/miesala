@@ -95,11 +95,18 @@ export function StaggerItem({
   id,
 }: StaggerItemProps) {
   const Cmp = (motion as unknown as Record<string, React.ElementType>)[as];
+  // `will-change: transform` promotes each item to its own compositor
+  // layer for the duration of the entrance. Without it, properties
+  // that paint with the element (box-shadow, backdrop-filter,
+  // border-radius rasterization on rotated parents) get repainted on
+  // every Y-translate frame, producing visible shimmer/flicker — most
+  // noticeable on cards with shadow-sm (ex-4 services). The layer is
+  // discarded after the show variant settles.
   return (
     <Cmp
       id={id}
       className={className}
-      style={style}
+      style={{ willChange: "transform", ...style }}
       variants={itemVariants}
     >
       {children}

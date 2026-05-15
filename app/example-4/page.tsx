@@ -82,9 +82,13 @@ export default function Page() {
                 Porównuję oferty 15+ banków i prowadzę Cię przez cały proces — od zdolności po klucze. Bez kosztów po Twojej stronie.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a href={company.contact.phoneTel} className="px-6 py-3 rounded-full bg-zinc-900 text-white hover:bg-indigo-600 transition">Zadzwoń</a>
-              <a href="#oferta" className="px-6 py-3 rounded-full border border-zinc-300 hover:bg-zinc-100 transition">Sprawdź ofertę</a>
+            {/* On mobile the tile interior is ~270px wide — both pills together
+                are ~290px, so flex-wrap was punting the outlined "Sprawdź ofertę"
+                onto its own row as a lonely pill (the "stripped" look).
+                Stack as full-width buttons on mobile, return to inline pills at sm+. */}
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
+              <a href={company.contact.phoneTel} className="px-6 py-3 rounded-full bg-zinc-900 text-white hover:bg-indigo-600 transition-colors text-center sm:text-left">Zadzwoń</a>
+              <a href="#oferta" className="px-6 py-3 rounded-full border border-zinc-300 hover:bg-zinc-100 transition-colors text-center sm:text-left">Sprawdź ofertę</a>
             </div>
           </div>
 
