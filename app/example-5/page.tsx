@@ -46,7 +46,7 @@ export default function Page() {
           <div className="hidden md:flex items-center gap-7 text-sm text-slate-600">
             <a href="#oferta">Oferta</a><a href="#opinie">Opinie</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
           </div>
-          <a href={company.contact.phoneTel} className="text-sm font-semibold px-4 py-2 rounded-2xl bg-gradient-to-br from-sky-400 to-sky-600 text-white shadow-[4px_6px_14px_rgba(56,189,248,0.45)]">{company.contact.phone}</a>
+          <a href={company.contact.phoneTel} className="max-md:hidden text-sm font-semibold px-4 py-2 rounded-2xl bg-gradient-to-br from-sky-400 to-sky-600 text-white shadow-[4px_6px_14px_rgba(56,189,248,0.45)]">{company.contact.phone}</a>
         <MobileNav
             tone="light"
             items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
