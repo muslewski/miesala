@@ -24,10 +24,12 @@ export default function Page() {
     <main className="min-h-screen bg-white text-slate-900 font-[family-name:var(--font-inter)]">
       <SitePreloader
         storageKey="miesala-pre-example-9"
-        variant="percentage"
+        variant="slide"
         bgColor="#ffffff"
         loadingText="Miesała Kredyt"
         textClassName="text-3xl md:text-5xl font-bold text-blue-700 tracking-tight"
+        holdMs={700}
+        duration={900}
       />
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -38,7 +40,7 @@ export default function Page() {
           <div className="hidden md:flex items-center gap-7 text-sm text-slate-600">
             <a href="#oferta">Oferta</a><a href="#proces">Jak to działa</a><a href="#opinie">Opinie</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
           </div>
-          <a href={company.contact.phoneTel} className="text-sm font-semibold px-5 py-2.5 rounded-lg bg-blue-700 text-white hover:bg-blue-800 transition shadow-sm">{company.contact.phone}</a>
+          <a href={company.contact.phoneTel} className="max-md:hidden text-sm font-semibold px-5 py-2.5 rounded-lg bg-blue-700 text-white hover:bg-blue-800 transition shadow-sm">{company.contact.phone}</a>
         <MobileNav
             tone="light"
             items={ [{ label: "Oferta", href: "#oferta" }, { label: "Jak to działa", href: "#proces" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }

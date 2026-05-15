@@ -222,21 +222,33 @@ export default function Page() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ — editorial list with serif numerals on the left, an arrow that
+          rotates down on open, and a warm peach gradient washing over the
+          open card. Reads more like a magazine Q&A than a generic accordion. */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-24">
         <StaggeredText as="h2" className="justify-center font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10" text="A może masz pytania?" />
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faq.map((f, i) => (
             <FaqItem
               key={i}
-              className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60`}
+              className={`${blob} bg-white/70 backdrop-blur-xl border border-white/60 data-[state=open]:bg-gradient-to-br data-[state=open]:from-orange-50 data-[state=open]:via-rose-50/60 data-[state=open]:to-amber-50 data-[state=open]:border-orange-200/70 transition-colors duration-300 overflow-hidden`}
               question={
-                <span className="flex items-start justify-between gap-6 p-6">
-                  <span className="font-[family-name:var(--font-fraunces)] text-lg">{f.q}</span>
-                  <span className="mt-1 w-9 h-9 rounded-full bg-orange-100 text-orange-800 grid place-items-center transition leading-none group-data-[state=open]/faq:rotate-45">+</span>
+                <span className="flex items-baseline gap-5 px-6 py-5 md:gap-7 md:px-8">
+                  <span className="font-[family-name:var(--font-fraunces)] text-3xl md:text-4xl font-light text-orange-300 group-data-[state=open]/faq:text-orange-700 transition-colors tabular-nums leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1 font-[family-name:var(--font-fraunces)] text-lg md:text-xl font-light text-stone-800 leading-snug">
+                    {f.q}
+                  </span>
+                  <span
+                    aria-hidden
+                    className="mt-1 text-orange-700 text-2xl leading-none transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-data-[state=open]/faq:rotate-90"
+                  >
+                    →
+                  </span>
                 </span>
               }
-              contentClassName="px-6 pb-6 text-stone-600 leading-relaxed"
+              contentClassName="px-6 md:px-8 pb-6 md:pb-7 pl-[4.5rem] md:pl-[5.5rem] text-stone-700 leading-relaxed font-[family-name:var(--font-inter)]"
               answer={f.a}
             />
           ))}

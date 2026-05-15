@@ -55,35 +55,39 @@ export default function Page() {
       {/* Top header */}
       <header className="border-b border-black sticky top-0 z-40 bg-white/95 backdrop-blur">
         <div className="max-w-7xl mx-auto px-6 h-14 grid grid-cols-12 items-center gap-6">
-          <Link href="/" className="col-span-4 md:col-span-3 text-sm font-bold tracking-tight">
+          <Link href="/" className="col-span-6 md:col-span-3 text-sm font-bold tracking-tight">
             <span className="text-red-600">●</span> Miesała ── Ekspert
           </Link>
-          <nav className="col-span-8 md:col-span-6 hidden md:flex items-center justify-center gap-7 text-[11px] uppercase tracking-widest tabular-nums">
+          <nav className="col-span-6 hidden md:flex items-center justify-center gap-7 text-[11px] uppercase tracking-widest tabular-nums">
             <a href="#oferta">01 / Oferta</a>
             <a href="#opinie">02 / Opinie</a>
             <a href="#blog">03 / Blog</a>
             <a href="#galeria">04 / Galeria</a>
             <a href="#faq">05 / FAQ</a>
-          <MobileNav
-            tone="light"
-            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "Galeria", href: "#galeria" }, { label: "FAQ", href: "#faq" }] }
-            phone={company.contact.phone}
-            phoneTel={company.contact.phoneTel}
-            ctaClassName="bg-black text-white hover:bg-red-600"
-            triggerClassName="text-black"
-          />
           </nav>
-          <a href={company.contact.phoneTel} className="col-span-8 md:col-span-3 text-right text-xs font-bold tracking-widest tabular-nums">
+          <a href={company.contact.phoneTel} className="max-md:hidden md:col-span-3 text-right text-xs font-bold tracking-widest tabular-nums">
             {company.contact.phone} →
           </a>
+          <div className="col-span-6 flex justify-end md:hidden">
+            <MobileNav
+              tone="light"
+              items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "Galeria", href: "#galeria" }, { label: "FAQ", href: "#faq" }] }
+              phone={company.contact.phone}
+              phoneTel={company.contact.phoneTel}
+              ctaClassName="bg-black text-white hover:bg-red-600"
+              triggerClassName="text-black"
+            />
+          </div>
         </div>
       </header>
 
       {/* Hero — asymmetric */}
       <section className="border-b border-black">
         <div className="max-w-7xl mx-auto px-6 pt-10 pb-14 grid grid-cols-12 gap-x-6 gap-y-10">
-          {/* Editorial header line */}
-          <div className="col-span-12 grid grid-cols-12 gap-x-6 text-[10px] uppercase tracking-[0.3em] text-black/60 border-b border-black pb-3 tabular-nums">
+          {/* Editorial header line — hidden on mobile (12-col-of-tabular meta
+              overlaps below ~600px). Decorative chrome; the page reads fine
+              without it on phones. */}
+          <div className="col-span-12 hidden md:grid grid-cols-12 gap-x-6 text-[10px] uppercase tracking-[0.3em] text-black/60 border-b border-black pb-3 tabular-nums">
             <p className="col-span-2">№ 01 / Hero</p>
             <p className="col-span-3">{company.contact.address.city}, PL · {company.contact.address.postalCode}</p>
             <p className="col-span-2">EST. 2014</p>
@@ -91,8 +95,9 @@ export default function Page() {
             <p className="col-span-3 text-right">Wariant 08 · Swiss Editorial v2</p>
           </div>
 
-          {/* Left thin index column */}
-          <aside className="col-span-12 md:col-span-1 flex md:flex-col items-start gap-6 md:gap-10 text-[10px] uppercase tracking-[0.3em] tabular-nums">
+          {/* Left thin index column — hidden on mobile (becomes a useless
+              horizontal `01 02 03 04` strip when stacked). */}
+          <aside className="col-span-1 hidden md:flex flex-col items-start gap-10 text-[10px] uppercase tracking-[0.3em] tabular-nums">
             <span className="font-bold">01</span>
             <span className="text-black/30">02</span>
             <span className="text-black/30">03</span>
