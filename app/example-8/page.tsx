@@ -247,10 +247,10 @@ export default function Page() {
 
       {/* Blog — editorial table of contents */}
       <section id="blog" className="border-b border-black">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-12 gap-x-6 gap-y-10">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-12 gap-x-6 gap-y-10 items-start">
           <SectionRail n={3} label="Blog — Aktualności rynku kredytowego" />
 
-          <div className="col-span-12 md:col-span-3">
+          <div className="col-span-12 md:col-span-3 md:sticky md:top-24 self-start">
             <Reveal as="h2" className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
               Blog<br/>Index<span className="text-red-600">.</span>
             </Reveal>
@@ -274,9 +274,9 @@ export default function Page() {
 
       {/* Gallery — contact sheet */}
       <section id="galeria" className="border-b border-black bg-zinc-50">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-12 gap-x-6 gap-y-8">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-12 gap-x-6 gap-y-8 items-start">
           <SectionRail n={4} label="Galeria — Contact sheet" />
-          <div className="col-span-12 md:col-span-3">
+          <div className="col-span-12 md:col-span-3 md:sticky md:top-24 self-start">
             <Reveal as="h2" className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">Galeria<span className="text-red-600">.</span></Reveal>
           </div>
           <div className="col-span-12 md:col-span-9 grid grid-cols-12 gap-1">
