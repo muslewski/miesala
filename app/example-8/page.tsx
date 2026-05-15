@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { Reveal } from "@/components/motion/Reveal";
 
 /* Variant 8 — Swiss Modernist Grid (v2 — editorial shuffle)
  * Asymmetric 12-col grid, monochrome + Swiss red, marquee band, editorial
@@ -150,9 +151,9 @@ export default function Page() {
           <SectionRail n={2} label="Oferta — Sześć obszarów doradztwa" />
 
           <div className="col-span-12 md:col-span-4">
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
+            <Reveal as="h2" className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
               Zakres<br/>usług <span className="text-red-600">.</span>
-            </h2>
+            </Reveal>
             <p className="mt-6 text-sm text-black/70 max-w-xs leading-relaxed">
               Pełny cykl finansowania nieruchomości — od pierwszej rozmowy aż po uruchomienie środków przez bank.
             </p>
@@ -239,9 +240,9 @@ export default function Page() {
           <SectionRail n={3} label="Blog — Aktualności rynku kredytowego" />
 
           <div className="col-span-12 md:col-span-3">
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
+            <Reveal as="h2" className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
               Blog<br/>Index<span className="text-red-600">.</span>
-            </h2>
+            </Reveal>
             <p className="mt-5 text-sm text-black/70 max-w-xs">Wybrane teksty z notatnika eksperta.</p>
           </div>
 
@@ -265,7 +266,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-12 gap-x-6 gap-y-8">
           <SectionRail n={4} label="Galeria — Contact sheet" />
           <div className="col-span-12 md:col-span-3">
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">Galeria<span className="text-red-600">.</span></h2>
+            <Reveal as="h2" className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">Galeria<span className="text-red-600">.</span></Reveal>
           </div>
           <div className="col-span-12 md:col-span-9 grid grid-cols-12 gap-1">
             <div className="col-span-12 md:col-span-6 aspect-[4/5] relative">
@@ -290,9 +291,9 @@ export default function Page() {
           <SectionRail n={5} label="FAQ — Indeks pytań klientów" />
 
           <div className="col-span-12 md:col-span-4 lg:sticky lg:top-24 self-start">
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
+            <Reveal as="h2" className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
               FAQ /<br/>Indeks pytań<span className="text-red-600">.</span>
-            </h2>
+            </Reveal>
             <p className="mt-5 text-sm text-black/70 max-w-xs leading-relaxed">
               Najczęściej zadawane pytania w procesie kredytowym. Inżynierskie odpowiedzi.
             </p>
@@ -327,11 +328,11 @@ export default function Page() {
           </div>
 
           <div className="col-span-12 md:col-span-7">
-            <h2 className="text-[12vw] md:text-[7.5vw] font-bold tracking-tighter uppercase leading-[0.85]">
+            <Reveal as="h2" className="text-[12vw] md:text-[7.5vw] font-bold tracking-tighter uppercase leading-[0.85]">
               Pierwsza<br/>
               <span className="font-light italic">rozmowa.</span><br/>
               <span className="text-red-500">Bezpłatna.</span>
-            </h2>
+            </Reveal>
             <p className="mt-6 max-w-md text-white/70 text-sm">
               30 minut, by zrozumieć Twoją sytuację kredytową i zobaczyć realne opcje. Bez kosztów, bez zobowiązań.
             </p>

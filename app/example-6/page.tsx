@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { Reveal } from "@/components/motion/Reveal";
 
 /* Variant 6 — Neumorphism Mono
  * Jeden kolor (neutral-200), wypukłe i wklęsłe formy, Manrope, mały akcent stalowy.
@@ -78,7 +79,7 @@ export default function Page() {
       <section id="oferta" className="max-w-6xl mx-auto px-6 pb-24">
         <div className="max-w-2xl mb-12">
           <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3">Oferta</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">Sześć usług — jeden ekspert.</h2>
+          <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight">Sześć usług — jeden ekspert.</Reveal>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {services.map((s, i) => (
@@ -94,7 +95,7 @@ export default function Page() {
       {/* Testimonials */}
       <section id="opinie" className="max-w-6xl mx-auto px-6 pb-24">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">Co mówią klienci.</h2>
+          <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight">Co mówią klienci.</Reveal>
           <span className={`${sunken} px-4 py-2 rounded-full bg-neutral-200 text-sm`}>Google: {company.rating.value} ★</span>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -113,7 +114,7 @@ export default function Page() {
 
       {/* Blog */}
       <section id="blog" className="max-w-6xl mx-auto px-6 pb-24">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Notatnik eksperta</h2>
+        <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Notatnik eksperta</Reveal>
         <div className="grid md:grid-cols-3 gap-6">
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${raised} rounded-3xl bg-neutral-200 overflow-hidden`}>
@@ -131,7 +132,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Galeria</h2>
+        <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Galeria</Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className={`${raised} p-2 rounded-2xl bg-neutral-200`}>
@@ -145,7 +146,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-24">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10">Pytanie? Mam odpowiedź.</h2>
+        <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10">Pytanie? Mam odpowiedź.</Reveal>
         <div className="space-y-5">
           {faq.map((f, i) => (
             <details key={i} className={`${raised} rounded-2xl bg-neutral-200 group open:bg-neutral-200`}>
@@ -163,7 +164,7 @@ export default function Page() {
       <section className="max-w-6xl mx-auto px-6 pb-16">
         <div className={`${raised} rounded-[2rem] bg-neutral-200 p-10 md:p-16 text-center`}>
           <p className={`${sunken} inline-flex px-4 py-2 rounded-full bg-neutral-200 text-xs uppercase tracking-widest text-neutral-500`}>Krok pierwszy</p>
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mt-6 leading-tight">Wystarczy jedna rozmowa.</h2>
+          <Reveal as="h2" className="text-4xl md:text-6xl font-extrabold tracking-tight mt-6 leading-tight">Wystarczy jedna rozmowa.</Reveal>
           <p className="mt-5 text-neutral-600 max-w-2xl mx-auto">30 minut, byś wiedział, na co realnie Cię stać i w którym banku jest dla Ciebie najlepiej.</p>
           <a href={company.contact.phoneTel} className={`${raised} mt-8 inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-neutral-200 text-lg font-bold hover:translate-y-[2px] transition`}>{company.contact.phone} →</a>
         </div>

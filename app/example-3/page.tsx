@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 /* Variant 3 — Industrial
  * Concrete + steel + safety orange.
@@ -171,9 +173,9 @@ export default function Page() {
           <div className="grid lg:grid-cols-12 gap-8 mb-12">
             <div className="lg:col-span-4">
               <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-02 / OFERTA</p>
-              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">
+              <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">
                 ZAKRES<br/>USŁUG.
-              </h2>
+              </Reveal>
             </div>
             <p className="lg:col-span-7 lg:col-start-6 text-zinc-300 text-lg leading-relaxed self-end">
               Sześć dokumentowanych procedur, w których prowadzę klienta od pierwszej rozmowy aż do uruchomienia środków przez bank.
@@ -224,10 +226,10 @@ export default function Page() {
           </div>
           <div className="lg:col-span-7">
             <p className={`${mono} text-[10px] text-orange-400 mb-4`}>SECT-03 / OPERATOR</p>
-            <h2 className="font-[family-name:var(--font-bebas)] text-5xl md:text-7xl tracking-wide leading-[0.9]">
+            <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-5xl md:text-7xl tracking-wide leading-[0.9]">
               ARTUR MIESAŁA<br/>
               <span className="text-orange-400">// MOTOR PROCESU.</span>
-            </h2>
+            </Reveal>
             <p className="mt-6 text-zinc-300 leading-relaxed max-w-xl">
               Doradca z zacięciem inżyniera. Zamiast obietnic — checklisty, harmonogramy i dokumentacja. Tłumaczę bankowy żargon na język ludzi, którzy chcą wiedzieć, na czym dokładnie stoją.
             </p>
@@ -254,22 +256,22 @@ export default function Page() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-04 / RAPORTY KLIENTÓW</p>
-              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CASE FILES.</h2>
+              <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CASE FILES.</Reveal>
             </div>
             <p className={`${mono} text-[10px] text-zinc-500`}>{`SAMPLE = ${top3Reviews.length} / TOTAL = ${company.rating.count}`}</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-px bg-zinc-800">
+          <Stagger className="grid md:grid-cols-3 gap-px bg-zinc-800">
             {top3Reviews.map((r, i) => (
-              <figure key={i} className="bg-zinc-900 p-7 relative">
+              <StaggerItem key={i} as="figure" className="bg-zinc-900 p-7 relative">
                 <div className="flex items-center justify-between mb-5">
                   <span className={`${mono} text-[10px] text-orange-400`}>{`FILE.${String(i + 1).padStart(3, "0")}`}</span>
                   <span className="text-orange-400 text-lg tracking-widest">{"★★★★★"}</span>
                 </div>
                 <blockquote className="text-zinc-200 leading-relaxed">&ldquo;{r.text.length > 220 ? r.text.slice(0, 220) + "…" : r.text}&rdquo;</blockquote>
                 <figcaption className={`${mono} text-[10px] text-zinc-500 mt-5 pt-5 border-t border-zinc-800`}>// {r.author.toUpperCase()}</figcaption>
-              </figure>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -279,7 +281,7 @@ export default function Page() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-05 / RAPORTY RYNKOWE</p>
-              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">BIULETYN.</h2>
+              <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">BIULETYN.</Reveal>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-zinc-800">
@@ -308,7 +310,7 @@ export default function Page() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
             <div>
               <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-06 / DOKUMENTACJA WIZUALNA</p>
-              <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CONTACT SHEET.</h2>
+              <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CONTACT SHEET.</Reveal>
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
@@ -330,7 +332,7 @@ export default function Page() {
         <div className="relative max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-07 / DIAGNOSTYKA</p>
-            <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">FAQ /<br/>TROUBLE<br/>SHOOTING.</h2>
+            <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">FAQ /<br/>TROUBLE<br/>SHOOTING.</Reveal>
             <p className="mt-6 text-zinc-400 max-w-xs">Najczęściej zgłaszane &bdquo;dlaczego&rdquo; w procesie kredytowym. Inżynierskie odpowiedzi.</p>
           </div>
           <div className="lg:col-span-8 divide-y divide-zinc-800 border-y border-zinc-800">
@@ -357,9 +359,9 @@ export default function Page() {
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-7">
             <p className={`${mono} text-[10px] text-orange-400 mb-4`}>SECT-08 / URUCHOMIENIE</p>
-            <h2 className="font-[family-name:var(--font-bebas)] text-6xl md:text-8xl tracking-wide leading-[0.85]">
+            <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-8xl tracking-wide leading-[0.85]">
               ROZRUCH<br/>PROCESU.<br/><span className="text-orange-400">JEDEN TELEFON.</span>
-            </h2>
+            </Reveal>
             <p className="mt-6 text-zinc-300 max-w-lg">Konsultacja diagnostyczna — 30 minut. Bez zobowiązań. Po niej wiesz, na czym stoisz.</p>
           </div>
           <div className="md:col-span-5 md:text-right space-y-4">

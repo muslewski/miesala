@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { Reveal } from "@/components/motion/Reveal";
 
 /* Variant 10 — Warm Organic
  * Ciepła paleta (sand, terracotta, sage), Fraunces + Inter, miękkie blob-y, ludzki ton.
@@ -102,7 +103,7 @@ export default function Page() {
       <section id="oferta" className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-sm font-medium text-orange-800 mb-3 uppercase tracking-widest">W czym pomagam</p>
-          <h2 className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight">Sześć rzeczy, które robię dla Ciebie.</h2>
+          <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight">Sześć rzeczy, które robię dla Ciebie.</Reveal>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => {
@@ -136,9 +137,9 @@ export default function Page() {
         </div>
         <div className="lg:col-span-7">
           <p className="text-sm font-medium text-orange-800 mb-3 uppercase tracking-widest">Filozofia pracy</p>
-          <h2 className="font-[family-name:var(--font-fraunces)] text-4xl md:text-5xl font-light tracking-tight leading-tight">
+          <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-4xl md:text-5xl font-light tracking-tight leading-tight">
             Wierzę, że za każdym kredytem<br/>stoi <span className="italic text-orange-800">prawdziwa historia</span>.
-          </h2>
+          </Reveal>
           <p className="mt-6 text-stone-600 leading-relaxed max-w-xl">
             Dlatego nie sprzedaję produktów &mdash; pomagam ludziom dobrze ulokować swoją historię w nieruchomości. Bez pośpiechu, z szacunkiem dla Twoich planów i obaw.
           </p>
@@ -150,7 +151,7 @@ export default function Page() {
       <section id="opinie" className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center mb-12">
           <p className="text-sm font-medium text-orange-800 mb-3 uppercase tracking-widest">Klienci</p>
-          <h2 className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight">Słowa, które mnie napędzają.</h2>
+          <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight">Słowa, które mnie napędzają.</Reveal>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {top3Reviews.map((r, i) => (
@@ -168,7 +169,7 @@ export default function Page() {
 
       {/* Blog */}
       <section id="blog" className="max-w-6xl mx-auto px-6 pb-24">
-        <h2 className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-12">Listy z gabinetu.</h2>
+        <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-12">Listy z gabinetu.</Reveal>
         <div className="grid md:grid-cols-3 gap-6">
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 overflow-hidden ${i === 1 ? "md:translate-y-6" : ""}`}>
@@ -186,7 +187,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
-        <h2 className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight mb-10">Codziennie tutaj.</h2>
+        <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight mb-10">Codziennie tutaj.</Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 p-2 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}>
@@ -200,7 +201,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-24">
-        <h2 className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10">A może masz pytania?</h2>
+        <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10">A może masz pytania?</Reveal>
         <div className="space-y-4">
           {faq.map((f, i) => (
             <details key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 group`}>
@@ -221,9 +222,9 @@ export default function Page() {
           <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-rose-400/30 blur-3xl" />
           <div className="relative grid md:grid-cols-12 gap-10 items-center">
             <div className="md:col-span-7">
-              <h2 className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight leading-[1.05]">
+              <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight leading-[1.05]">
                 Zaparzmy kawę<br/>i pogadajmy o domu.
-              </h2>
+              </Reveal>
               <p className="mt-5 text-amber-100 max-w-lg">Bez zobowiązań, bez pośpiechu. Po prostu rozmowa — odbieram do siódmej wieczorem.</p>
             </div>
             <div className="md:col-span-5 md:text-right">

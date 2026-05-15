@@ -11,6 +11,7 @@ import {
   Plus_Jakarta_Sans,
   Bebas_Neue,
 } from "next/font/google";
+import { MotionRoot } from "@/components/motion/MotionRoot";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "swap" });
@@ -44,7 +45,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   ].join(" ");
   return (
     <html lang="pl" className={`${cls} antialiased`}>
-      <body>{children}</body>
+      <body>
+        <MotionRoot>{children}</MotionRoot>
+      </body>
     </html>
   );
 }

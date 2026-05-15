@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { Reveal } from "@/components/motion/Reveal";
 
 /* Variant 2 — Neo-Brutalism
  * Czarno-żółty, grube krawędzie, offset shadows, all-caps, Space Grotesk + JetBrains Mono.
@@ -74,7 +75,7 @@ export default function Page() {
       <section id="oferta" className="border-b-[3px] border-black">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="flex items-end justify-between gap-6 flex-wrap mb-12">
-            <h2 className="font-black uppercase tracking-tighter text-5xl md:text-7xl">Co ▼ Robię</h2>
+            <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl">Co ▼ Robię</Reveal>
             <p className="font-[family-name:var(--font-mono)] uppercase text-xs">/* services.length === {services.length} */</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -92,7 +93,7 @@ export default function Page() {
       {/* Testimonials */}
       <section id="opinie" className="border-b-[3px] border-black bg-yellow-200">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          <h2 className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">Co mówią klienci</h2>
+          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">Co mówią klienci</Reveal>
           <div className="grid md:grid-cols-3 gap-7">
             {top3Reviews.map((r, i) => (
               <figure key={i} className={`${card} p-7`}>
@@ -108,7 +109,7 @@ export default function Page() {
       {/* Blog */}
       <section id="blog" className="border-b-[3px] border-black">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          <h2 className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">Notatki ekspresowe</h2>
+          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">Notatki ekspresowe</Reveal>
           <div className="grid md:grid-cols-3 gap-7">
             {top3Posts.map((p, i) => (
               <article key={p.slug} className={`${card} overflow-hidden`}>
@@ -128,7 +129,7 @@ export default function Page() {
       {/* Gallery */}
       <section className="border-b-[3px] border-black bg-black">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          <h2 className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12 text-yellow-300">[ Galeria ]</h2>
+          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12 text-yellow-300">[ Galeria ]</Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {images.gallery.slice(0, 8).map((g, i) => (
               <div key={i} className="border-[3px] border-yellow-300 aspect-square relative overflow-hidden hover:-translate-y-1 transition">
@@ -142,7 +143,7 @@ export default function Page() {
       {/* FAQ */}
       <section id="faq" className="border-b-[3px] border-black">
         <div className="max-w-4xl mx-auto px-6 py-20">
-          <h2 className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">FAQ.</h2>
+          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">FAQ.</Reveal>
           <div className="space-y-4">
             {faq.map((f, i) => (
               <details key={i} className={`${card} group p-0 open:bg-yellow-300`}>
@@ -163,9 +164,9 @@ export default function Page() {
       {/* CTA above footer */}
       <section className="border-b-[3px] border-black bg-black text-yellow-300">
         <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-          <h2 className="font-black uppercase tracking-tighter text-5xl md:text-8xl leading-none">
+          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-8xl leading-none">
             Kup dom.<br/><span className="italic">Nie stres.</span>
-          </h2>
+          </Reveal>
           <a href={company.contact.phoneTel} className="mt-12 inline-block bg-yellow-300 text-black px-10 py-5 text-2xl font-black uppercase border-[3px] border-yellow-300 shadow-[12px_12px_0_0_#fff] hover:shadow-[6px_6px_0_0_#fff] hover:translate-x-1 hover:translate-y-1 transition">
             Dzwoń → {company.contact.phone}
           </a>

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 /* Variant 9 — Trust Banking Blue
  * Profesjonalny SaaS/banking, Inter, deep blue + jasne tło, zielony "safe" akcent.
@@ -101,18 +103,18 @@ export default function Page() {
       <section id="oferta" className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Oferta</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Wszystko, czego potrzebujesz przy kredycie.</h2>
+          <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Wszystko, czego potrzebujesz przy kredycie.</Reveal>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
-            <article key={s.slug} className="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-xl hover:border-blue-200 transition">
+            <StaggerItem key={s.slug} as="article" className="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-xl hover:border-blue-200 transition">
               <span className="inline-grid place-items-center w-12 h-12 rounded-xl bg-blue-50 text-blue-700 font-bold">{`${i + 1}`.padStart(2, "0")}</span>
               <h3 className="font-bold text-xl mt-5 tracking-tight">{s.title}</h3>
               <p className="text-sm text-slate-600 mt-3 leading-relaxed">{s.long}</p>
               <p className="mt-4 text-sm font-semibold text-blue-700">Dowiedz się więcej →</p>
-            </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
 
       {/* Process */}
@@ -120,7 +122,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Proces</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Cztery kroki do podpisanej umowy.</h2>
+            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Cztery kroki do podpisanej umowy.</Reveal>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {[
@@ -146,7 +148,7 @@ export default function Page() {
         </div>
         <div className="lg:col-span-7">
           <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">O mnie</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Po stronie klienta. Zawsze.</h2>
+          <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Po stronie klienta. Zawsze.</Reveal>
           <p className="mt-5 text-lg text-slate-600 leading-relaxed">
             Doświadczenie eksperta, indywidualne podejście i kompleksowa obsługa procesu kredytowego. Wiem, że kredyt to nie tylko liczby — to lata Twojego życia. Dlatego pracuję dokładnie i transparentnie.
           </p>
@@ -172,7 +174,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Opinie</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">{company.rating.value}/5 · {company.rating.count} opinii Google</h2>
+            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">{company.rating.value}/5 · {company.rating.count} opinii Google</Reveal>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {top3Reviews.map((r, i) => (
@@ -197,7 +199,7 @@ export default function Page() {
         <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
           <div>
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Blog eksperta</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Aktualne tematy.</h2>
+            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Aktualne tematy.</Reveal>
           </div>
           <a href="#" className="text-sm font-semibold text-blue-700 hover:underline">Wszystkie wpisy →</a>
         </div>
@@ -219,7 +221,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
-        <h2 className="text-3xl font-bold tracking-tight mb-8">Z gabinetu w Osielsku</h2>
+        <Reveal as="h2" className="text-3xl font-bold tracking-tight mb-8">Z gabinetu w Osielsku</Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className="aspect-square relative rounded-xl overflow-hidden ring-1 ring-slate-200">
@@ -234,7 +236,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">FAQ</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Najczęstsze pytania.</h2>
+            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Najczęstsze pytania.</Reveal>
             <p className="mt-5 text-slate-600">Nie znalazłeś odpowiedzi? Zadzwoń — chętnie wyjaśnię.</p>
             <a href={company.contact.phoneTel} className="mt-6 inline-flex items-center gap-2 text-blue-700 font-semibold">{company.contact.phone} →</a>
           </div>
@@ -257,9 +259,9 @@ export default function Page() {
         <div className="rounded-3xl bg-blue-700 text-white p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-blue-400/30 blur-3xl" />
           <div className="md:col-span-7 relative">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <Reveal as="h2" className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
               Gotowy, by zacząć?
-            </h2>
+            </Reveal>
             <p className="mt-5 text-blue-100 max-w-lg">Bezpłatna 30-minutowa konsultacja telefoniczna. Po niej będziesz wiedział dokładnie, na co Cię stać.</p>
           </div>
           <div className="md:col-span-5 md:text-right relative">

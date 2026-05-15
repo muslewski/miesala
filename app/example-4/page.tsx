@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 /* Variant 4 — Bento Grid
  * Modułowe kafelki o różnych rozmiarach, Inter, jasne tło + indigo akcent.
@@ -87,25 +89,25 @@ export default function Page() {
         <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
           <div>
             <p className="text-xs uppercase tracking-widest text-indigo-600 mb-2">Oferta</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Wszystko, czego potrzebujesz w jednym pakiecie.</h2>
+            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Wszystko, czego potrzebujesz w jednym pakiecie.</Reveal>
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-4">
+        <Stagger className="grid grid-cols-12 gap-4">
           {services.map((s, i) => {
             const span = i === 0 ? "col-span-12 lg:col-span-6" : "col-span-12 sm:col-span-6 lg:col-span-3";
             const variant = i === 0 ? dark : i === 3 ? indigoSoft : white;
             return (
-              <article key={s.slug} className={`${tile} ${variant} ${span} p-7 flex flex-col gap-4`}>
+              <StaggerItem key={s.slug} as="article" className={`${tile} ${variant} ${span} p-7 flex flex-col gap-4`}>
                 <div className="flex items-center justify-between">
                   <span className={`text-xs px-2.5 py-1 rounded-full ${i === 0 ? "bg-white/10 text-white" : "bg-zinc-100 text-zinc-600"} font-mono`}>0{i + 1}</span>
                   <span className={`w-10 h-10 rounded-2xl grid place-items-center ${i === 0 ? "bg-indigo-500 text-white" : "bg-indigo-600 text-white"}`}>→</span>
                 </div>
                 <h3 className="font-bold text-xl tracking-tight">{s.title}</h3>
                 <p className={`text-sm ${i === 0 ? "text-zinc-300" : "text-zinc-600"} leading-relaxed flex-1`}>{i === 0 ? s.long : s.short}</p>
-              </article>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </section>
 
       {/* Mixed bento: testimonials + photo + about */}
@@ -140,7 +142,7 @@ export default function Page() {
       {/* Blog teaser */}
       <section id="blog" className="max-w-7xl mx-auto px-5 mt-16">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Blog</h2>
+          <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Blog</Reveal>
           <a href="#" className="text-sm font-medium text-indigo-600">Zobacz wszystkie →</a>
         </div>
         <div className="grid grid-cols-12 gap-4 auto-rows-min">
@@ -167,7 +169,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-5 mt-16">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Galeria</h2>
+        <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Galeria</Reveal>
         <div className="grid grid-cols-12 gap-3 auto-rows-[180px]">
           {images.gallery.slice(0, 7).map((g, i) => {
             const span =
@@ -189,7 +191,7 @@ export default function Page() {
         <div className="grid lg:grid-cols-12 gap-6">
           <div className={`${tile} ${indigo} lg:col-span-4 p-8 sticky top-24 self-start`}>
             <p className="text-xs uppercase tracking-widest text-indigo-200 mb-3">FAQ</p>
-            <h2 className="text-3xl font-bold tracking-tight">Najczęściej zadawane pytania.</h2>
+            <Reveal as="h2" className="text-3xl font-bold tracking-tight">Najczęściej zadawane pytania.</Reveal>
             <p className="mt-4 text-indigo-100">Jeśli nie znajdziesz odpowiedzi — zadzwoń. Wyjaśniam wszystko prostym językiem.</p>
             <a href={company.contact.phoneTel} className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full bg-white text-indigo-700 font-medium hover:bg-amber-300 hover:text-zinc-900 transition">{company.contact.phone}</a>
           </div>
@@ -211,9 +213,9 @@ export default function Page() {
       <section className="max-w-7xl mx-auto px-5 mt-16">
         <div className={`${tile} ${dark} p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center`}>
           <div className="md:col-span-7">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <Reveal as="h2" className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
               Pierwsza rozmowa<br/><span className="text-indigo-400">jest za darmo.</span>
-            </h2>
+            </Reveal>
             <p className="mt-5 text-zinc-400 max-w-lg">30 minut, podczas których wyjaśnię Twoją sytuację kredytową i pokażę realne opcje.</p>
           </div>
           <div className="md:col-span-5 md:text-right">
