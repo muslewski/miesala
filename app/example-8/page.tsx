@@ -307,10 +307,10 @@ export default function Page() {
 
       {/* FAQ — sticky left intro */}
       <section id="faq" className="border-b border-black">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-12 gap-x-6 gap-y-8 items-start">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-12 gap-x-6 gap-y-8">
           <SectionRail n={5} label="FAQ — Indeks pytań klientów" />
 
-          <div className="col-span-12 md:col-span-4 lg:sticky lg:top-24 self-start">
+          <div className="col-span-12 md:col-span-4">
             <Reveal as="h2" className="text-5xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.85]">
               FAQ /<br/>Indeks pytań<span className="text-red-600">.</span>
             </Reveal>
