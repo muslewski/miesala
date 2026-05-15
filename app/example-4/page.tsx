@@ -64,8 +64,11 @@ export default function Page() {
       {/* Bento hero */}
       <section className="max-w-7xl mx-auto px-5 pt-10">
         <div className="grid grid-cols-6 auto-rows-[140px] gap-4">
-          {/* Big hero tile */}
-          <div className={`${tile} ${white} col-span-6 lg:col-span-4 row-span-4 p-8 md:p-10 relative flex flex-col justify-between`}>
+          {/* Big hero tile — on mobile we drop row-span-4's 560px tile in favor of
+              a 3-row (420px) container, and stack content naturally with gap.
+              `justify-between` only kicks in at lg+, where the dramatic bento
+              proportions actually benefit from text-top / CTA-bottom anchoring. */}
+          <div className={`${tile} ${white} col-span-6 row-span-3 lg:col-span-4 lg:row-span-4 p-8 md:p-10 relative flex flex-col gap-6 lg:gap-0 lg:justify-between`}>
             <div>
               <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-700 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" /> Niezależny ekspert kredytowy
@@ -98,11 +101,14 @@ export default function Page() {
             <Image src={hero.largeImageURL} alt="" fill className="object-cover" sizes="40vw" priority />
           </div>
 
-          {/* Stats mini tiles */}
+          {/* Stats mini tiles — `tracking-widest` on a 117px-wide tile makes the
+              label wrap into a wobbly 3-line block. Lighten tracking on mobile,
+              drop justify-between (the tile is only 140px tall — no room to
+              spread anyway), and shrink the value a notch on small screens. */}
           {stats.slice(0, 3).map((s) => (
-            <div key={s.label} className={`${tile} ${white} col-span-2 lg:col-span-2 p-5 flex flex-col justify-between`}>
-              <p className="text-xs uppercase tracking-widest text-zinc-500">{s.label}</p>
-              <p className="text-3xl font-bold text-zinc-900"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
+            <div key={s.label} className={`${tile} ${white} col-span-2 p-4 sm:p-5 flex flex-col gap-2 lg:gap-0 lg:justify-between`}>
+              <p className="text-[10px] sm:text-xs uppercase tracking-wider lg:tracking-widest text-zinc-500 leading-tight">{s.label}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-zinc-900 tabular-nums"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
             </div>
           ))}
         </div>
@@ -212,8 +218,8 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-7xl mx-auto px-5 mt-16">
-        <div className="grid lg:grid-cols-12 gap-6">
-          <div className={`${tile} ${indigo} lg:col-span-4 p-8 sticky top-24 self-start`}>
+        <div className="grid lg:grid-cols-12 gap-6 lg:items-start">
+          <div className={`${tile} ${indigo} lg:col-span-4 p-8 lg:sticky lg:top-24 lg:self-start`}>
             <p className="text-xs uppercase tracking-widest text-indigo-200 mb-3">FAQ</p>
             <StaggeredText as="h2" className="text-3xl font-bold tracking-tight" text="Najczęściej zadawane pytania." />
             <p className="mt-4 text-indigo-100">Jeśli nie znajdziesz odpowiedzi — zadzwoń. Wyjaśniam wszystko prostym językiem.</p>
