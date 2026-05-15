@@ -1,34 +1,46 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /**
- * FaqItem — accessible expand/collapse with smooth height+opacity motion.
+ * FaqItem — accessible expand/collapse, CSS-only animation.
  *
- * Drop-in replacement for `<details>/<summary>` blocks. Pure props (no
- * render-prop / function children), so server components can render it
- * directly without hitting the "functions cannot be passed to client
- * components" boundary.
+ * Was Framer-driven (animate height:0 → "auto"); switched to the
+ * `grid-template-rows: 0fr → 1fr` CSS trick because:
  *
- * Open-state styling on indicators is driven by Tailwind's
- * `group-data-[state=open]/faq:` modifier — the wrapper holds
- * `group/faq` + `data-state`, descendants react via CSS. Example:
+ *   1. JS height animation triggers layout reflow on every frame.
+ *      With 8 items × multiple sections + concurrent CountUp / Reveal /
+ *      backdrop-blur cards on the same page, the reflows stack up and
+ *      the main thread stalls. Visible jank.
+ *   2. The CSS trick is fully composited by the browser — no React
+ *      reconciliation, no per-frame work in our code, no <motion.div>
+ *      tree to mount/unmount per FAQ item.
+ *   3. AnimatePresence on each item also adds a non-trivial mount cost
+ *      multiplied across 72 items (9 examples × 8 questions).
  *
- *   <FaqItem
- *     className="..."
- *     question={
- *       <span className="flex items-start justify-between">
- *         <span>{f.q}</span>
- *         <span className="transition group-data-[state=open]/faq:rotate-45">+</span>
- *       </span>
- *     }
- *     contentClassName="px-5 pb-5 text-zinc-600 leading-relaxed"
- *     answer={f.a}
- *   />
+ * Browser support for grid-template-rows interpolation: Chrome 117+
+ * (Sep 2023), Safari 17.4+ (Mar 2024), Firefox 119+ (Oct 2023). For
+ * anything older the transition is silently skipped — the panel still
+ * opens and closes instantly via the data-state attribute change.
  *
- * Honors prefers-reduced-motion via the MotionConfig from MotionRoot.
+ * Pure-prop API (question / answer / className / contentClassName) —
+ * works inside server components since no functions cross the
+ * server→client boundary.
+ *
+ * Open-state styling on descendants (rotating + indicators, hover
+ * shadows, open-bg fills) uses Tailwind's `group/faq` +
+ * `group-data-[state=open]/faq:` modifier:
+ *
+ *   question={
+ *     <span className="flex justify-between">
+ *       <span>{f.q}</span>
+ *       <span className="transition group-data-[state=open]/faq:rotate-45">+</span>
+ *     </span>
+ *   }
+ *
+ * `motion-reduce:transition-none` honors the OS-level "Reduce motion"
+ * setting — the panel still opens/closes, just instantly.
  */
 
 interface FaqItemProps {
@@ -37,9 +49,9 @@ interface FaqItemProps {
   question: ReactNode;
   /** Answer content rendered inside the animated wrapper. */
   answer: ReactNode;
-  /** className for the answer body wrapper (padding, text colors, etc) */
+  /** className for the answer body wrapper (padding, text colors). */
   contentClassName?: string;
-  /** className for the toggle button itself (defaults to a full-width left-aligned trigger) */
+  /** className for the toggle button itself (default: w-full text-left cursor-pointer). */
   triggerClassName?: string;
   defaultOpen?: boolean;
 }
@@ -69,23 +81,24 @@ export function FaqItem({
       >
         {question}
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              height: { duration: 0.32, ease: [0.16, 1, 0.3, 1] },
-              opacity: { duration: 0.2, ease: "easeOut" },
-            }}
-            style={{ overflow: "hidden" }}
-          >
-            <div className={contentClassName}>{answer}</div>
-          </motion.div>
+      {/*
+        Outer grid container — animates its single row track from 0fr
+        to 1fr. Browser handles this natively in one composited pass.
+       */}
+      <div
+        className={cn(
+          "grid grid-rows-[0fr] data-[state=open]:grid-rows-[1fr]",
+          "transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "motion-reduce:transition-none",
         )}
-      </AnimatePresence>
+        data-state={state}
+      >
+        {/* Middle layer — overflow:hidden so content is clipped while
+            the row is shrinking; otherwise descendants leak out. */}
+        <div className="overflow-hidden">
+          <div className={contentClassName}>{answer}</div>
+        </div>
+      </div>
     </div>
   );
 }
