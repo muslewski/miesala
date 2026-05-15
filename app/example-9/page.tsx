@@ -90,7 +90,7 @@ export default function Page() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden relative shadow-2xl shadow-blue-700/15 ring-1 ring-slate-200">
                 <Image src={hero.largeImageURL} alt="" fill className="object-cover" priority />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl ring-1 ring-slate-200 p-5 max-w-xs">
+              <div className="absolute -bottom-6 left-2 right-2 sm:left-2 sm:right-auto md:-left-6 md:right-auto bg-white rounded-2xl shadow-xl ring-1 ring-slate-200 p-5 sm:max-w-xs">
                 <p className="text-xs text-slate-500 mb-1">Rata kredytu — symulacja</p>
                 <p className="text-3xl font-bold text-blue-700">2 187 zł</p>
                 <p className="text-xs text-emerald-600 mt-1">↓ 312 zł niższa niż w pierwszej ofercie</p>
