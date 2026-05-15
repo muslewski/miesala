@@ -21,7 +21,10 @@ const top3Posts = blogIndex.slice(0, 3);
 
 // Shape only — bg/text/border MUST be set per-tile so Tailwind doesn't
 // drop our color overrides under the bg-white default.
-const tile = "rounded-3xl shadow-sm hover:shadow-md transition-all overflow-hidden";
+// transition-[box-shadow] only — `transition-all` would also animate the
+// translateY/opacity that Framer Motion drives on staggered cards, causing
+// a visible flicker as the two competing transitions tug on the same prop.
+const tile = "rounded-3xl shadow-sm hover:shadow-md transition-[box-shadow] duration-200 overflow-hidden";
 const white = "bg-white border border-zinc-200 text-zinc-900";
 const dark = "bg-zinc-900 border border-zinc-900 text-white";
 const indigo = "bg-indigo-600 border border-indigo-600 text-white";

@@ -128,7 +128,7 @@ export default function Page() {
         </div>
         <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
-            <StaggerItem key={s.slug} as="article" className="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-xl hover:border-blue-200 transition">
+            <StaggerItem key={s.slug} as="article" className="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-xl hover:border-blue-200 transition-[box-shadow,border-color] duration-200">
               <span className="inline-grid place-items-center w-12 h-12 rounded-xl bg-blue-50 text-blue-700 font-bold">{`${i + 1}`.padStart(2, "0")}</span>
               <h3 className="font-bold text-xl mt-5 tracking-tight">{s.title}</h3>
               <p className="text-sm text-slate-600 mt-3 leading-relaxed">{s.long}</p>

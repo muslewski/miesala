@@ -121,7 +121,7 @@ export default function Page() {
 
         <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200">
           {services.map((s, i) => (
-            <StaggerItem key={s.slug} as="article" className="bg-stone-50 p-8 hover:bg-white transition group">
+            <StaggerItem key={s.slug} as="article" className="bg-stone-50 p-8 hover:bg-white transition-colors group">
               <div className="flex items-baseline gap-3">
                 <span className="font-mono text-xs text-emerald-900">0{i + 1}</span>
                 <h3 className="font-[family-name:var(--font-playfair)] text-2xl tracking-tight">{s.title}</h3>
