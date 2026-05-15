@@ -101,14 +101,19 @@ export default function Page() {
             <Image src={hero.largeImageURL} alt="" fill className="object-cover" sizes="40vw" priority />
           </div>
 
-          {/* Stats mini tiles — `tracking-widest` on a 117px-wide tile makes the
-              label wrap into a wobbly 3-line block. Lighten tracking on mobile,
-              drop justify-between (the tile is only 140px tall — no room to
-              spread anyway), and shrink the value a notch on small screens. */}
+          {/* Stats mini tiles — `col-span-2` (1/3 of the row) only leaves
+              ~70px of usable text width on a 375px viewport, which crushes
+              "lat doświadczenia". On phones we go full-width with a horizontal
+              row layout (label left, big value right); at sm+ we return to
+              the bento 3-in-a-row stacked layout. `tabular-nums` keeps the
+              CountUp digits from shifting during the animation. */}
           {stats.slice(0, 3).map((s) => (
-            <div key={s.label} className={`${tile} ${white} col-span-2 p-4 sm:p-5 flex flex-col gap-2 lg:gap-0 lg:justify-between`}>
-              <p className="text-[10px] sm:text-xs uppercase tracking-wider lg:tracking-widest text-zinc-500 leading-tight">{s.label}</p>
-              <p className="text-2xl sm:text-3xl font-bold text-zinc-900 tabular-nums"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
+            <div
+              key={s.label}
+              className={`${tile} ${white} col-span-6 sm:col-span-2 p-4 sm:p-5 flex max-sm:flex-row max-sm:items-center max-sm:justify-between sm:flex-col sm:gap-2 lg:gap-0 lg:justify-between`}
+            >
+              <p className="text-xs uppercase tracking-wider lg:tracking-widest text-zinc-500 leading-tight">{s.label}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-zinc-900 tabular-nums whitespace-nowrap"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
             </div>
           ))}
         </div>
