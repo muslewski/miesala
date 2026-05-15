@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -113,7 +114,7 @@ export default function Page() {
       <section id="oferta" className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Oferta</p>
-          <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Wszystko, czego potrzebujesz przy kredycie.</Reveal>
+          <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Wszystko, czego potrzebujesz przy kredycie." />
         </div>
         <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
@@ -132,7 +133,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Proces</p>
-            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Cztery kroki do podpisanej umowy.</Reveal>
+            <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Cztery kroki do podpisanej umowy." />
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {[
@@ -158,7 +159,7 @@ export default function Page() {
         </div>
         <div className="lg:col-span-7">
           <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">O mnie</p>
-          <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Po stronie klienta. Zawsze.</Reveal>
+          <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Po stronie klienta. Zawsze." />
           <p className="mt-5 text-lg text-slate-600 leading-relaxed">
             Doświadczenie eksperta, indywidualne podejście i kompleksowa obsługa procesu kredytowego. Wiem, że kredyt to nie tylko liczby — to lata Twojego życia. Dlatego pracuję dokładnie i transparentnie.
           </p>
@@ -209,7 +210,7 @@ export default function Page() {
         <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
           <div>
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">Blog eksperta</p>
-            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Aktualne tematy.</Reveal>
+            <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Aktualne tematy." />
           </div>
           <a href="#" className="text-sm font-semibold text-blue-700 hover:underline">Wszystkie wpisy →</a>
         </div>
@@ -231,7 +232,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
-        <Reveal as="h2" className="text-3xl font-bold tracking-tight mb-8">Z gabinetu w Osielsku</Reveal>
+        <StaggeredText as="h2" className="text-3xl font-bold tracking-tight mb-8" text="Z gabinetu w Osielsku" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className="aspect-square relative rounded-xl overflow-hidden ring-1 ring-slate-200">
@@ -246,7 +247,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">FAQ</p>
-            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Najczęstsze pytania.</Reveal>
+            <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Najczęstsze pytania." />
             <p className="mt-5 text-slate-600">Nie znalazłeś odpowiedzi? Zadzwoń — chętnie wyjaśnię.</p>
             <a href={company.contact.phoneTel} className="mt-6 inline-flex items-center gap-2 text-blue-700 font-semibold">{company.contact.phone} →</a>
           </div>
@@ -269,9 +270,7 @@ export default function Page() {
         <div className="rounded-3xl bg-blue-700 text-white p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-blue-400/30 blur-3xl" />
           <div className="md:col-span-7 relative">
-            <Reveal as="h2" className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
-              Gotowy, by zacząć?
-            </Reveal>
+            <StaggeredText as="h2" className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]" text="Gotowy, by zacząć?" />
             <p className="mt-5 text-blue-100 max-w-lg">Bezpłatna 30-minutowa konsultacja telefoniczna. Po niej będziesz wiedział dokładnie, na co Cię stać.</p>
           </div>
           <div className="md:col-span-5 md:text-right relative">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 
@@ -85,7 +86,7 @@ export default function Page() {
       <section id="oferta" className="border-b-[3px] border-black">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="flex items-end justify-between gap-6 flex-wrap mb-12">
-            <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl">Co ▼ Robię</Reveal>
+            <StaggeredText as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl" text="Co ▼ Robię" />
             <p className="font-[family-name:var(--font-mono)] uppercase text-xs">/* services.length === {services.length} */</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -103,7 +104,7 @@ export default function Page() {
       {/* Testimonials */}
       <section id="opinie" className="border-b-[3px] border-black bg-yellow-200">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">Co mówią klienci</Reveal>
+          <StaggeredText as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12" text="Co mówią klienci" />
           <div className="grid md:grid-cols-3 gap-7">
             {top3Reviews.map((r, i) => (
               <figure key={i} className={`${card} p-7`}>
@@ -119,7 +120,7 @@ export default function Page() {
       {/* Blog */}
       <section id="blog" className="border-b-[3px] border-black">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">Notatki ekspresowe</Reveal>
+          <StaggeredText as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12" text="Notatki ekspresowe" />
           <div className="grid md:grid-cols-3 gap-7">
             {top3Posts.map((p, i) => (
               <article key={p.slug} className={`${card} overflow-hidden`}>
@@ -139,7 +140,7 @@ export default function Page() {
       {/* Gallery */}
       <section className="border-b-[3px] border-black bg-black">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12 text-yellow-300">[ Galeria ]</Reveal>
+          <StaggeredText as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12 text-yellow-300" text="[ Galeria ]" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {images.gallery.slice(0, 8).map((g, i) => (
               <div key={i} className="border-[3px] border-yellow-300 aspect-square relative overflow-hidden hover:-translate-y-1 transition">
@@ -153,7 +154,7 @@ export default function Page() {
       {/* FAQ */}
       <section id="faq" className="border-b-[3px] border-black">
         <div className="max-w-4xl mx-auto px-6 py-20">
-          <Reveal as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12">FAQ.</Reveal>
+          <StaggeredText as="h2" className="font-black uppercase tracking-tighter text-5xl md:text-7xl mb-12" text="FAQ." />
           <div className="space-y-4">
             {faq.map((f, i) => (
               <details key={i} className={`${card} group p-0 open:bg-yellow-300`}>

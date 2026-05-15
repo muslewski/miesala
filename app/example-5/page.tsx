@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
+import BlurText from "@/components/react-bits/BlurText";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 
@@ -107,7 +109,7 @@ export default function Page() {
       <section id="oferta" className="max-w-6xl mx-auto px-6 pb-20">
         <div className="max-w-2xl mb-10">
           <p className="text-sm font-semibold text-sky-600 mb-3">Oferta</p>
-          <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight">Po prostu się tym zajmę.</Reveal>
+          <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight" text="Po prostu się tym zajmę." />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
@@ -123,7 +125,7 @@ export default function Page() {
       {/* Testimonials */}
       <section id="opinie" className="max-w-6xl mx-auto px-6 pb-20">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
-          <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight">Klienci mówią to samo.</Reveal>
+          <BlurText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight" text="Klienci mówią to samo." animateBy="words" delay={120} />
           <p className="text-slate-500">{company.rating.value} ★ · {company.rating.count} opinii</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -149,7 +151,7 @@ export default function Page() {
             </div>
           </div>
           <div className="lg:col-span-7">
-            <Reveal as="h2" className="text-3xl md:text-4xl font-extrabold tracking-tight">Indywidualne podejście do każdej historii.</Reveal>
+            <StaggeredText as="h2" className="text-3xl md:text-4xl font-extrabold tracking-tight" text="Indywidualne podejście do każdej historii." />
             <p className="mt-5 text-slate-600 leading-relaxed">Każda rodzina jest inna — inny budżet, inne plany, inne potrzeby. Dlatego nie pracuję na szablonach. Słucham, pytam, liczę razem z Tobą.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               {["Bezpłatna konsultacja", "Niezależny ekspert", "15+ banków", "Pełna obsługa"].map((t) => (
@@ -162,7 +164,7 @@ export default function Page() {
 
       {/* Blog */}
       <section id="blog" className="max-w-6xl mx-auto px-6 pb-20">
-        <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Z bloga</Reveal>
+        <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10" text="Z bloga" />
         <div className="grid md:grid-cols-3 gap-6">
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${clayCard} overflow-hidden flex flex-col`}>
@@ -180,7 +182,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 pb-20">
-        <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">Wspomnienia z gabinetu</Reveal>
+        <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10" text="Wspomnienia z gabinetu" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className={`${clayCard} aspect-square overflow-hidden p-2`}>
@@ -194,7 +196,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-4xl mx-auto px-6 pb-20">
-        <Reveal as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10">A może masz pytania?</Reveal>
+        <StaggeredText as="h2" className="text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-10" text="A może masz pytania?" />
         <div className="space-y-4">
           {faq.map((f, i) => (
             <details key={i} className={`${clayCard} group p-0`}>
@@ -215,7 +217,7 @@ export default function Page() {
           <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-rose-300/30 blur-3xl" />
           <div className="relative grid md:grid-cols-12 gap-10 items-center">
             <div className="md:col-span-7">
-              <Reveal as="h2" className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">Twoje wymarzone &ldquo;tak&rdquo; już czeka.</Reveal>
+              <StaggeredText as="h2" className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.05]" text="Twoje wymarzone &ldquo;tak&rdquo; już czeka." />
               <p className="mt-5 text-white/90 max-w-xl">Wystarczy jedna rozmowa, żeby zrobić pierwszy konkretny krok.</p>
             </div>
             <div className="md:col-span-5 md:text-right">

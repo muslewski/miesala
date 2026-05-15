@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
+import TextType from "@/components/react-bits/TextType";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -88,7 +90,22 @@ export default function Page() {
             <div className={`${mono} text-[10px] text-orange-400 flex items-center gap-4 mb-8`}>
               <span className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 bg-orange-400" />
-                REF.001 / DORADZTWO KREDYTOWE
+                REF.001 /{" "}
+                <TextType
+                  as="span"
+                  text={[
+                    "DORADZTWO KREDYTOWE",
+                    "KREDYT HIPOTECZNY",
+                    "REFINANSOWANIE",
+                    "KONSOLIDACJA",
+                    "PROGRAMY RZĄDOWE",
+                  ]}
+                  typingSpeed={45}
+                  deletingSpeed={25}
+                  pauseDuration={1800}
+                  cursorCharacter="▮"
+                  cursorClassName="text-orange-400"
+                />
               </span>
               <span className="text-zinc-600">|</span>
               <span>{company.contact.address.city.toUpperCase()}, PL</span>
@@ -266,7 +283,7 @@ export default function Page() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-04 / RAPORTY KLIENTÓW</p>
-              <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CASE FILES.</Reveal>
+              <StaggeredText as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]" text="CASE FILES." />
             </div>
             <p className={`${mono} text-[10px] text-zinc-500`}>{`SAMPLE = ${top3Reviews.length} / TOTAL = ${company.rating.count}`}</p>
           </div>
@@ -291,7 +308,7 @@ export default function Page() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-05 / RAPORTY RYNKOWE</p>
-              <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">BIULETYN.</Reveal>
+              <StaggeredText as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]" text="BIULETYN." />
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-zinc-800">
@@ -320,7 +337,7 @@ export default function Page() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
             <div>
               <p className={`${mono} text-[10px] text-orange-400 mb-3`}>SECT-06 / DOKUMENTACJA WIZUALNA</p>
-              <Reveal as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]">CONTACT SHEET.</Reveal>
+              <StaggeredText as="h2" className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl tracking-wide leading-[0.9]" text="CONTACT SHEET." />
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-1">

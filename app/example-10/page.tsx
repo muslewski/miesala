@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
+import BlurText from "@/components/react-bits/BlurText";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 
@@ -113,7 +115,7 @@ export default function Page() {
       <section id="oferta" className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-sm font-medium text-orange-800 mb-3 uppercase tracking-widest">W czym pomagam</p>
-          <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight">Sześć rzeczy, które robię dla Ciebie.</Reveal>
+          <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight" text="Sześć rzeczy, które robię dla Ciebie." />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => {
@@ -161,7 +163,7 @@ export default function Page() {
       <section id="opinie" className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center mb-12">
           <p className="text-sm font-medium text-orange-800 mb-3 uppercase tracking-widest">Klienci</p>
-          <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight">Słowa, które mnie napędzają.</Reveal>
+          <BlurText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight" text="Słowa, które mnie napędzają." animateBy="words" delay={120} />
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {top3Reviews.map((r, i) => (
@@ -179,7 +181,7 @@ export default function Page() {
 
       {/* Blog */}
       <section id="blog" className="max-w-6xl mx-auto px-6 pb-24">
-        <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-12">Listy z gabinetu.</Reveal>
+        <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-12" text="Listy z gabinetu." />
         <div className="grid md:grid-cols-3 gap-6">
           {top3Posts.map((p, i) => (
             <article key={p.slug} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 overflow-hidden ${i === 1 ? "md:translate-y-6" : ""}`}>
@@ -197,7 +199,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
-        <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight mb-10">Codziennie tutaj.</Reveal>
+        <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight mb-10" text="Codziennie tutaj." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 p-2 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}>
@@ -211,7 +213,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-24">
-        <Reveal as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10">A może masz pytania?</Reveal>
+        <StaggeredText as="h2" className="font-[family-name:var(--font-fraunces)] text-5xl md:text-6xl font-light tracking-tight text-center mb-10" text="A może masz pytania?" />
         <div className="space-y-4">
           {faq.map((f, i) => (
             <details key={i} className={`${blob} bg-white/80 backdrop-blur-xl border border-white/60 group`}>

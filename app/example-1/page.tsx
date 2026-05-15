@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
+import SplitText from "@/components/react-bits/SplitText";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -99,9 +101,7 @@ export default function Page() {
         <div className="grid md:grid-cols-12 gap-10 mb-14">
           <div className="md:col-span-5">
             <p className="text-xs uppercase tracking-[0.3em] text-emerald-900 mb-4">Oferta</p>
-            <Reveal as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight">
-              Pełna obsługa, od liczb po podpis.
-            </Reveal>
+            <StaggeredText as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight" text="Pełna obsługa, od liczb po podpis." />
           </div>
           <p className="md:col-span-7 md:col-start-7 text-stone-600 text-lg leading-relaxed">
             Każdy klient dostaje plan dopasowany do swojej sytuacji — od pierwszego badania zdolności po finalne uruchomienie środków przez bank.
@@ -129,9 +129,7 @@ export default function Page() {
           </div>
           <div className="lg:col-span-7">
             <p className="text-xs uppercase tracking-[0.3em] text-amber-300 mb-4">Kim jestem</p>
-            <Reveal as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight italic font-light">
-              &ldquo;Moja misja to pomoc w realizacji marzeń o własnym domu.&rdquo;
-            </Reveal>
+            <StaggeredText as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight italic font-light" text="&ldquo;Moja misja to pomoc w realizacji marzeń o własnym domu.&rdquo;" />
             <p className="mt-6 text-stone-300 leading-relaxed max-w-xl">
               Doświadczenie, indywidualne podejście i kompleksowa obsługa na każdym etapie. Wiem, że kredyt to nie tylko liczby — to lata Twojego życia. Dlatego pracuję dokładnie i transparentnie.
             </p>
@@ -172,7 +170,7 @@ export default function Page() {
           <div className="grid md:grid-cols-12 gap-10 mb-14">
             <div className="md:col-span-6">
               <p className="text-xs uppercase tracking-[0.3em] text-emerald-900 mb-4">Notatnik</p>
-              <Reveal as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight">Wiedza, którą mogę się podzielić.</Reveal>
+              <SplitText tag="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight" text="Wiedza, którą mogę się podzielić." splitType="chars" textAlign="left" delay={20} duration={0.9} />
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
@@ -192,7 +190,7 @@ export default function Page() {
       {/* Gallery */}
       <section className="max-w-6xl mx-auto px-6 py-28">
         <p className="text-xs uppercase tracking-[0.3em] text-emerald-900 mb-4">Z gabinetu</p>
-        <Reveal as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight mb-10">Miejsce, w którym się spotkamy.</Reveal>
+        <StaggeredText as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight mb-10" text="Miejsce, w którym się spotkamy." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {images.gallery.slice(0, 8).map((g, i) => (
             <div key={i} className="aspect-square relative overflow-hidden">
@@ -206,7 +204,7 @@ export default function Page() {
       <section id="faq" className="bg-white border-y border-stone-200">
         <div className="max-w-4xl mx-auto px-6 py-28">
           <p className="text-xs uppercase tracking-[0.3em] text-emerald-900 mb-4 text-center">FAQ</p>
-          <Reveal as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight text-center mb-14">Najczęstsze pytania.</Reveal>
+          <StaggeredText as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight text-center mb-14" text="Najczęstsze pytania." />
           <div className="divide-y divide-stone-200">
             {faq.map((f, i) => (
               <details key={i} className="py-6 group">
@@ -225,9 +223,7 @@ export default function Page() {
       <section className="bg-emerald-900 text-stone-50">
         <div className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-7">
-            <Reveal as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight">
-              Gotowy zacząć rozmowę o własnym domu?
-            </Reveal>
+            <StaggeredText as="h2" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight" text="Gotowy zacząć rozmowę o własnym domu?" />
             <p className="mt-5 text-stone-300 max-w-xl">
               Bez zobowiązań, bez kosztów. Zadzwoń, opisz sytuację — w 30 minut wiem, jaki kredyt jest dla Ciebie realny.
             </p>

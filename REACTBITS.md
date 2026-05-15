@@ -10,19 +10,19 @@ You give me:
 
 I do:
 1. Identify the right registry (`@react-bits` / `@reactbits-starter` / `@reactbits-pro`)
-2. Add an entry below
-3. Install via `npx shadcn@latest add @<registry>/<slug>` — or, for free-tier components where reactbits.dev no longer serves JSON, vendor the source manually into `components/react-bits/` with attribution
-4. Note where it landed
+2. Install via `npx shadcn@latest add @<registry>/<slug>`
+3. Add an entry below
+4. Note where it landed in the codebase
 
 ## Registry quick reference
 
-| Alias | Tier | Auth | Notes |
+| Alias | Tier | Auth | Endpoint |
 |---|---|---|---|
-| `@react-bits` | Free | None | `https://reactbits.dev/r/{name}.json` — currently returns HTML; vendor source manually for now |
+| `@react-bits` | Free | None | `https://reactbits.dev/r/{name}.json` (note: free registry requires the **exact slug** including suffix like `-JS-CSS`) |
 | `@reactbits-starter` | Starter (paid) | `REACTBITS_LICENSE_KEY` | `https://pro.reactbits.dev/api/r/starter/{name}.json` |
 | `@reactbits-pro` | Pro (paid) | `REACTBITS_LICENSE_KEY` | `https://pro.reactbits.dev/api/r/pro/{name}.json` |
 
-Set `REACTBITS_LICENSE_KEY=...` in `.env.local` to install pro components via the shadcn CLI.
+Set `REACTBITS_LICENSE_KEY=...` in `.env.local` (already gitignored).
 
 ## Status legend
 
@@ -35,6 +35,27 @@ Set `REACTBITS_LICENSE_KEY=...` in `.env.local` to install pro components via th
 
 ## Installed components
 
-| Status | Slug | Tier | Source | Location | Used in |
+| Status | Slug | Tier | Source page | Code location | Where it's used |
 |---|---|---|---|---|---|
-| 🟢 | `count-up` | Free | https://reactbits.dev/text-animations/count-up | `components/react-bits/CountUp.tsx` | Stats sections across example homepages — animated rating, opinion count, banks count, years of experience |
+| 🟢 | `count-up` | Free (vendored) | https://reactbits.dev/text-animations/count-up | `components/react-bits/CountUp.tsx` | All stats strips — animated 4.8★ / 44+ / 10+ / 15+ |
+| 🟢 | `staggered-text-tw` | Starter (paid) | https://pro.reactbits.dev/components/staggered-text | `components/react-bits/staggered-text.tsx` | 43 plain-text h2 headings across 9 example pages (default header animation) |
+| 🟢 | `BlurText-JS-CSS` | Free | https://reactbits.dev/text-animations/blur-text | `components/react-bits/BlurText.jsx` | ex-5 testimonials h2 ("Klienci mówią to samo."), ex-10 testimonials h2 ("Słowa, które mnie napędzają.") — fits soft pastel / warm organic variants |
+| 🟢 | `SplitText-JS-CSS` | Free | https://reactbits.dev/text-animations/split-text | `components/react-bits/SplitText.jsx` | ex-1 blog teaser h2 ("Wiedza, którą mogę się podzielić.") — char-by-char GSAP animation pairs with the editorial serif |
+| 🟢 | `TextType-JS-CSS` | Free | https://reactbits.dev/text-animations/text-type | `components/react-bits/TextType.jsx` + `TextType.css` | ex-3 (Industrial) hero eyebrow — rotates between "DORADZTWO KREDYTOWE / KREDYT HIPOTECZNY / REFINANSOWANIE / KONSOLIDACJA / PROGRAMY RZĄDOWE" with terminal-style cursor |
+
+## Local patches applied
+
+| File | Patch | Why |
+|---|---|---|
+| `BlurText.jsx`, `SplitText.jsx`, `staggered-text.tsx` | Prepended `"use client"` directive | Files use `useState`/`useEffect`/`useRef`; Next.js App Router requires client directive for these |
+| `BlurText.jsx` | Added `as` prop + replaced root `<p>` with `<Tag>` | Lets the same component render as `<h2>` for semantic headings |
+| `TextType.jsx` | Defaulted `variableSpeed` and `onSentenceComplete` to `undefined` | Without defaults, TS infers props as required in destructured signature |
+| `SplitText.jsx` | Defaulted `onLetterAnimationComplete` to `undefined` | Same reason |
+
+## Application strategy
+
+- **StaggeredText** is the default "premium header animation" for plain-text h2s on every variant.
+- **BlurText** lives on the soft variants (Claymorphism, Warm Organic) where its blur-fade matches the dreamy aesthetic.
+- **SplitText** lives on the Editorial Minimal variant where its GSAP char-by-char move pairs with the Playfair serif.
+- **TextType** is industrial-only — the typewriter cursor reinforces the "control panel / terminal" mood of variant 3.
+- **CountUp** is universal — every stats strip uses it for 4.8★, 44+ opinions, 10+ years, 15+ banks.

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
 import { MobileNav } from "@/components/nav/MobileNav";
 import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -99,7 +100,7 @@ export default function Page() {
         <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
           <div>
             <p className="text-xs uppercase tracking-widest text-indigo-600 mb-2">Oferta</p>
-            <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Wszystko, czego potrzebujesz w jednym pakiecie.</Reveal>
+            <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Wszystko, czego potrzebujesz w jednym pakiecie." />
           </div>
         </div>
         <Stagger className="grid grid-cols-12 gap-4">
@@ -152,7 +153,7 @@ export default function Page() {
       {/* Blog teaser */}
       <section id="blog" className="max-w-7xl mx-auto px-5 mt-16">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
-          <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight">Blog</Reveal>
+          <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight" text="Blog" />
           <a href="#" className="text-sm font-medium text-indigo-600">Zobacz wszystkie →</a>
         </div>
         <div className="grid grid-cols-12 gap-4 auto-rows-min">
@@ -179,7 +180,7 @@ export default function Page() {
 
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-5 mt-16">
-        <Reveal as="h2" className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Galeria</Reveal>
+        <StaggeredText as="h2" className="text-4xl md:text-5xl font-bold tracking-tight mb-8" text="Galeria" />
         <div className="grid grid-cols-12 gap-3 auto-rows-[180px]">
           {images.gallery.slice(0, 7).map((g, i) => {
             const span =
@@ -201,7 +202,7 @@ export default function Page() {
         <div className="grid lg:grid-cols-12 gap-6">
           <div className={`${tile} ${indigo} lg:col-span-4 p-8 sticky top-24 self-start`}>
             <p className="text-xs uppercase tracking-widest text-indigo-200 mb-3">FAQ</p>
-            <Reveal as="h2" className="text-3xl font-bold tracking-tight">Najczęściej zadawane pytania.</Reveal>
+            <StaggeredText as="h2" className="text-3xl font-bold tracking-tight" text="Najczęściej zadawane pytania." />
             <p className="mt-4 text-indigo-100">Jeśli nie znajdziesz odpowiedzi — zadzwoń. Wyjaśniam wszystko prostym językiem.</p>
             <a href={company.contact.phoneTel} className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full bg-white text-indigo-700 font-medium hover:bg-amber-300 hover:text-zinc-900 transition">{company.contact.phone}</a>
           </div>
