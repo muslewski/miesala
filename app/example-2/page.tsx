@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 
 /* Variant 2 — Neo-Brutalism
  * Czarno-żółty, grube krawędzie, offset shadows, all-caps, Space Grotesk + JetBrains Mono.
@@ -24,7 +26,15 @@ export default function Page() {
             <a href="#oferta">Oferta_</a><a href="#opinie">Opinie_</a><a href="#blog">Blog_</a><a href="#faq">FAQ_</a>
           </div>
           <a href={company.contact.phoneTel} className="bg-black text-yellow-300 px-3 py-1.5 font-bold uppercase">→ {company.contact.phone}</a>
-        </nav>
+        <MobileNav
+            tone="dark"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-yellow-300 text-black hover:bg-yellow-200 border-[3px] border-yellow-300"
+            triggerClassName="text-black border-[3px] border-black"
+          />
+          </nav>
       </header>
 
       {/* Hero */}
@@ -64,7 +74,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 divide-x-[3px] divide-yellow-300/20">
           {stats.map((s) => (
             <div key={s.label} className="px-6">
-              <p className="font-black text-5xl md:text-6xl tracking-tighter">{s.value}</p>
+              <p className="font-black text-5xl md:text-6xl tracking-tighter"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
               <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-widest mt-2">{s.label}</p>
             </div>
           ))}

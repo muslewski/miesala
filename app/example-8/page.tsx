@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 
 /* Variant 8 — Swiss Modernist Grid (v2 — editorial shuffle)
  * Asymmetric 12-col grid, monochrome + Swiss red, marquee band, editorial
@@ -51,6 +53,14 @@ export default function Page() {
             <a href="#blog">03 / Blog</a>
             <a href="#galeria">04 / Galeria</a>
             <a href="#faq">05 / FAQ</a>
+          <MobileNav
+            tone="light"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "Galeria", href: "#galeria" }, { label: "FAQ", href: "#faq" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-black text-white hover:bg-red-600"
+            triggerClassName="text-black"
+          />
           </nav>
           <a href={company.contact.phoneTel} className="col-span-8 md:col-span-3 text-right text-xs font-bold tracking-widest tabular-nums">
             {company.contact.phone} →
@@ -125,7 +135,7 @@ export default function Page() {
               {stats.slice(0, 4).map((s, i) => (
                 <div key={s.label} className={`${i > 0 ? "border-t border-black pt-3" : ""} ${i < 3 ? "pb-3" : ""}`}>
                   <p className="text-[10px] uppercase tracking-[0.3em] text-black/60 tabular-nums">№ 0{i + 1}</p>
-                  <p className="text-3xl font-bold tracking-tight tabular-nums mt-1">{s.value}</p>
+                  <p className="text-3xl font-bold tracking-tight tabular-nums mt-1"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
                   <p className="text-[10px] uppercase tracking-[0.3em] text-black/70 mt-1">{s.label}</p>
                 </div>
               ))}

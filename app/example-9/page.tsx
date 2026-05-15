@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 /* Variant 9 — Trust Banking Blue
@@ -26,7 +28,15 @@ export default function Page() {
             <a href="#oferta">Oferta</a><a href="#proces">Jak to działa</a><a href="#opinie">Opinie</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
           </div>
           <a href={company.contact.phoneTel} className="text-sm font-semibold px-5 py-2.5 rounded-lg bg-blue-700 text-white hover:bg-blue-800 transition shadow-sm">{company.contact.phone}</a>
-        </nav>
+        <MobileNav
+            tone="light"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Jak to działa", href: "#proces" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-blue-700 text-white hover:bg-blue-800"
+            triggerClassName="text-slate-900"
+          />
+          </nav>
       </header>
 
       {/* Hero */}
@@ -92,7 +102,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200">
           {stats.map((s) => (
             <div key={s.label} className="px-6 py-10 text-center">
-              <p className="text-4xl md:text-5xl font-bold text-blue-700 tracking-tight">{s.value}</p>
+              <p className="text-4xl md:text-5xl font-bold text-blue-700 tracking-tight"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
               <p className="mt-2 text-sm text-slate-600">{s.label}</p>
             </div>
           ))}

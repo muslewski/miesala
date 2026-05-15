@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 /* Variant 4 — Bento Grid
@@ -34,7 +36,15 @@ export default function Page() {
             <a href="#oferta">Oferta</a><a href="#opinie">Opinie</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
           </div>
           <a href={company.contact.phoneTel} className="text-sm px-4 py-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition">{company.contact.phone}</a>
-        </nav>
+        <MobileNav
+            tone="light"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-indigo-600 text-white hover:bg-indigo-700"
+            triggerClassName="text-zinc-900"
+          />
+          </nav>
       </header>
 
       {/* Bento hero */}
@@ -78,7 +88,7 @@ export default function Page() {
           {stats.slice(0, 3).map((s) => (
             <div key={s.label} className={`${tile} ${white} col-span-2 lg:col-span-2 p-5 flex flex-col justify-between`}>
               <p className="text-xs uppercase tracking-widest text-zinc-500">{s.label}</p>
-              <p className="text-3xl font-bold text-zinc-900">{s.value}</p>
+              <p className="text-3xl font-bold text-zinc-900"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
             </div>
           ))}
         </div>

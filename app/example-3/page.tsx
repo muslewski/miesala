@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, trustBanks, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 /* Variant 3 — Industrial
@@ -62,7 +64,15 @@ export default function Page() {
             <span className="w-1.5 h-1.5 rounded-full bg-zinc-950 animate-pulse" />
             {company.contact.phone}
           </a>
-        </nav>
+        <MobileNav
+            tone="dark"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Raporty", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-orange-500 text-zinc-950 hover:bg-orange-400"
+            triggerClassName="text-zinc-100 border border-zinc-700"
+          />
+          </nav>
       </header>
 
       {/* Hero */}
@@ -144,7 +154,7 @@ export default function Page() {
           {stats.map((s, i) => (
             <div key={s.label} className="px-6 py-8 relative">
               <p className={`${mono} text-[10px] text-orange-400 mb-2`}>{`PARAM.${String(i + 1).padStart(2, "0")}`}</p>
-              <p className="font-[family-name:var(--font-bebas)] text-5xl md:text-6xl leading-none tracking-wide">{s.value}</p>
+              <p className="font-[family-name:var(--font-bebas)] text-5xl md:text-6xl leading-none tracking-wide"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
               <p className={`${mono} text-[10px] text-zinc-500 mt-3`}>{s.label.toUpperCase()}</p>
               <span className="absolute top-3 right-3 w-1.5 h-1.5 bg-orange-400" />
             </div>

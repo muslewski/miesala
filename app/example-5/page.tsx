@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 
 /* Variant 5 — Claymorphism Soft
  * Pastele, miękkie 3D, multi-shadow, Plus Jakarta Sans, mocno zaokrąglone kształty.
@@ -33,7 +35,15 @@ export default function Page() {
             <a href="#oferta">Oferta</a><a href="#opinie">Opinie</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
           </div>
           <a href={company.contact.phoneTel} className="text-sm font-semibold px-4 py-2 rounded-2xl bg-gradient-to-br from-sky-400 to-sky-600 text-white shadow-[4px_6px_14px_rgba(56,189,248,0.45)]">{company.contact.phone}</a>
-        </nav>
+        <MobileNav
+            tone="light"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-gradient-to-br from-sky-500 to-indigo-500 text-white"
+            triggerClassName="text-slate-900"
+          />
+          </nav>
       </header>
 
       {/* Hero */}
@@ -86,7 +96,7 @@ export default function Page() {
         <div className={`${clayCard} p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6`}>
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <p className="text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-sky-500 to-indigo-500 bg-clip-text text-transparent">{s.value}</p>
+              <p className="text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-sky-500 to-indigo-500 bg-clip-text text-transparent"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
               <p className="text-xs uppercase tracking-widest text-slate-500 mt-2">{s.label}</p>
             </div>
           ))}

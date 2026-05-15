@@ -152,10 +152,12 @@ export const trustBanks = [
   "Velo Bank",
 ];
 
-/** Headline stats — derived from rating + business attributes */
+/** Headline stats — derived from rating + business attributes.
+ * `value` stays for any plain-text uses; `to` + `suffix` drive <CountUp>.
+ */
 export const stats = [
-  { value: "4.8/5", label: "Średnia ocena Google" },
-  { value: "44+", label: "opinii klientów" },
-  { value: "10+", label: "lat doświadczenia" },
-  { value: "15+", label: "banków w portfelu" },
+  { value: "4.8/5", to: 4.8, suffix: "/5", label: "Średnia ocena Google" },
+  { value: "44+",   to: 44,  suffix: "+",  label: "opinii klientów" },
+  { value: "10+",   to: 10,  suffix: "+",  label: "lat doświadczenia" },
+  { value: "15+",   to: 15,  suffix: "+",  label: "banków w portfelu" },
 ];

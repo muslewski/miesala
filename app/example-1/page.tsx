@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 /* Variant 1 — Editorial Minimal
@@ -36,7 +38,15 @@ export default function Page() {
           <a href={company.contact.phoneTel} className="text-sm font-medium px-4 py-2 rounded-full bg-emerald-900 text-stone-50 hover:bg-emerald-800 transition">
             {company.contact.phone}
           </a>
-        </nav>
+        <MobileNav
+            tone="light"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }, { label: "Kontakt", href: "#kontakt" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-emerald-900 text-stone-50 hover:bg-emerald-800"
+            triggerClassName="text-stone-900"
+          />
+          </nav>
       </header>
 
       {/* Hero */}
@@ -77,7 +87,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-stone-200">
           {stats.map((s) => (
             <div key={s.label} className="px-6 py-8 text-center">
-              <p className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-emerald-900">{s.value}</p>
+              <p className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-emerald-900"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
               <p className="mt-2 text-xs uppercase tracking-widest text-stone-500">{s.label}</p>
             </div>
           ))}

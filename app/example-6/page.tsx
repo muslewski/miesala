@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, reviews, blogIndex, pixabay, services, faq, stats, images, gImg, blogImage, pick } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
+import { MobileNav } from "@/components/nav/MobileNav";
+import CountUp from "@/components/react-bits/CountUp";
 
 /* Variant 6 — Neumorphism Mono
  * Jeden kolor (neutral-200), wypukłe i wklęsłe formy, Manrope, mały akcent stalowy.
@@ -30,7 +32,15 @@ export default function Page() {
             <a href="#oferta">Oferta</a><a href="#opinie">Opinie</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
           </div>
           <a href={company.contact.phoneTel} className={`${raisedSm} px-4 h-10 rounded-2xl bg-neutral-200 inline-flex items-center text-sm font-semibold hover:translate-y-px transition`}>{company.contact.phone}</a>
-        </nav>
+        <MobileNav
+            tone="light"
+            items={ [{ label: "Oferta", href: "#oferta" }, { label: "Opinie", href: "#opinie" }, { label: "Blog", href: "#blog" }, { label: "FAQ", href: "#faq" }] }
+            phone={company.contact.phone}
+            phoneTel={company.contact.phoneTel}
+            ctaClassName="bg-neutral-800 text-neutral-100 hover:bg-neutral-700"
+            triggerClassName="text-neutral-800"
+          />
+          </nav>
       </header>
 
       {/* Hero */}
@@ -68,7 +78,7 @@ export default function Page() {
         <div className={`${raised} rounded-3xl bg-neutral-200 grid grid-cols-2 md:grid-cols-4 divide-x divide-neutral-300/50`}>
           {stats.map((s) => (
             <div key={s.label} className="px-6 py-10 text-center">
-              <p className="text-5xl font-extrabold tracking-tight">{s.value}</p>
+              <p className="text-5xl font-extrabold tracking-tight"><CountUp to={s.to} duration={1.6} />{s.suffix}</p>
               <p className="text-[11px] uppercase tracking-widest text-neutral-500 mt-2">{s.label}</p>
             </div>
           ))}
