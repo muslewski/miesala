@@ -73,7 +73,7 @@ export default function Page() {
             <a href="#blog" className="hover:text-orange-400">// raporty</a>
             <a href="#faq" className="hover:text-orange-400">// faq</a>
           </div>
-          <a href={company.contact.phoneTel} className={`${mono} text-[11px] px-4 h-10 inline-flex items-center gap-2 bg-orange-500 text-zinc-950 hover:bg-orange-400 transition`}>
+          <a href={company.contact.phoneTel} className={`max-md:hidden ${mono} text-[11px] px-4 h-10 inline-flex items-center gap-2 bg-orange-500 text-zinc-950 hover:bg-orange-400 transition`}>
             <span className="w-1.5 h-1.5 rounded-full bg-zinc-950 animate-pulse" />
             {company.contact.phone}
           </a>
@@ -98,30 +98,39 @@ export default function Page() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className={`${mono} text-[10px] text-orange-400 flex items-center gap-4 mb-8`}>
-              <span className="inline-flex items-center gap-2">
-                <span className="w-2 h-2 bg-orange-400" />
+            {/* Eyebrow row — `flex-wrap` so mobile breaks gracefully, plus a
+                fixed-width slot for the TextType so the typing animation
+                doesn't push siblings sideways (that was the source of the
+                "weird layout shifts while scrolling" the user was seeing). */}
+            <div className={`${mono} text-[10px] text-orange-400 flex flex-wrap items-center gap-x-4 gap-y-2 mb-8`}>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="w-2 h-2 bg-orange-400 shrink-0" />
                 REF.001 /{" "}
-                <SmartTextType
-                  as="span"
-                  text={[
-                    "DORADZTWO KREDYTOWE",
-                    "KREDYT HIPOTECZNY",
-                    "REFINANSOWANIE",
-                    "KONSOLIDACJA",
-                    "PROGRAMY RZĄDOWE",
-                  ]}
-                  typingSpeed={45}
-                  deletingSpeed={25}
-                  pauseDuration={1800}
-                  cursorCharacter="▮"
-                  cursorClassName="text-orange-400"
-                />
+                {/* `min-w-[19ch]` reserves room for the widest phrase
+                    ("DORADZTWO KREDYTOWE" = 19 chars) so the inline width
+                    stops oscillating as TextType cycles through phrases. */}
+                <span className="inline-block min-w-[19ch] text-left">
+                  <SmartTextType
+                    as="span"
+                    text={[
+                      "DORADZTWO KREDYTOWE",
+                      "KREDYT HIPOTECZNY",
+                      "REFINANSOWANIE",
+                      "KONSOLIDACJA",
+                      "PROGRAMY RZĄDOWE",
+                    ]}
+                    typingSpeed={45}
+                    deletingSpeed={25}
+                    pauseDuration={1800}
+                    cursorCharacter="▮"
+                    cursorClassName="text-orange-400"
+                  />
+                </span>
               </span>
-              <span className="text-zinc-600">|</span>
-              <span>{company.contact.address.city.toUpperCase()}, PL</span>
-              <span className="text-zinc-600">|</span>
-              <span>EST. 2014</span>
+              <span className="text-zinc-600 hidden md:inline">|</span>
+              <span className="hidden md:inline">{company.contact.address.city.toUpperCase()}, PL</span>
+              <span className="text-zinc-600 hidden md:inline">|</span>
+              <span className="hidden md:inline">EST. 2014</span>
             </div>
 
             <HeroLines className="font-[family-name:var(--font-bebas)] text-[18vw] md:text-[12vw] lg:text-[9.5vw] tracking-wide leading-[0.85]">
