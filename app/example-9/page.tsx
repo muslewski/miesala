@@ -231,8 +231,8 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="bg-slate-50 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-4">
+        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-10 items-start">
+          <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-widest">FAQ</p>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Najczęstsze pytania.</h2>
             <p className="mt-5 text-slate-600">Nie znalazłeś odpowiedzi? Zadzwoń — chętnie wyjaśnię.</p>
